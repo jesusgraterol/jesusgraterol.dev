@@ -1,7 +1,13 @@
-import { Github, Linkedin, TwitterIcon, Mail, FileUser, Menu } from 'lucide-react';
+import { Mail, Menu } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
 import { ConfigService } from '@/shared/services/config/index.service.ts';
 import { NavService } from '@/shared/services/nav/index.service.ts';
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  KaggleIcon,
+  TwitterIcon,
+} from '@/shared/components/custom-icons/index.component.tsx';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -12,6 +18,43 @@ import { NavService } from '@/shared/services/nav/index.service.ts';
  * Component in charge of managing the heading of the app and navigation to external links.
  */
 const Header = () => {
+  /* **********************************************************************************************
+   *                                       REACTIVE VALUES                                        *
+   ********************************************************************************************** */
+
+  // the list of action and navigation buttons
+  const navItems = [
+    {
+      label: 'Open GitHub Page',
+      icon: <GitHubIcon className='w-[1.67rem] h-[1.67rem]' />,
+      action: NavService.openGitHubPage,
+    },
+    {
+      label: 'Open LinkedIn Page',
+      icon: <LinkedInIcon className='w-6 h-6' />,
+      action: NavService.openLinkedInPage,
+    },
+    {
+      label: 'Open Kaggle Page',
+      icon: <KaggleIcon className='w-6 h-6' />,
+      action: NavService.openKagglePage,
+    },
+    {
+      label: 'Open Twitter Page',
+      icon: <TwitterIcon className='w-[1.40rem] h-[1.40rem]' />,
+      action: NavService.openTwitterPage,
+    },
+    {
+      label: `Contact ${ConfigService.name}`,
+      icon: <Mail className='w-6 h-6' />,
+      action: NavService.openTwitterPage,
+    },
+  ];
+
+
+
+
+
   /* **********************************************************************************************
    *                                        EVENT HANDLERS                                        *
    ********************************************************************************************** */
@@ -55,54 +98,25 @@ const Header = () => {
         * NAVIGATION *
         ************ */}
       <nav
-        className='flex justify-end items-center gap-2'
+        className='flex justify-end items-center gap-3'
       >
-        <Button
-          variant='ghost'
-          size='icon'
-          className='hidden sm:flex'
-          onClick={NavService.openGitHubPage}
-        >
-          <Github className='w-6 h-6' />
-        </Button>
-        <Button
-          variant='ghost'
-          size='icon'
-          className='hidden sm:flex'
-        >
-          <Linkedin className='w-6 h-6' />
-        </Button>
-        <Button
-          variant='ghost'
-          size='icon'
-          className='hidden sm:flex'
-        >
-          <TwitterIcon className='w-6 h-6' />
-        </Button>
-        <Button
-          variant='ghost'
-          size='icon'
-          className='hidden sm:flex'
-        >
-          <Linkedin className='w-6 h-6' />
-        </Button>
-        <Button
-          variant='ghost'
-          size='icon'
-          className='hidden sm:flex'
-        >
-          <FileUser className='w-6 h-6' />
-        </Button>
-        <Button
-          variant='ghost'
-          size='icon'
-          className='hidden sm:flex'
-        >
-          <Mail className='w-6 h-6' />
-        </Button>
+        {
+          navItems.map((item, i) => (
+            <Button
+              key={i}
+              aria-label={item.label}
+              variant='ghost'
+              size='icon'
+              className='hidden sm:flex'
+              onClick={item.action}
+            >
+            {item.icon}
+          </Button>
+          ))
+        }
 
 
-        
+
         <Button
           variant='ghost'
           size='icon'

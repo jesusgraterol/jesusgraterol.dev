@@ -62,11 +62,6 @@ const navServiceFactory = (): INavService => {
    */
   const openTwitterPage = (): void => openURL(ConfigService.twitterPage);
 
-  /**
-   * Opens the Resume File in a new tab.
-   */
-  const openResume = (): void => openURL(`${ConfigService.url}/${ConfigService.resumePath}`);
-
 
 
 
@@ -84,7 +79,6 @@ const navServiceFactory = (): INavService => {
     openLinkedInPage,
     openKagglePage,
     openTwitterPage,
-    openResume,
   });
 };
 

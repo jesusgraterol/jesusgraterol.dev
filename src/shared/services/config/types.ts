@@ -15,7 +15,6 @@ type IConfigService = {
   url: string;
   urlName: string;
   avatarPath: string;
-  resumePath: string;
 
   // social pages
   githubPage: string;
