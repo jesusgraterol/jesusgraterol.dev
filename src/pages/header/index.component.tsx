@@ -1,4 +1,4 @@
-import { Github, Linkedin, TwitterIcon, Mail } from 'lucide-react';
+import { Github, Linkedin, TwitterIcon, Mail, FileUser } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
 
 /* ************************************************************************************************
@@ -45,7 +45,7 @@ const Header = () => {
         />
 
         <p
-          className='text-lg font-medium'
+          className='text-lg font-medium tracking-wide'
         >jesusgraterol.dev</p>
       </button>
 
@@ -78,6 +78,12 @@ const Header = () => {
           size='icon'
         >
           <Linkedin className='w-6 h-6' />
+        </Button>
+        <Button
+          variant='ghost'
+          size='icon'
+        >
+          <FileUser className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
