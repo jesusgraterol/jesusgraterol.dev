@@ -1,4 +1,4 @@
-import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import { Github, Linkedin, TwitterIcon, Mail } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
 
 /* ************************************************************************************************
@@ -59,31 +59,31 @@ const Header = () => {
           variant='ghost'
           size='icon'
         >
-          <GitHubLogoIcon className='w-6 h-6' />
+          <Github className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
         >
-          <LinkedInLogoIcon className='w-6 h-6' />
+          <Linkedin className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
         >
-          <LinkedInLogoIcon className='w-6 h-6' />
+          <TwitterIcon className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
         >
-          <LinkedInLogoIcon className='w-6 h-6' />
+          <Linkedin className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
         >
-          <LinkedInLogoIcon className='w-6 h-6' />
+          <Mail className='w-6 h-6' />
         </Button>
       </nav>
     </header>

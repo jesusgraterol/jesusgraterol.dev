@@ -10,8 +10,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-				primary: '#0C0C0C',
-			}
+  			primary: '#0C0C0C'
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
