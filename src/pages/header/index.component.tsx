@@ -1,5 +1,6 @@
 import { Github, Linkedin, TwitterIcon, Mail, FileUser, Menu } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
+import { ConfigService } from '@/shared/services/config/index.service.ts';
 import { NavService } from '@/shared/services/nav/index.service.ts';
 
 /* ************************************************************************************************
@@ -38,8 +39,8 @@ const Header = () => {
         onClick={goToTop}
       >
         <img
-          src='avatar/default.png'
-          alt='Photo of Jesus Graterol'
+          src={ConfigService.avatarPath}
+          alt={`Photo of ${ConfigService.name}`}
           className='w-10 h-10 rounded-full'
           width='40'
           height='40'
@@ -47,7 +48,7 @@ const Header = () => {
 
         <p
           className='text-lg font-semibold tracking-wide'
-        >jesusgraterol.dev</p>
+        >{ConfigService.urlName}</p>
       </button>
 
       {/* ************

@@ -14,6 +14,7 @@ type IConfigService = {
   email: string;
   url: string;
   urlName: string;
+  avatarPath: string;
 
   // social pages
   githubPage: string;

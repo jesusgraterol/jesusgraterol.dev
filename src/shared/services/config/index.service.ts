@@ -2,6 +2,7 @@ import {
   name,
   email,
   url,
+  avatarPath,
   socialPages,
 } from '../../../../app.config.json';
 import { IConfigService } from '@/shared/services/config/types.ts';
@@ -34,6 +35,7 @@ const configServiceFactory = (): IConfigService => {
     email,
     url,
     urlName: new URL(url).hostname.replace('www.', ''),
+    avatarPath,
 
     // social pages
     githubPage: socialPages.github,
