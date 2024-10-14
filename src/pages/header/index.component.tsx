@@ -1,5 +1,6 @@
 import { Github, Linkedin, TwitterIcon, Mail, FileUser, Menu } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
+import { NavService } from '@/shared/services/nav/index.service.ts';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -59,6 +60,7 @@ const Header = () => {
           variant='ghost'
           size='icon'
           className='hidden sm:flex'
+          onClick={NavService.openGitHubPage}
         >
           <Github className='w-6 h-6' />
         </Button>
