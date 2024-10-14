@@ -20,9 +20,8 @@ const navServiceFactory = (): INavService => {
 
 
 
-
   /* **********************************************************************************************
-   *                                      EXTERNAL NAVIGATION                                     *
+   *                                            ACTIONS                                           *
    ********************************************************************************************** */
 
   /**
@@ -44,9 +43,29 @@ const navServiceFactory = (): INavService => {
   };
 
   /**
-   * Opens Balancer's GitHub Page in a new tab.
+   * Opens the GitHub Page in a new tab.
    */
   const openGitHubPage = (): void => openURL(ConfigService.githubPage);
+
+  /**
+   * Opens the LinkedIn Page in a new tab.
+   */
+  const openLinkedInPage = (): void => openURL(ConfigService.linkedinPage);
+
+  /**
+   * Opens the Kaggle Page in a new tab.
+   */
+  const openKagglePage = (): void => openURL(ConfigService.kagglePage);
+
+  /**
+   * Opens the Twitter Page in a new tab.
+   */
+  const openTwitterPage = (): void => openURL(ConfigService.twitterPage);
+
+  /**
+   * Opens the Resume File in a new tab.
+   */
+  const openResume = (): void => openURL(`${ConfigService.url}/${ConfigService.resumePath}`);
 
 
 
@@ -59,9 +78,13 @@ const navServiceFactory = (): INavService => {
     // properties
     // ...
 
-    // external navigation
+    // actions
     openURL,
     openGitHubPage,
+    openLinkedInPage,
+    openKagglePage,
+    openTwitterPage,
+    openResume,
   });
 };
 

@@ -12,9 +12,13 @@ type INavService = {
   // properties
   // ...
 
-  // external navigation
+  // actions
   openURL:(url: string, newTab?: boolean, noReferrer?: boolean) => void;
   openGitHubPage:() => void;
+  openLinkedInPage:() => void;
+  openKagglePage:() => void;
+  openTwitterPage:() => void;
+  openResume:() => void;
 };
 
 

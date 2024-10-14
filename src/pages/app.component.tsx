@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Header from '@/pages/header/index.component.tsx';
 import Bio from '@/pages/bio/index.component.tsx';
 import Projects from '@/pages/projects/index.component.tsx';
@@ -14,100 +13,57 @@ import TechStack from '@/pages/tech-stack/index.component.tsx';
  * App Component
  * Component in charge of putting together all the pieces that comprise the application.
  */
-const App = () => {
-  /* **********************************************************************************************
-   *                                             REFS                                             *
-   ********************************************************************************************** */
-
-
-
-  /* **********************************************************************************************
-   *                                             STATE                                            *
-   ********************************************************************************************** */
-  const [active, setActive] = useState();
-
-
-
-
-  /* **********************************************************************************************
-   *                                       REACTIVE VALUES                                        *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                         SIDE EFFECTS                                         *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                        EVENT HANDLERS                                        *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                           COMPONENT                                          *
-   ********************************************************************************************** */
-  return (
+const App = () => (
+  <div
+    className='w-full flex justify-center items-start'
+  >
     <div
-      className='w-full flex justify-center items-start'
+      className='w-full sm:w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-5/12'
     >
-      <div
-        className='w-full sm:w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-5/12'
+      {/* ********
+        * HEADER *
+        ******** */}
+      <Header />
+
+      <main
+        className='px-5 animate-in slide-in-from-bottom-5 duration-500'
       >
-        {/* ********
-          * HEADER *
-          ******** */}
-        <Header />
-
-        <main
-          className='px-5 animate-in slide-in-from-bottom-5 duration-500'
-        >
-          {/* *****
-            * BIO *
-            ***** */}
-          <Bio />
+        {/* *****
+          * BIO *
+          ***** */}
+        <Bio />
 
 
 
-          {/* **********
-            * PROJECTS *
-            ********** */}
-          <Projects />
+        {/* **********
+          * PROJECTS *
+          ********** */}
+        <Projects />
 
 
 
-          {/* ************
-            * EXPERIENCE *
-            ************ */}
-          <Experience />
+        {/* ************
+          * EXPERIENCE *
+          ************ */}
+        <Experience />
 
 
 
-          {/* ***********
-            * EDUCATION *
-            *********** */}
-          <Education />
+        {/* ***********
+          * EDUCATION *
+          *********** */}
+        <Education />
 
 
 
-          {/* ************
-            * TECH STACK *
-            ************ */}
-          <TechStack />
-        </main>
-      </div>
+        {/* ************
+          * TECH STACK *
+          ************ */}
+        <TechStack />
+      </main>
     </div>
-  );
-};
+  </div>
+);
 
 
 
