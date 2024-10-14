@@ -39,14 +39,21 @@ const Header = () => {
         <img
           src='avatar/default.png'
           alt='Photo of Jesus Graterol'
-          className='w-11 h-11 rounded-full'
+          className='w-12 h-12 rounded-full'
           width='100'
           height='100'
         />
 
-        <p
-          className='text-lg font-medium tracking-wide'
-        >jesusgraterol.dev</p>
+        <div
+          className='text-left'
+        >
+          <p
+            className='text-lg font-medium tracking-wide m-0 p-0'
+          >Jesus Graterol</p>
+          <p
+            className='text-sm text-light tracking-wide m-0 p-0'
+          >Full-Stack Web Developer</p>
+        </div>
       </button>
 
       {/* ************
