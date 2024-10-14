@@ -8,7 +8,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo \"Error: tests are executed with  npm run test:(e2e|integration|unit|bench)\" && exit 1",
+    "test:e2e": "vitest run --config=vitest.test-e2e.config.ts",
+    "test:integration": "vitest run --config vitest.test-integration.config.ts",
+    "test:unit": "vitest run --config vitest.test-unit.config.ts",
+    "test:bench": "vitest bench",
+    "watch-test:e2e": "vitest --config=vitest.test-e2e.config.ts",
+    "watch-test:unit": "vitest --config vitest.test-unit.config.ts",
+    "watch-test:integration": "vitest --config vitest.test-integration.config.ts"
   },
   "repository": {
     "type": "git",
@@ -37,6 +45,9 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -46,7 +57,9 @@
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.12",
+    "jsdom": "^25.0.1",
     "typescript": "^5.6.3",
-    "vite": "^5.4.9"
+    "vite": "^5.4.9",
+    "vitest": "^2.1.3"
   }
 }
