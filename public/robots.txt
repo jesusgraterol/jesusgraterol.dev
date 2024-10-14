@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jesusgraterol.dev/sitemap.xml

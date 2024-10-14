@@ -70,7 +70,7 @@ const App = () => {
           {/* *****
             * BIO *
             ***** */}
-          <Bio className='my-5' />
+          <Bio />
 
 
         </main>

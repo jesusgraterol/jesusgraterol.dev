@@ -45,7 +45,7 @@ const Header = () => {
         />
 
         <p
-          className='text-lg font-medium tracking-wide'
+          className='text-lg font-semibold tracking-wide'
         >jesusgraterol.dev</p>
       </button>
 

@@ -8,8 +8,8 @@
  * Bio
  * Component in charge of quickly showing what Jesus Graterol does.
  */
-const Bio = (props: { className: string }) => (
-  <section {...props}>
+const Bio = () => (
+  <section className='my-5'>
     <h1
       className='text-2xl font-semibold leading-none tracking-tight'
     >Hi! My name is Jesus Graterol</h1>
