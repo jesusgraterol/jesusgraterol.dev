@@ -9,10 +9,13 @@
  * Component in charge of quickly showing what Jesus Graterol does.
  */
 const Bio = () => (
-  <section className='my-5'>
-    <h1
-      className='text-2xl font-semibold leading-none tracking-tight'
-    >Hi! My name is Jesus Graterol</h1>
+  <section>
+    <header>
+      <h1
+        className='text-2xl font-semibold leading-none tracking-tight'
+      >Hi! My name is Jesus Graterol</h1>
+    </header>
+
     <p className='mt-3'>
       I am a skilled Full-Stack Web Developer with 10+ years of experience in building scalable
         web applications and REST-based APIs.
