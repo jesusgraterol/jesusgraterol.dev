@@ -1,4 +1,4 @@
-import { Github, Linkedin, TwitterIcon, Mail, FileUser } from 'lucide-react';
+import { Github, Linkedin, TwitterIcon, Mail, FileUser, Menu } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
 
 /* ************************************************************************************************
@@ -27,7 +27,7 @@ const Header = () => {
    ********************************************************************************************** */
   return (
     <header
-      className='flex justify-between items-center py-5'
+      className='flex justify-between items-center py-2 sm:py-5 px-1'
     >
       {/* ********
         * AVATAR *
@@ -39,21 +39,14 @@ const Header = () => {
         <img
           src='avatar/default.png'
           alt='Photo of Jesus Graterol'
-          className='w-12 h-12 rounded-full'
-          width='100'
-          height='100'
+          className='w-10 h-10 rounded-full'
+          width='40'
+          height='40'
         />
 
-        <div
-          className='text-left'
-        >
-          <p
-            className='text-lg font-medium tracking-wide m-0 p-0'
-          >Jesus Graterol</p>
-          <p
-            className='text-sm text-light tracking-wide m-0 p-0'
-          >Full-Stack Web Developer</p>
-        </div>
+        <p
+          className='text-lg font-medium tracking-wide'
+        >jesusgraterol.dev</p>
       </button>
 
       {/* ************
@@ -65,38 +58,51 @@ const Header = () => {
         <Button
           variant='ghost'
           size='icon'
+          className='hidden sm:flex'
         >
           <Github className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
+          className='hidden sm:flex'
         >
           <Linkedin className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
+          className='hidden sm:flex'
         >
           <TwitterIcon className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
+          className='hidden sm:flex'
         >
           <Linkedin className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
+          className='hidden sm:flex'
         >
           <FileUser className='w-6 h-6' />
         </Button>
         <Button
           variant='ghost'
           size='icon'
+          className='hidden sm:flex'
         >
           <Mail className='w-6 h-6' />
+        </Button>
+        <Button
+          variant='ghost'
+          size='icon'
+          className='sm:hidden'
+        >
+          <Menu className='w-6 h-6' />
         </Button>
       </nav>
     </header>
