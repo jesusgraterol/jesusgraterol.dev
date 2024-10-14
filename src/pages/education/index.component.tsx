@@ -64,7 +64,7 @@ const Education = () => {
           variant='link'
           className='text-xs sm:text-sm text-light p-0'
         >
-          View all
+          View certificates
         </Button>
       </header>
 
