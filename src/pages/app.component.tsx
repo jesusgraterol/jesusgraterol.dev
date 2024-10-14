@@ -56,7 +56,7 @@ const App = () => {
       className='w-full flex justify-center items-start'
     >
       <div
-        className='w-full sm:w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 bg-red-50'
+        className='w-full sm:w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12'
       >
         {/* ********
           * HEADER *
