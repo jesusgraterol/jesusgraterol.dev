@@ -13,6 +13,7 @@ type INavService = {
   // ...
 
   // actions
+  scrollToTop: () => void;
   openURL:(url: string, newTab?: boolean, noReferrer?: boolean) => void;
   openGitHubPage:() => void;
   openLinkedInPage:() => void;

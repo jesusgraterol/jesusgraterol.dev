@@ -25,6 +25,11 @@ const navServiceFactory = (): INavService => {
    ********************************************************************************************** */
 
   /**
+   * Scrolls the user to the top of the application.
+   */
+  const scrollToTop = (): void => window.scrollTo(0, 0);
+
+  /**
    * Opens an URL in the current or a new tab.
    * @param url
    * @param newTab?
@@ -74,6 +79,7 @@ const navServiceFactory = (): INavService => {
     // ...
 
     // actions
+    scrollToTop,
     openURL,
     openGitHubPage,
     openLinkedInPage,
