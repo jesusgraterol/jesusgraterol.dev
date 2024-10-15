@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/shadcn/components/ui/tooltip.tsx';
 import {
   Sheet,
   SheetContent,
@@ -113,16 +114,22 @@ const Header = () => {
         >
           {
             NAV_ITEMS.map((item, i) => (
-              <Button
-                key={i}
-                aria-label={item.label}
-                variant='ghost'
-                size='icon'
-                className='hidden sm:flex'
-                onClick={item.action}
-              >
-              {item.headingIcon}
-            </Button>
+              <Tooltip key={i}>
+                <TooltipTrigger asChild>
+                  <Button
+                    aria-label={item.label}
+                    variant='ghost'
+                    size='icon'
+                    className='hidden sm:flex'
+                    onClick={item.action}
+                  >
+                    {item.headingIcon}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.label}</p>
+                </TooltipContent>
+              </Tooltip>
             ))
           }
 
