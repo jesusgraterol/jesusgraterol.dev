@@ -80,7 +80,7 @@ const Header = () => {
       * CONTENT *
       ********* */}
       <header
-        className='flex justify-between items-center py-2 sm:py-5 px-1 sticky top-0 backdrop-blur-xs bg-white/30'
+        className='flex justify-between items-center py-2 sm:py-3 px-1 sticky top-0 backdrop-blur-xs bg-white/30'
       >
         {/* ********
           * AVATAR *

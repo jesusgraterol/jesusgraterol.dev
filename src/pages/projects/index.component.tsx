@@ -62,7 +62,7 @@ const Projects = () => {
 
         <Button
           variant='link'
-          className='text-xs sm:text-sm text-light p-0'
+          className='text-xs sm:text-sm text-muted p-0'
         >
           View repositories
         </Button>
