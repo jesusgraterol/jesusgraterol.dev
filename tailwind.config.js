@@ -12,7 +12,10 @@ export default {
   		colors: {
   			primary: '#0C0C0C',
   			light: '#64748b',
-  		}
+  		},
+      backdropBlur: {
+        xs: '2px',
+      }
   	}
   },
   plugins: [require("tailwindcss-animate")],

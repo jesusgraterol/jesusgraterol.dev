@@ -80,14 +80,15 @@ const Header = () => {
       * CONTENT *
       ********* */}
       <header
-        className='flex justify-between items-center py-2 sm:py-5 px-1 sticky top-0 bg-white'
+        className='flex justify-between items-center py-2 sm:py-5 px-1 sticky top-0 backdrop-blur-xs bg-white/30'
       >
         {/* ********
           * AVATAR *
           ******** */}
         <button
-          className='flex justify-start items-center gap-2 hover:bg-slate-100 rounded-md px-2 py-1'
+          className='flex justify-start items-center gap-2 px-2 py-1'
           onClick={NavService.scrollToTop}
+          aria-label='Scroll to the top of the app'
         >
           <img
             src={ConfigService.avatarPath}
