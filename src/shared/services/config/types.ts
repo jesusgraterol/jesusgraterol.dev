@@ -21,6 +21,9 @@ type IConfigService = {
   linkedinPage: string;
   twitterPage: string;
   kagglePage: string;
+
+  // projects
+  projects: IProject[];
 };
 
 
@@ -30,7 +33,17 @@ type IConfigService = {
  *                                             TYPES                                              *
  ************************************************************************************************ */
 
-// ...
+/**
+ * Project
+ * The object containing essential information regarding a project.
+ */
+type IProject = {
+  logo: string;
+  name: string;
+  description: string;
+  url: string;
+  githubURL: string;
+};
 
 
 

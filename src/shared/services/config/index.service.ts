@@ -4,6 +4,7 @@ import {
   url,
   avatarPath,
   socialPages,
+  projects,
 } from '../../../../app.config.json';
 import { IConfigService } from '@/shared/services/config/types.ts';
 
@@ -42,6 +43,9 @@ const configServiceFactory = (): IConfigService => {
     linkedinPage: socialPages.linkedin,
     twitterPage: socialPages.twitter,
     kagglePage: socialPages.kaggle,
+
+    // projects
+    projects,
   });
 };
 
