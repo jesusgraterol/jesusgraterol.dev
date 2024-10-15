@@ -29,7 +29,7 @@ const Bio = () => (
         web applications and REST-based APIs.
     </p>
     <p className='inline'>
-      My proficiency extends to data science, allowing ...
+      My proficiency extends to data science, allowing...
     </p>
 
     <Dialog>
