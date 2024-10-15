@@ -48,9 +48,14 @@ const navServiceFactory = (): INavService => {
   };
 
   /**
-   * Opens the GitHub Page in a new tab.
+   * Opens the GitHub Repositories Page in a new tab.
    */
   const openGitHubPage = (): void => openURL(ConfigService.githubPage);
+
+  /**
+   * Opens the GitHub Page in a new tab.
+   */
+  const openGitHubRepos = (): void => openURL(`${ConfigService.githubPage}?tab=repositories`);
 
   /**
    * Opens the LinkedIn Page in a new tab.
@@ -82,6 +87,7 @@ const navServiceFactory = (): INavService => {
     scrollToTop,
     openURL,
     openGitHubPage,
+    openGitHubRepos,
     openLinkedInPage,
     openKagglePage,
     openTwitterPage,

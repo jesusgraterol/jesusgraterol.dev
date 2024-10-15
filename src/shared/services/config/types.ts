@@ -43,6 +43,7 @@ type IProject = {
   description: string;
   url: string;
   githubURL: string;
+  tags: string[];
 };
 
 
@@ -57,5 +58,5 @@ export type {
   IConfigService,
 
   // types
-  // ...
+  IProject,
 };

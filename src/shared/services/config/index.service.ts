@@ -6,7 +6,7 @@ import {
   socialPages,
   projects,
 } from '../../../../app.config.json';
-import { IConfigService } from '@/shared/services/config/types.ts';
+import { IConfigService, IProject } from '@/shared/services/config/types.ts';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -70,5 +70,5 @@ export {
   ConfigService,
 
   // types
-  // ...
+  type IProject,
 };

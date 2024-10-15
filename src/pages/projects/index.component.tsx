@@ -1,5 +1,7 @@
-import { useState } from 'react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
+import { NavService } from '@/shared/services/nav/index.service.ts';
+import { ConfigService } from '@/shared/services/config/index.service.ts';
+import Project from '@/pages/projects/project.component.tsx';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -7,73 +9,35 @@ import { Button } from '@/shared/shadcn/components/ui/button.tsx';
 
 /**
  * Projects Component
- * Component in charge of ...
+ * Component in charge of displaying the projects released by the developer.
  */
-const Projects = () => {
-  /* **********************************************************************************************
-   *                                             REFS                                             *
-   ********************************************************************************************** */
+const Projects = () => (
+  <section>
+    <header
+      className='flex justify-between items-center'
+    >
+      <h2
+        className='text-2xl font-semibold leading-none tracking-tight'
+      >Projects</h2>
 
-
-
-  /* **********************************************************************************************
-   *                                             STATE                                            *
-   ********************************************************************************************** */
-  const [active, setActive] = useState();
-
-
-
-
-  /* **********************************************************************************************
-   *                                       REACTIVE VALUES                                        *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                         SIDE EFFECTS                                         *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                        EVENT HANDLERS                                        *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                           COMPONENT                                          *
-   ********************************************************************************************** */
-  return (
-    <section>
-      <header
-        className='flex justify-between items-center'
+      <Button
+        variant='link'
+        className='text-xs sm:text-sm text-muted p-0'
+        onClick={NavService.openGitHubRepos}
       >
-        <h2
-          className='text-2xl font-semibold leading-none tracking-tight'
-        >Projects</h2>
+        View repositories
+      </Button>
+    </header>
 
-        <Button
-          variant='link'
-          className='text-xs sm:text-sm text-muted p-0'
-        >
-          View repositories
-        </Button>
-      </header>
-
-      <p className='mt-3'>
-        @TODO
-      </p>
-    </section>
-  );
-};
+    <div
+      className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5'
+    >
+      {
+        ConfigService.projects.map((project, i) => <Project key={i} project={project} />)
+      }
+    </div>
+  </section>
+);
 
 
 

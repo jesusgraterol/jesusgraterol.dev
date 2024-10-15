@@ -19,6 +19,7 @@ type INavService = {
   openLinkedInPage:() => void;
   openKagglePage:() => void;
   openTwitterPage:() => void;
+  openGitHubRepos:() => void;
 };
 
 
