@@ -43,7 +43,7 @@ const Bio = () => (
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className='truncate max-w-[85%] text-left'>
+          <DialogTitle className='text-left'>
             Hi! My name is Jesus Graterol
           </DialogTitle>
           <DialogDescription></DialogDescription>

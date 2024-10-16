@@ -1,7 +1,6 @@
-
+import { Ellipsis } from 'lucide-react';
 import { IPosition } from '@/shared/services/config/types.ts';
 import { Button } from '@/shared/shadcn/components/ui/button';
-import { Ellipsis } from 'lucide-react';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -11,7 +10,13 @@ import { Ellipsis } from 'lucide-react';
  * Position Component
  * Component in charge of displaying details about a job as well as the responsibilities.
  */
-const Position = ({ position }: { position: IPosition }) => (
+const Position = ({
+  position,
+  openDialog,
+}: {
+  position: IPosition,
+  openDialog: (pos: IPosition) => void,
+}) => (
   <div
     className='mb-8 last:mb-0 ml-5'
   >
@@ -19,6 +24,7 @@ const Position = ({ position }: { position: IPosition }) => (
       variant='ghost'
       size='icon'
       className='float-right'
+      onClick={() => openDialog(position)}
     >
       <Ellipsis className='w-5 h-5' />
     </Button>
