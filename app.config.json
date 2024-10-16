@@ -210,7 +210,7 @@
     },
     {
       "title": "Firebase",
-      "items": ["Authentication", "Storage", "Cloud Messaging", "Security Rules", "Hosting"]
+      "items": ["Authentication", "Realtime Database", "Cloud Firestore", "Storage", "Cloud Messaging", "Security Rules", "Hosting"]
     },
     {
       "title": "Data Science",
