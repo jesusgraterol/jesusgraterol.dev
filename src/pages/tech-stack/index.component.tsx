@@ -64,7 +64,7 @@ const TechStack = () => {
           variant='link'
           className='text-xs sm:text-sm text-muted p-0'
         >
-          More Info
+          More info
         </Button>
       </header>
 

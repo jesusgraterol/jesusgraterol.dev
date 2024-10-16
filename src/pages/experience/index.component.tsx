@@ -31,7 +31,7 @@ const Experience = () => {
   /* **********************************************************************************************
    *                                             STATE                                            *
    ********************************************************************************************** */
-  const [visibleRecords, setVisibleRecords] = useState<number>(4);
+  const [visibleRecords, setVisibleRecords] = useState<number>(5);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
 
