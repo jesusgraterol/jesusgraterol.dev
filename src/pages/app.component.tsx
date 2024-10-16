@@ -20,7 +20,7 @@ const App = () => (
       className='w-full flex justify-center items-start bg-white animate-in slide-in-from-bottom-5 duration-500'
     >
       <div
-        className='w-full sm:w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-5/12'
+        className='w-full md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12'
       >
         {/* ********
           * HEADER *

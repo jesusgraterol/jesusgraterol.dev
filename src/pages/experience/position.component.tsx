@@ -1,6 +1,7 @@
 import { Ellipsis } from 'lucide-react';
+import { Button } from '@/shared/shadcn/components/ui/button.tsx';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/shadcn/components/ui/tooltip.tsx';
 import { IPosition } from '@/shared/services/config/types.ts';
-import { Button } from '@/shared/shadcn/components/ui/button';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -20,19 +21,26 @@ const Position = ({
   <div
     className='mb-8 last:mb-0 ml-5'
   >
-    <Button
-      variant='ghost'
-      size='icon'
-      className='float-right'
-      onClick={() => openDialog(position)}
-    >
-      <Ellipsis className='w-5 h-5' />
-    </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          variant='ghost'
+          size='icon'
+          className='float-right'
+          onClick={() => openDialog(position)}
+        >
+          <Ellipsis className='w-5 h-5' />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>View responsibilities</p>
+      </TooltipContent>
+    </Tooltip>
 
     <img
       src={position.logo}
       alt={`${position.companyName}'s logo`}
-      className='absolute w-7 h-7 mt-1.5 -left-3.5 rounded-sm'
+      className='absolute w-7 h-7 mt-1.5 -left-3.5'
       width='32'
       height='32'
     />
