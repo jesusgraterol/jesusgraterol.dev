@@ -6,11 +6,13 @@ import {
   socialPages,
   projects,
   positions,
+  education,
 } from '../../../../app.config.json';
 import {
   IConfigService,
   IProject,
   IPosition,
+  ICertification,
 } from '@/shared/services/config/types.ts';
 
 /* ************************************************************************************************
@@ -54,6 +56,10 @@ const configServiceFactory = (): IConfigService => {
 
     // experience
     positions,
+
+    // education
+    certificationsURL: education.certificationsURL,
+    certifications: education.certifications,
   });
 };
 
@@ -80,4 +86,5 @@ export {
   // types
   type IProject,
   type IPosition,
+  type ICertification,
 };

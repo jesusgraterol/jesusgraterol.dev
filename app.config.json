@@ -133,5 +133,50 @@
         "Provided technical support to customers, diagnosing and resolving a range of hardware and software problems."
       ]
     }
-  ]
+  ],
+  "education": {
+    "certificationsURL": "https://github.com/jesusgraterol/certifications",
+    "certifications": [
+      {
+        "logo": "education/meta.png",
+        "dateRange": "Aug 2023 - Mar 2024",
+        "institution": "Meta",
+        "degree": "Front-End Developer",
+        "grade": "Unfinished",
+        "certificateURL": "https://www.coursera.org/account/accomplishments/professional-cert/ZBVQ5467DY4X"
+      },
+      {
+        "logo": "education/meta.png",
+        "dateRange": "Jul 2023 - Feb 2024",
+        "institution": "Meta",
+        "degree": "Back-End Developer",
+        "grade": "Unfinished",
+        "certificateURL": "https://www.coursera.org/account/accomplishments/professional-cert/LPZN5TBS3CM8"
+      },
+      {
+        "logo": "education/meta.png",
+        "dateRange": "Sep 2023 - Feb 2024",
+        "institution": "Meta",
+        "degree": "Database Engineer",
+        "grade": "Unfinished",
+        "certificateURL": "https://www.coursera.org/account/accomplishments/professional-cert/J3EWLFZMRFP8"
+      },
+      {
+        "logo": "education/linux-foundation.png",
+        "dateRange": "Oct 2023 - Dec 2023",
+        "institution": "The Linux Foundation",
+        "degree": "Open Source Software Development, Linux and Git",
+        "grade": "Unfinished",
+        "certificateURL": "https://www.coursera.org/account/accomplishments/specialization/NX9P2RH9S2SH"
+      },
+      {
+        "logo": "education/unisa.png",
+        "dateRange": "Jan 2010 - Dec 2012",
+        "institution": "University of South Australia",
+        "degree": "Bachelor of Software Engineering",
+        "grade": "Unfinished",
+        "certificateURL": "https://study.unisa.edu.au/degrees/bachelor-of-software-engineering-honours"
+      }
+    ]
+  }
 }

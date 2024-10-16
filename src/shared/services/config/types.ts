@@ -27,6 +27,10 @@ type IConfigService = {
 
   // experience
   positions: IPosition[];
+
+  // education
+  certificationsURL: string,
+  certifications: ICertification[];
 };
 
 
@@ -61,6 +65,18 @@ type IPosition = {
   responsibilities: string[];
 };
 
+/**
+ * Certification
+ * The object containing essential information regarding an individual certificate.
+ */
+type ICertification = {
+  logo: string;
+  dateRange: string;
+  institution: string;
+  degree: string;
+  grade: string;
+  certificateURL: string;
+};
 
 
 
@@ -74,4 +90,5 @@ export type {
   // types
   IProject,
   IPosition,
+  ICertification,
 };

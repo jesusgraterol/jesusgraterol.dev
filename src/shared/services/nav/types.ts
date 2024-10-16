@@ -20,6 +20,7 @@ type INavService = {
   openKagglePage:() => void;
   openTwitterPage:() => void;
   openGitHubRepos:() => void;
+  openCertifications:() => void;
 };
 
 
