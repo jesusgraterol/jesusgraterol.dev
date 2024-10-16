@@ -23,9 +23,9 @@ const Education = () => (
       <Button
         variant='link'
         className='text-xs sm:text-sm text-muted p-0'
-        onClick={NavService.openCertifications}
+        onClick={NavService.openCertificates}
       >
-        View certifications
+        View certificates
       </Button>
     </header>
 

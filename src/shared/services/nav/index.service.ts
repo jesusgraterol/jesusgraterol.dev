@@ -75,7 +75,7 @@ const navServiceFactory = (): INavService => {
   /**
    * Opens the Certifications Page in a new tab.
    */
-  const openCertifications = (): void => openURL(ConfigService.certificationsURL);
+  const openCertificates = (): void => openURL(ConfigService.certificationsURL);
 
 
 
@@ -96,7 +96,7 @@ const navServiceFactory = (): INavService => {
     openKagglePage,
     openTwitterPage,
     openGitHubRepos,
-    openCertifications,
+    openCertificates,
   });
 };
 
