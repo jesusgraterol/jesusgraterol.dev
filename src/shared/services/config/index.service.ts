@@ -7,12 +7,16 @@ import {
   projects,
   positions,
   education,
+  techStack,
 } from '../../../../app.config.json';
 import {
   IConfigService,
   IProject,
   IPosition,
   ICertification,
+  IExpertiseLevel,
+  ITechStackItem,
+  ITechStackCategory,
 } from '@/shared/services/config/types.ts';
 
 /* ************************************************************************************************
@@ -60,6 +64,9 @@ const configServiceFactory = (): IConfigService => {
     // education
     certificationsURL: education.certificationsURL,
     certifications: education.certifications,
+
+    // tech stack
+    techStackCategories: techStack as ITechStackCategory[],
   });
 };
 
@@ -87,4 +94,7 @@ export {
   type IProject,
   type IPosition,
   type ICertification,
+  type IExpertiseLevel,
+  type ITechStackItem,
+  type ITechStackCategory,
 };

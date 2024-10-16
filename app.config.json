@@ -178,5 +178,111 @@
         "certificateURL": "https://study.unisa.edu.au/degrees/bachelor-of-software-engineering-honours"
       }
     ]
-  }
+  },
+  "techStack": [
+    {
+      "title": "Programming Languages",
+      "items": [
+        { "name": "HTML", "level": 2 },
+        { "name": "CSS", "level": 1 },
+        { "name": "JavaScript", "level": 2 },
+        { "name": "TypeScript", "level": 2 },
+        { "name": "Python", "level": 1 }
+      ]
+    },
+    {
+      "title": "Front-End",
+      "items": [
+        { "name": "Angular", "level": 1 },
+        { "name": "React", "level": 1 },
+        { "name": "Tailwind CSS", "level": 1 },
+        { "name": "shadcn/ui", "level": 2 },
+        { "name": "Material", "level": 2 },
+        { "name": "Bootstrap", "level": 1 },
+        { "name": "Ionic", "level": 0 },
+        { "name": "Web API", "level": 2 }
+      ]
+    },
+    {
+      "title": "Back-End",
+      "items": [
+        { "name": "Node.js", "level": 2 },
+        { "name": "Express.js", "level": 2 },
+        { "name": "Flask", "level": 0 },
+        { "name": "Django", "level": 0 }
+      ]
+    },
+    {
+      "title": "Databases",
+      "items": [
+        { "name": "PostgreSQL", "level": 2 },
+        { "name": "MySQL", "level": 2 },
+        { "name": "Firebase RTDB", "level": 2 },
+        { "name": "Firebase Firestore", "level": 0 }
+      ]
+    },
+    {
+      "title": "Infrastructure",
+      "items": [
+        { "name": "UNIX-like OS", "level": 2 },
+        { "name": "GNU Bash", "level": 2 },
+        { "name": "GIT", "level": 2 },
+        { "name": "SSH", "level": 2 },
+        { "name": "Docker", "level": 1 },
+        { "name": "CI / CD", "level": 0 }
+      ]
+    },
+    {
+      "title": "Test Runners",
+      "items": [
+        { "name": "Vitest", "level": 2 },
+        { "name": "Jest", "level": 2 },
+        { "name": "Jasmine", "level": 2 },
+        { "name": "unittest (Python's built-in)", "level": 1 },
+        { "name": "PyTest", "level": 0 }
+      ]
+    },
+    {
+      "title": "Bundlers",
+      "items": [
+        { "name": "Vite", "level": 2 },
+        { "name": "esbuild", "level": 0 },
+        { "name": "Webpack", "level": 1 }
+      ]
+    },
+    {
+      "title": "Firebase",
+      "items": [
+        { "name": "Authentication", "level": 2 },
+        { "name": "Storage", "level": 2 },
+        { "name": "Cloud Messaging", "level": 2 },
+        { "name": "Security Rules", "level": 2 },
+        { "name": "Hosting", "level": 2 }
+      ]
+    },
+    {
+      "title": "Data Science",
+      "items": [
+        { "name": "NumPy", "level": 1 },
+        { "name": "Pandas", "level": 1 },
+        { "name": "Keras", "level": 1 },
+        { "name": "TensorFlow", "level": 1 }
+      ]
+    },
+    {
+      "title": "Misc",
+      "items": [
+        { "name": "Zod", "level": 1 },
+        { "name": "Redux", "level": 0 },
+        { "name": "React Router", "level": 1 },
+        { "name": "JWT", "level": 2 },
+        { "name": "RxJS", "level": 1 },
+        { "name": "Socket.IO", "level": 2 },
+        { "name": "InversifyJS", "level": 2 },
+        { "name": "Postman", "level": 2 },
+        { "name": "Figma", "level": 0 },
+        { "name": "The Bitcoin Protocol", "level": 2 }
+      ]
+    }
+  ]
 }

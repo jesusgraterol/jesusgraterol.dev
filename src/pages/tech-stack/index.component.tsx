@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { Button } from '@/shared/shadcn/components/ui/button.tsx';
+import { Progress } from '@/shared/shadcn/components/ui/progress.tsx';
+import { Badge } from '@/shared/shadcn/components/ui/badge';
+import { ConfigService } from '@/shared/services/config/index.service';
+import Category from './category.component';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -68,9 +72,16 @@ const TechStack = () => {
         </Button>
       </header>
 
-      <p className='mt-3'>
-        @TODO
-      </p>
+      {
+        ConfigService.techStackCategories.map((category, i) => (
+          <div
+            key={i}
+            className='mt-8 first-of-type:mt-0'
+          >
+            <Category data={category} />
+          </div>
+        ))
+      }
     </section>
   );
 };
