@@ -58,7 +58,6 @@ type IPosition = {
   dateRange: string;
   positionName: string;
   companyName: string;
-  employmentType: string;
   responsibilities: string[];
 };
 

@@ -46,7 +46,7 @@ const Position = ({
     <p
       className='text-sm truncate'
     >
-      {position.companyName} · {position.employmentType}
+      {position.companyName}
     </p>
   </div>
 );

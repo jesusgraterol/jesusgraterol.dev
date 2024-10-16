@@ -13,7 +13,7 @@
     {
       "logo": "projects/balancer.png",
       "name": "Balancer",
-      "description": "Balancer is a cutting-edge, open-source, self-hosted platform that empowers users to automate the Value Averaging Strategy for Bitcoin.",
+      "description": "A cutting-edge, open-source, self-hosted platform that empowers users to automate the Value Averaging Strategy for Bitcoin.",
       "url": "https://balancer.jesusgraterol.dev/",
       "githubURL": "https://github.com/bitcoin-balancer",
       "tags": ["TypeScript", "PostgreSQL", "Node.js", "Express.js", "React", "TailwindCSS", "GNU Bash"]
@@ -21,7 +21,7 @@
     {
       "logo": "projects/uipalettes.png",
       "name": "uipalettes",
-      "description": "uipalettes is a Progressive Web App (PWA) that provides web developers access to a curated library of high-quality color palettes that fully comply with the Web Content Accessibility Guidelines (WCAG).",
+      "description": "A Progressive Web App (PWA) that provides web developers access to a curated library of high-quality color palettes that fully comply with the Web Content Accessibility Guidelines (WCAG).",
       "url": "https://uipalettes.web.app/",
       "githubURL": "https://github.com/jesusgraterol/uipalettes",
       "tags": ["TypeScript", "React", "TailwindCSS"]
@@ -46,10 +46,75 @@
   "positions": [
     {
       "logo": "projects/balancer.png",
+      "dateRange": "Jun 2024 - Oct 2024",
+      "positionName": "Full-Stack Web Developer",
+      "companyName": "Balancer",
+      "responsibilities": [
+        "Led the development of Balancer, a sophisticated cryptocurrency trading platform built upon the foundation of Epoca, specifically designed for the Spot Market.",
+        "Implemented a robust value averaging strategy, further enhancing the platform's ability to optimize asset accumulation and manage risk for long-term investment goals.",
+        "Integrated several Exchange APIs, giving users the flexibility to choose the platform that best meets their needs.",
+        "Continued to leverage advanced data analysis techniques and real-time market data feeds to support informed trading decisions."
+      ]
+    },
+    {
+      "logo": "projects/balancer.png",
+      "dateRange": "Feb 2022 - Oct 2023",
+      "positionName": "Full-Stack Web Developer / Data Scientist",
+      "companyName": "Epoca Technology",
+      "responsibilities": [
+        "Led the development of a sophisticated automated trading platform for Bitcoin Futures Market trading.",
+        "Fully integrated Binance APIs to collect historical Bitcoin data, enabling the construction of robust datasets and advanced trading automation.",
+        "Designed and implemented a proprietary Value Averaging Strategy, optimizing asset accumulation and managing risk for effective portfolio management.",
+        "Leveraged TensorFlow/Keras and Hyperparameter Tuning Techniques to build machine learning models for predicting market states and price trends, enhancing trading decision-making.",
+        "Integrated comprehensive market data feeds and analytics tools, empowering users with real-time data-driven insights for informed trading decisions.",
+        "Conducted thorough backtesting and validation to refine trading algorithms and validate their effectiveness, ensuring optimal performance."
+      ]
+    },
+    {
+      "logo": "projects/balancer.png",
+      "dateRange": "Aug 2016 - Jan 2022",
+      "positionName": "Full-Stack Web Developer",
+      "companyName": "CryptoWay",
+      "responsibilities": [
+        "Led the development of a secure, scalable and user-friendly peer-to-peer cryptocurrency exchange platform from ideation to production, integrating multiple cryptocurrencies for seamless trading.",
+        "Implemented robust security measures including encryption, two-factor and three-factor authentication, and secure wallet management, ensuring user funds and data safety.",
+        "Developed comprehensive user account features such as registration, KYC verification, and customizable settings for a tailored user experience.",
+        "Integrated third-party services like Blockcypher and Bitgo to interact with various blockchains, facilitating a wider range of supported cryptocurrencies.",
+        "Designed and implemented secure escrow services, safeguarding transactions and releasing funds only upon completion of trade terms.",
+        "Developed a system for dispute resolution to handle conflicts between users, promoting a fair and transparent environment.",
+        "Developed a custom real-time chat system and provided technical support to users, addressing inquiries and issues, and ensuring a positive user experience.",
+        "Ensured cross-platform compatibility for a seamless user experience across all devices and browsers.",
+        "Conducted rigorous quality assurance testing, including security, functional, and load testing, to identify and address vulnerabilities."
+      ]
+    },
+    {
+      "logo": "projects/balancer.png",
+      "dateRange": "Jan 2015 - Jul 2016",
+      "positionName": "Full-Stack Web Developer",
+      "companyName": "CambiaelMundo",
+      "responsibilities": [
+        "Led the end-to-end development of a scalable and user-friendly educational gaming platform, seamlessly integrating front-end UI and back-end logic for a rich user experience.",
+        "Designed and implemented interactive quiz modules, enhancing learner engagement and improving knowledge retention through gamification.",
+        "Fully integrated the YouTube Data API, enabling real-time tracking of user learning progress and providing valuable insights for content improvement.",
+        "Collaborated effectively with a diverse team, including designers, content creators, and educators, to deliver a comprehensive learning experience.",
+        "Developed intuitive content management interfaces, empowering content creators to efficiently manage quizzes, educational content, and learning resources."
+      ]
+    },
+    {
+      "logo": "projects/balancer.png",
+      "dateRange": "Jul 2014 - Feb 2015",
+      "positionName": "Network & Computer Systems Administrator",
+      "companyName": "Soluciones Inteligentes 9095, S.A",
+      "responsibilities": [
+        "Maintained and troubleshooted computer hardware and software issues, ensuring optimal network performance and user experience.",
+        "Collaborated with team members to design, develop, and deploy custom software applications to automate daily tasks, improving efficiency and productivity within the company."
+      ]
+    },
+    {
+      "logo": "projects/balancer.png",
       "dateRange": "Feb 2014 - Jun 2014",
       "positionName": "Data Analyst",
       "companyName": "Burnside City Council",
-      "employmentType": "Full-time",
       "responsibilities": [
         "Digitized, cleaned, and processed large datasets from surveys, ensuring data accuracy and integrity.",
         "Utilized data analysis techniques to identify trends and patterns, generating insightful reports for council decision-making.",
@@ -61,7 +126,6 @@
       "dateRange": "Dec 2010 - Feb 2014",
       "positionName": "Computer & Network Technician",
       "companyName": "Cyber Hive",
-      "employmentType": "Full-time",
       "responsibilities": [
         "Maintained and troubleshooted computer hardware and software issues, ensuring optimal network performance and user experience.",
         "Configured and managed network devices, including routers, switches, and firewalls.",
