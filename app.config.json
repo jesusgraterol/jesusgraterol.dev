@@ -186,7 +186,7 @@
     },
     {
       "title": "Front-End",
-      "items": ["Angular", "React", "Tailwind CSS", "shadcn/ui", "Material", "Bootstrap", "Ionic", "Web API"]
+      "items": ["Angular", "React", "Tailwind CSS", "shadcn", "Material", "Bootstrap", "Ionic", "Web API"]
     },
     {
       "title": "Back-End",
