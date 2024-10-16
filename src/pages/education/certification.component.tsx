@@ -45,11 +45,11 @@ const Certification = ({ certification }: { certification: ICertification }) => 
     </time>
     <h3
       className='font-semibold truncate'
-    >{certification.institution}</h3>
+    >{certification.degree}</h3>
     <p
       className='text-sm truncate'
     >
-      {certification.degree}
+      {certification.institution}
     </p>
   </div>
 );
