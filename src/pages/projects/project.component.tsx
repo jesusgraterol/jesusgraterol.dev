@@ -31,6 +31,8 @@ const Project = ({ project }: { project: IProject }) => (
           src={project.logo}
           alt={`${project.name}‘s logo`}
           className='w-6 h-6 rounded-sm'
+          width='24'
+          height='24'
         />
         <Tooltip>
           <TooltipTrigger asChild>
@@ -56,7 +58,7 @@ const Project = ({ project }: { project: IProject }) => (
               size='icon'
               onClick={() => NavService.openURL(project.githubURL)}
             >
-              <GitHubIcon className='w-6 h-6' />
+              <GitHubIcon className='w-5 h-5' />
             </Button>
           </TooltipTrigger>
           <TooltipContent>

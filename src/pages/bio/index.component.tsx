@@ -38,7 +38,7 @@ const Bio = () => (
           variant='link'
           className='text-xs sm:text-sm text-muted inline p-0 ml-2'
         >
-          Read more
+          see more
         </Button>
       </DialogTrigger>
       <DialogContent>
