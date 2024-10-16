@@ -14,8 +14,6 @@ import {
   IProject,
   IPosition,
   ICertification,
-  IExpertiseLevel,
-  ITechStackItem,
   ITechStackCategory,
 } from '@/shared/services/config/types.ts';
 
@@ -66,7 +64,7 @@ const configServiceFactory = (): IConfigService => {
     certifications: education.certifications,
 
     // tech stack
-    techStackCategories: techStack as ITechStackCategory[],
+    techStackCategories: techStack,
   });
 };
 
@@ -94,7 +92,5 @@ export {
   type IProject,
   type IPosition,
   type ICertification,
-  type IExpertiseLevel,
-  type ITechStackItem,
   type ITechStackCategory,
 };

@@ -1,5 +1,5 @@
+import { Badge } from '@/shared/shadcn/components/ui/badge.tsx';
 import { ITechStackCategory } from '@/shared/services/config/index.service.ts';
-import Item from '@/pages/tech-stack/item.component.tsx';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -18,7 +18,14 @@ const Category = ({ data }: { data: ITechStackCategory }) => (
     >{data.title}</h3>
 
     <div className='mt-3 flex justify-start items-center flex-wrap gap-x-4 gap-y-2'>
-      {data.items.map((item, i) => <Item key={i} data={item} />)}
+      {data.items.map((item, i) => (
+        <Badge
+          key={i}
+          variant='secondary'
+        >
+          <p>{item}</p>
+        </Badge>
+      ))}
     </div>
   </div>
 );

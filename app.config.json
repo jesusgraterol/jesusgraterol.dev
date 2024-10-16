@@ -182,107 +182,43 @@
   "techStack": [
     {
       "title": "Programming Languages",
-      "items": [
-        { "name": "HTML", "level": 2 },
-        { "name": "CSS", "level": 1 },
-        { "name": "JavaScript", "level": 2 },
-        { "name": "TypeScript", "level": 2 },
-        { "name": "Python", "level": 1 }
-      ]
+      "items": ["HTML", "CSS", "JavaScript", "TypeScript", "Python"]
     },
     {
       "title": "Front-End",
-      "items": [
-        { "name": "Angular", "level": 1 },
-        { "name": "React", "level": 1 },
-        { "name": "Tailwind CSS", "level": 1 },
-        { "name": "shadcn/ui", "level": 2 },
-        { "name": "Material", "level": 2 },
-        { "name": "Bootstrap", "level": 1 },
-        { "name": "Ionic", "level": 0 },
-        { "name": "Web API", "level": 2 }
-      ]
+      "items": ["Angular", "React", "Tailwind CSS", "shadcn/ui", "Material", "Bootstrap", "Ionic", "Web API"]
     },
     {
       "title": "Back-End",
-      "items": [
-        { "name": "Node.js", "level": 2 },
-        { "name": "Express.js", "level": 2 },
-        { "name": "Flask", "level": 0 },
-        { "name": "Django", "level": 0 }
-      ]
+      "items": ["Node.js", "Express.js", "Flask", "Django"]
     },
     {
       "title": "Databases",
-      "items": [
-        { "name": "PostgreSQL", "level": 2 },
-        { "name": "MySQL", "level": 2 },
-        { "name": "Firebase RTDB", "level": 2 },
-        { "name": "Firebase Firestore", "level": 0 }
-      ]
+      "items": ["PostgreSQL", "MySQL", "Firebase (RTDB / Cloud Firestore)"]
     },
     {
       "title": "Infrastructure",
-      "items": [
-        { "name": "UNIX-like OS", "level": 2 },
-        { "name": "GNU Bash", "level": 2 },
-        { "name": "GIT", "level": 2 },
-        { "name": "SSH", "level": 2 },
-        { "name": "Docker", "level": 1 },
-        { "name": "CI / CD", "level": 0 }
-      ]
+      "items": ["UNIX-like OS", "GNU Bash", "GIT", "SSH", "Docker", "CI / CD"]
     },
     {
       "title": "Test Runners",
-      "items": [
-        { "name": "Vitest", "level": 2 },
-        { "name": "Jest", "level": 2 },
-        { "name": "Jasmine", "level": 2 },
-        { "name": "unittest (Python's built-in)", "level": 1 },
-        { "name": "PyTest", "level": 0 }
-      ]
+      "items": ["Vitest", "Jest", "Jasmine", "unittest (Python's built-in)", "PyTest"]
     },
     {
       "title": "Bundlers",
-      "items": [
-        { "name": "Vite", "level": 2 },
-        { "name": "esbuild", "level": 0 },
-        { "name": "Webpack", "level": 1 }
-      ]
+      "items": ["Vite", "esbuild", "Webpack"]
     },
     {
       "title": "Firebase",
-      "items": [
-        { "name": "Authentication", "level": 2 },
-        { "name": "Storage", "level": 2 },
-        { "name": "Cloud Messaging", "level": 2 },
-        { "name": "Security Rules", "level": 2 },
-        { "name": "Hosting", "level": 2 }
-      ]
+      "items": ["Authentication", "Storage", "Cloud Messaging", "Security Rules", "Hosting"]
     },
     {
       "title": "Data Science",
-      "items": [
-        { "name": "NumPy", "level": 1 },
-        { "name": "Pandas", "level": 1 },
-        { "name": "Keras", "level": 1 },
-        { "name": "TensorFlow", "level": 1 }
-      ]
+      "items": ["NumPy", "Pandas", "Keras", "TensorFlow"]
     },
     {
       "title": "Misc",
-      "items": [
-        { "name": "Zod", "level": 1 },
-        { "name": "Redux", "level": 0 },
-        { "name": "React Router", "level": 1 },
-        { "name": "JWT", "level": 2 },
-        { "name": "RxJS", "level": 1 },
-        { "name": "Socket.IO", "level": 2 },
-        { "name": "InversifyJS", "level": 2 },
-        { "name": "Postman", "level": 2 },
-        { "name": "Figma", "level": 0 },
-        { "name": "The Bitcoin Protocol", "level": 2 }
-      ]
+      "items": ["Zod", "Redux", "React Router", "JWT", "RxJS", "Socket.IO", "InversifyJS", "Postman", "Figma", "The Bitcoin Protocol"]
     }
   ]
 }

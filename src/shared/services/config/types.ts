@@ -85,20 +85,9 @@ type ICertification = {
  * Tech Stack
  * The technologies managed by the developer as well as the expertise level
  */
-
-// expertise level
-type IExpertiseLevel = 0 | 1 | 2;
-
-// tech stack item
-type ITechStackItem = {
-  name: string;
-  level: IExpertiseLevel;
-};
-
-// tech stack category
 type ITechStackCategory = {
   title: string;
-  items: ITechStackItem[];
+  items: string[];
 };
 
 
@@ -113,7 +102,5 @@ export type {
   IProject,
   IPosition,
   ICertification,
-  IExpertiseLevel,
-  ITechStackItem,
   ITechStackCategory,
 };

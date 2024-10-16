@@ -1,9 +1,5 @@
-import { useState } from 'react';
-import { Button } from '@/shared/shadcn/components/ui/button.tsx';
-import { Progress } from '@/shared/shadcn/components/ui/progress.tsx';
-import { Badge } from '@/shared/shadcn/components/ui/badge';
-import { ConfigService } from '@/shared/services/config/index.service';
-import Category from './category.component';
+import { ConfigService } from '@/shared/services/config/index.service.ts';
+import Category from '@/pages/tech-stack/category.component.tsx';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -11,80 +7,31 @@ import Category from './category.component';
 
 /**
  * Tech Stack Component
- * Component in charge of ...
+ * Component in charge of displaying all the technologies managed by the developer.
  */
-const TechStack = () => {
-  /* **********************************************************************************************
-   *                                             REFS                                             *
-   ********************************************************************************************** */
+const TechStack = () => (
+  <section>
+    <header
+      className='flex justify-between items-center'
+    >
+      <h2
+        className='text-2xl font-semibold leading-none tracking-tight'
+      >Tech Stack</h2>
 
+    </header>
 
-
-  /* **********************************************************************************************
-   *                                             STATE                                            *
-   ********************************************************************************************** */
-  const [active, setActive] = useState();
-
-
-
-
-  /* **********************************************************************************************
-   *                                       REACTIVE VALUES                                        *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                         SIDE EFFECTS                                         *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                        EVENT HANDLERS                                        *
-   ********************************************************************************************** */
-
-
-
-
-
-  /* **********************************************************************************************
-   *                                           COMPONENT                                          *
-   ********************************************************************************************** */
-  return (
-    <section>
-      <header
-        className='flex justify-between items-center'
-      >
-        <h2
-          className='text-2xl font-semibold leading-none tracking-tight'
-        >Tech Stack</h2>
-
-        <Button
-          variant='link'
-          className='text-xs sm:text-sm text-muted p-0'
+    {
+      ConfigService.techStackCategories.map((category, i) => (
+        <div
+          key={i}
+          className='mt-8 first-of-type:mt-0'
         >
-          More info
-        </Button>
-      </header>
-
-      {
-        ConfigService.techStackCategories.map((category, i) => (
-          <div
-            key={i}
-            className='mt-8 first-of-type:mt-0'
-          >
-            <Category data={category} />
-          </div>
-        ))
-      }
-    </section>
-  );
-};
+          <Category data={category} />
+        </div>
+      ))
+    }
+  </section>
+);
 
 
 
