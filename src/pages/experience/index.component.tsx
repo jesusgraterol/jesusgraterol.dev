@@ -8,6 +8,7 @@ import {
 } from '@/shared/shadcn/components/ui/dialog.tsx';
 import { ConfigService, IPosition } from '@/shared/services/config/index.service.ts';
 import Position from '@/pages/experience/position.component.tsx';
+import { Button } from '@/shared/shadcn/components/ui/button';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -30,7 +31,9 @@ const Experience = () => {
   /* **********************************************************************************************
    *                                             STATE                                            *
    ********************************************************************************************** */
+  const [visibleRecords, setVisibleRecords] = useState<number>(4);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+
 
 
 
@@ -65,10 +68,21 @@ const Experience = () => {
         </header>
 
         <div className='relative ml-4 border-l border-slate-200 mt-5'>
-          {ConfigService.positions.map((position, i) => (
+          {ConfigService.positions.slice(0, visibleRecords).map((position, i) => (
             <Position key={i} position={position} openDialog={openDialog} />
           ))}
         </div>
+
+        {
+          visibleRecords < 100
+          && <Button
+            variant='ghost'
+            className='w-full'
+            onClick={() => setVisibleRecords(100)}
+          >
+            View all
+          </Button>
+        }
       </section>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

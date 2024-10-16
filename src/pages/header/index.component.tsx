@@ -86,10 +86,8 @@ const Header = () => {
         {/* ********
           * AVATAR *
           ******** */}
-        <button
+        <div
           className='flex justify-start items-center gap-2 px-2 py-1'
-          onClick={NavService.scrollToTop}
-          aria-label='Scroll to the top of the app'
         >
           <img
             src={ConfigService.avatarPath}
@@ -102,7 +100,7 @@ const Header = () => {
           <p
             className='text-lg font-semibold tracking-wide'
           >{ConfigService.urlName}</p>
-        </button>
+        </div>
 
 
 
