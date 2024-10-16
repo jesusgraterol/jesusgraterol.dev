@@ -5,8 +5,13 @@ import {
   avatarPath,
   socialPages,
   projects,
+  positions,
 } from '../../../../app.config.json';
-import { IConfigService, IProject } from '@/shared/services/config/types.ts';
+import {
+  IConfigService,
+  IProject,
+  IPosition,
+} from '@/shared/services/config/types.ts';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -46,6 +51,9 @@ const configServiceFactory = (): IConfigService => {
 
     // projects
     projects,
+
+    // experience
+    positions,
   });
 };
 
@@ -71,4 +79,5 @@ export {
 
   // types
   type IProject,
+  type IPosition,
 };

@@ -41,7 +41,7 @@ const Project = ({ project }: { project: IProject }) => (
               className='p-0 text-base max-w-28 lg:max-w-44 xl:max-w-52'
               onClick={() => NavService.openURL(project.url)}
             >
-              <p className='truncate'>{project.name}</p>
+              <p className='truncate font-semibold'>{project.name}</p>
             </Button>
           </TooltipTrigger>
           <TooltipContent>

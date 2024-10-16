@@ -24,6 +24,9 @@ type IConfigService = {
 
   // projects
   projects: IProject[];
+
+  // experience
+  positions: IPosition[];
 };
 
 
@@ -46,6 +49,18 @@ type IProject = {
   tags: string[];
 };
 
+/**
+ * Position
+ * The object containing essential information regarding an individual experience.
+ */
+type IPosition = {
+  logo: string;
+  dateRange: string;
+  positionName: string;
+  companyName: string;
+  employmentType: string;
+  responsibilities: string[];
+};
 
 
 
@@ -59,4 +74,5 @@ export type {
 
   // types
   IProject,
+  IPosition,
 };

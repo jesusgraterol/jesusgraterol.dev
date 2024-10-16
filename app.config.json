@@ -42,5 +42,32 @@
       "githubURL": "https://github.com/jesusgraterol/kaggle-notebooks",
       "tags": ["Python", "TensorFlow", "Keras", "Pandas", "NumPy"]
     }
+  ],
+  "positions": [
+    {
+      "logo": "projects/balancer.png",
+      "dateRange": "Feb 2014 - Jun 2014",
+      "positionName": "Data Analyst",
+      "companyName": "Burnside City Council",
+      "employmentType": "Full-time",
+      "responsibilities": [
+        "Digitized, cleaned, and processed large datasets from surveys, ensuring data accuracy and integrity.",
+        "Utilized data analysis techniques to identify trends and patterns, generating insightful reports for council decision-making.",
+        "Developed data processing scripts and tools to streamline data analysis and reporting."
+      ]
+    },
+    {
+      "logo": "projects/balancer.png",
+      "dateRange": "Dec 2010 - Feb 2014",
+      "positionName": "Computer & Network Technician",
+      "companyName": "Cyber Hive",
+      "employmentType": "Full-time",
+      "responsibilities": [
+        "Maintained and troubleshooted computer hardware and software issues, ensuring optimal network performance and user experience.",
+        "Configured and managed network devices, including routers, switches, and firewalls.",
+        "Performed software updates and security patches, ensuring system stability and data integrity.",
+        "Provided technical support to customers, diagnosing and resolving a range of hardware and software problems."
+      ]
+    }
   ]
 }
