@@ -5,6 +5,7 @@ import Projects from '@/pages/projects/index.component.tsx';
 import Experience from '@/pages/experience/index.component.tsx';
 import Education from '@/pages/education/index.component.tsx';
 import TechStack from '@/pages/tech-stack/index.component.tsx';
+import ScrollToTop from '@/shared/components/scroll-to-top/index.component.tsx';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -62,6 +63,13 @@ const App = () => (
             * TECH STACK *
             ************ */}
           <TechStack />
+
+
+
+          {/* ***************
+            * SCROLL TO TOP *
+            *************** */}
+          <ScrollToTop />
         </main>
       </div>
     </div>
