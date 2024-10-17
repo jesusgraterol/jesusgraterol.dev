@@ -1,3 +1,5 @@
+# Personal Website
+
 ![Jesus Graterol](./readme-assets/screenshot-01.png)
 
 This repository contains the source code for my personal website, designed to showcase my skills and experience as a full-stack web developer and data scientist. The technologies used to build it are:
@@ -90,13 +92,13 @@ distribution to **Firebase Hosting**.
 
 ```bash
 # Unit Tests
-$ npm run test:unit
+npm run test:unit
 
 # Integration Tests
-$ npm run test:integration
+npm run test:integration
 
 # E2E Tests
-$ npm run test:e2e
+npm run test:e2e
 ```
 
 
