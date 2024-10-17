@@ -218,7 +218,7 @@
     },
     {
       "title": "Misc",
-      "items": ["Zod", "Redux", "React Router", "JWT", "RxJS", "Socket.IO", "InversifyJS", "Postman", "Figma", "The Bitcoin Protocol"]
+      "items": ["Zod", "Redux", "Zustand", "React Router", "JWT", "RxJS", "Socket.IO", "InversifyJS", "Postman", "Figma", "The Bitcoin Protocol"]
     }
   ]
 }
