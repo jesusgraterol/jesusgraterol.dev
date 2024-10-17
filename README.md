@@ -1,30 +1,118 @@
-# React + TypeScript + Vite
+![Jesus Graterol](./readme-assets/screenshot-01.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for my personal website, designed to showcase my skills and experience as a full-stack web developer and data scientist. The technologies used to build it are:
 
-Currently, two official plugins are available:
+- Vite
+- HTML
+- CSS
+- Tailwind CSS
+- TypeScript
+- React
+- shadcn
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+<br/>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Live Demo
+
+[https://jesusgraterol.dev/](https://jesusgraterol.dev/)
+
+
+
+
+<br/>
+
+## Getting Started
+
+### Requirements
+
+- GIT
+- NodeJS ^v22.3.0
+- NPM ^v10.8.1
+
+### Installation
+
+Clone the repository
+
+```bash
+git clone git@github.com:jesusgraterol/jesusgraterol.dev.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Install the dependencies
+
+```bash
+npm install
+```
+
+
+
+<br/>
+
+## Usage
+
+Start the development server by running:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173/` (the port may vary) with your favorite browser.
+
+
+
+
+<br/>
+
+## Build
+
+Generate the production build by running:
+
+```bash
+npm run build
+```
+
+
+<br/>
+
+## Deployment
+
+When a commit is pushed to the `main` branch, **Github Workflows** automatically pushes the new
+distribution to **Firebase Hosting**.
+
+
+
+
+<br/>
+
+## Running the Tests
+
+```bash
+# Unit Tests
+$ npm run test:unit
+
+# Integration Tests
+$ npm run test:integration
+
+# E2E Tests
+$ npm run test:e2e
+```
+
+
+
+
+<br/>
+
+## @TODO
+
+- ...
+
+
+
+
+<br/>
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
