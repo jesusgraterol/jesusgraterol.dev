@@ -198,7 +198,7 @@
     },
     {
       "title": "Infrastructure",
-      "items": ["UNIX-like OS", "GNU Bash", "GIT", "SSH", "Docker", "CI / CD"]
+      "items": ["UNIX-like OS", "GNU Bash", "Git", "SSH", "Docker", "CI / CD"]
     },
     {
       "title": "Test Runners",
