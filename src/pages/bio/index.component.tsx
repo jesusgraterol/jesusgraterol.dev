@@ -40,7 +40,7 @@ const Bio = () => {
           ? (
             <>
               <p>
-                My proficiency extends to data science, allowing me to create and serve complex
+                My proficiency extends to data science, allowing me to train and serve complex
                  machine learning models over the Internet.
               </p>
               <p className='mt-3'>

@@ -50,7 +50,7 @@
       "positionName": "Full-Stack Web Developer",
       "companyName": "Balancer",
       "responsibilities": [
-        "Led the development of Balancer, a sophisticated cryptocurrency trading platform built upon the foundation of Epoca, specifically designed for the Spot Market.",
+        "Led the development of an automated Bitcoin trading platform; designed to operate in the Spot Market.",
         "Implemented a robust value averaging strategy, further enhancing the platform's ability to optimize asset accumulation and manage risk for long-term investment goals.",
         "Integrated several Exchange APIs, giving users the flexibility to choose the platform that best meets their needs.",
         "Continued to leverage advanced data analysis techniques and real-time market data feeds to support informed trading decisions."
@@ -62,12 +62,11 @@
       "positionName": "Full-Stack Web Developer / Data Scientist",
       "companyName": "Epoca Technology",
       "responsibilities": [
-        "Led the development of a sophisticated automated trading platform for Bitcoin Futures Market trading.",
-        "Fully integrated Binance APIs to collect historical Bitcoin data, enabling the construction of robust datasets and advanced trading automation.",
-        "Designed and implemented a proprietary Value Averaging Strategy, optimizing asset accumulation and managing risk for effective portfolio management.",
-        "Leveraged TensorFlow/Keras and Hyperparameter Tuning Techniques to build machine learning models for predicting market states and price trends, enhancing trading decision-making.",
+        "Led the development of an automated Bitcoin trading platform; designed to operate in the Futures Market.",
+        "Integrated Binance's API to collect historical Bitcoin data, enabling the construction of robust datasets and advanced trading automation.",
+        "Leveraged TensorFlow/Keras and hyperparameter tuning techniques to train machine learning models for predicting market states and price trends, enhancing trading decision-making.",
         "Integrated comprehensive market data feeds and analytics tools, empowering users with real-time data-driven insights for informed trading decisions.",
-        "Conducted thorough backtesting and validation to refine trading algorithms and validate their effectiveness, ensuring optimal performance."
+        "Conducted thorough backtesting and validation to refine trading algorithms and validate their effectiveness."
       ]
     },
     {
@@ -76,14 +75,10 @@
       "positionName": "Full-Stack Web Developer",
       "companyName": "CryptoWay",
       "responsibilities": [
-        "Led the development of a secure, scalable and user-friendly peer-to-peer cryptocurrency exchange platform from ideation to production, integrating multiple cryptocurrencies for seamless trading.",
+        "Led the development of a secure, scalable and user-friendly peer-to-peer cryptocurrency exchange platform.",
         "Implemented robust security measures including encryption, two-factor and three-factor authentication, and secure wallet management, ensuring user funds and data safety.",
-        "Developed comprehensive user account features such as registration, KYC verification, and customizable settings for a tailored user experience.",
         "Integrated third-party services like Blockcypher and Bitgo to interact with various blockchains, facilitating a wider range of supported cryptocurrencies.",
-        "Designed and implemented secure escrow services, safeguarding transactions and releasing funds only upon completion of trade terms.",
-        "Developed a system for dispute resolution to handle conflicts between users, promoting a fair and transparent environment.",
-        "Developed a custom real-time chat system and provided technical support to users, addressing inquiries and issues, and ensuring a positive user experience.",
-        "Ensured cross-platform compatibility for a seamless user experience across all devices and browsers.",
+        "Designed and implemented a secure escrow service and a dispute resolution system, safeguarding transactions.",
         "Conducted rigorous quality assurance testing, including security, functional, and load testing, to identify and address vulnerabilities."
       ]
     },
