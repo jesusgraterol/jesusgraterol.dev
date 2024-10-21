@@ -177,7 +177,7 @@
   "techStack": [
     {
       "title": "Programming Languages",
-      "items": ["HTML", "CSS", "JavaScript", "TypeScript", "Python"]
+      "items": ["HTML", "CSS", "JavaScript", "TypeScript", "Python", "SQL"]
     },
     {
       "title": "Front-End",
