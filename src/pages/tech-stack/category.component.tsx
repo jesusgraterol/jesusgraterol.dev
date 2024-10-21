@@ -21,7 +21,6 @@ const Category = ({ data }: { data: ITechStackCategory }) => (
       {data.items.map((item, i) => (
         <Badge
           key={i}
-          variant='secondary'
         >
           <p>{item}</p>
         </Badge>
