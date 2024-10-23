@@ -31,7 +31,7 @@ const Bio = () => {
       </header>
 
       <p className='my-3'>
-        I am a skilled Full-Stack Web Developer with 10+ years of experience in building scalable
+        I am a Full-Stack Web Developer with 10+ years of experience building scalable
           web applications and REST-based APIs.
       </p>
 
@@ -44,8 +44,8 @@ const Bio = () => {
                  machine learning models over the Internet.
               </p>
               <p className='mt-3'>
-                I am a problem-solver with keen attention to detail, adept at identifying and
-                 resolving complex issues promptly and professionally.
+                As a problem solver with meticulous attention to detail, I'm adept at identifying
+                 and resolving intricate challenges quickly and efficiently.
               </p>
             </>
           )
