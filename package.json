@@ -52,7 +52,7 @@
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
-    "webfont-montserrat": "^1.0.0"
+    "webfont-ubuntu": "^1.0.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
