@@ -198,6 +198,89 @@
         { "name": "Ionic", "icon": "ionic" },
         { "name": "Web API", "icon": "mdn" }
       ]
+    },
+    {
+      "title": "Back-End",
+      "items": [
+        { "name": "Node.js", "icon": "mdn" },
+        { "name": "Express.js", "icon": "mdn" },
+        { "name": "Flask", "icon": "mdn" },
+        { "name": "Django", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Databases",
+      "items": [
+        { "name": "PostgreSQL", "icon": "mdn" },
+        { "name": "MySQL", "icon": "mdn" },
+        { "name": "Firebase (RTDB / Cloud Firestore)", "icon": "mdn" },
+        { "name": "IndexedDB (idb / Dexie.js)", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Infrastructure",
+      "items": [
+        { "name": "UNIX-like OS", "icon": "mdn" },
+        { "name": "GNU Bash", "icon": "mdn" },
+        { "name": "Git", "icon": "mdn" },
+        { "name": "SSH", "icon": "mdn" },
+        { "name": "Docker", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Test Runners",
+      "items": [
+        { "name": "Vitest", "icon": "mdn" },
+        { "name": "Jest", "icon": "mdn" },
+        { "name": "Jasmine", "icon": "mdn" },
+        { "name": "unittest (Python's built-in)", "icon": "mdn" },
+        { "name": "PyTest", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Bundlers",
+      "items": [
+        { "name": "Vite", "icon": "mdn" },
+        { "name": "esbuild", "icon": "mdn" },
+        { "name": "Webpack", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Firebase",
+      "items": [
+        { "name": "Authentication", "icon": "mdn" },
+        { "name": "Realtime Database", "icon": "mdn" },
+        { "name": "Cloud Firestore", "icon": "mdn" },
+        { "name": "Storage", "icon": "mdn" },
+        { "name": "Cloud Messaging", "icon": "mdn" },
+        { "name": "Security Rules", "icon": "mdn" },
+        { "name": "Hosting", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Data Science",
+      "items": [
+        { "name": "NumPy", "icon": "mdn" },
+        { "name": "Pandas", "icon": "mdn" },
+        { "name": "Keras", "icon": "mdn" },
+        { "name": "TensorFlow", "icon": "mdn" }
+      ]
+    },
+    {
+      "title": "Misc",
+      "items": [
+        { "name": "Zod", "icon": "mdn" },
+        { "name": "Redux", "icon": "mdn" },
+        { "name": "Zustand", "icon": "mdn" },
+        { "name": "React Router", "icon": "mdn" },
+        { "name": "JWT", "icon": "mdn" },
+        { "name": "RxJS", "icon": "mdn" },
+        { "name": "Socket.IO", "icon": "mdn" },
+        { "name": "InversifyJS", "icon": "mdn" },
+        { "name": "Postman", "icon": "mdn" },
+        { "name": "Figma", "icon": "mdn" },
+        { "name": "The Bitcoin Protocol", "icon": "mdn" }
+      ]
     }
   ]
 }
