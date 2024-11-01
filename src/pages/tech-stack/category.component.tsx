@@ -21,8 +21,18 @@ const Category = ({ data }: { data: ITechStackCategory }) => (
       {data.items.map((item, i) => (
         <Badge
           key={i}
+          variant='secondary'
+          className='items-center gap-1 p-2'
         >
-          <p>{item}</p>
+          <img
+            src={`tech-stack/${item.icon}.png`}
+            alt={item.name}
+            width='16'
+            height='16'
+            loading='lazy'
+            className='w-4 h-4'
+          />
+          <p>{item.name}</p>
         </Badge>
       ))}
     </div>

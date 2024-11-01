@@ -85,10 +85,17 @@ type ICertification = {
  * Tech Stack
  * The technologies managed by the developer as well as the expertise level
  */
+type ITechStackItem = {
+  name: string;
+  icon: string;
+};
 type ITechStackCategory = {
   title: string;
-  items: string[];
+  items: ITechStackItem[];
 };
+
+
+
 
 
 /* ************************************************************************************************

@@ -177,27 +177,43 @@
   "techStack": [
     {
       "title": "Programming Languages",
-      "items": [
-        { "name": "HTML", "icon": "html" },
-        { "name": "CSS", "icon": "css" },
-        { "name": "JavaScript", "icon": "javascript" },
-        { "name": "TypeScript", "icon": "typescript" },
-        { "name": "Python", "icon": "python" },
-        { "name": "SQL", "icon": "sql" }
-      ]
+      "items": ["HTML", "CSS", "JavaScript", "TypeScript", "Python", "SQL"]
     },
     {
       "title": "Front-End",
-      "items": [
-        { "name": "Angular", "icon": "angular" },
-        { "name": "React", "icon": "react" },
-        { "name": "Tailwind CSS", "icon": "tailwind-css" },
-        { "name": "shadcn", "icon": "shadcn" },
-        { "name": "Material", "icon": "material" },
-        { "name": "Bootstrap", "icon": "bootstrap" },
-        { "name": "Ionic", "icon": "ionic" },
-        { "name": "Web API", "icon": "mdn" }
-      ]
+      "items": ["Angular", "React", "Tailwind CSS", "shadcn", "Material", "Bootstrap", "Ionic", "Web API"]
+    },
+    {
+      "title": "Back-End",
+      "items": ["Node.js", "Express.js", "Flask", "Django"]
+    },
+    {
+      "title": "Databases",
+      "items": ["PostgreSQL", "MySQL", "Firebase (RTDB / Cloud Firestore)", "IndexedDB (idb / Dexie.js)"]
+    },
+    {
+      "title": "Infrastructure",
+      "items": ["UNIX-like OS", "GNU Bash", "Git", "SSH", "Docker", "CI / CD"]
+    },
+    {
+      "title": "Test Runners",
+      "items": ["Vitest", "Jest", "Jasmine", "unittest (Python's built-in)", "PyTest"]
+    },
+    {
+      "title": "Bundlers",
+      "items": ["Vite", "esbuild", "Webpack"]
+    },
+    {
+      "title": "Firebase",
+      "items": ["Authentication", "Realtime Database", "Cloud Firestore", "Storage", "Cloud Messaging", "Security Rules", "Hosting"]
+    },
+    {
+      "title": "Data Science",
+      "items": ["NumPy", "Pandas", "Keras", "TensorFlow"]
+    },
+    {
+      "title": "Misc",
+      "items": ["Zod", "Redux", "Zustand", "React Router", "JWT", "RxJS", "Socket.IO", "InversifyJS", "Postman", "Figma", "The Bitcoin Protocol"]
     }
   ]
 }
