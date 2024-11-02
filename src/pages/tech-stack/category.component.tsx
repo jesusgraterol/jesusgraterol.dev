@@ -22,7 +22,7 @@ const Category = ({ data }: { data: ITechStackCategory }) => (
         <Badge
           key={i}
           variant='secondary'
-          className='items-center gap-1 p-2'
+          className='items-center gap-1 px-2 py-1.5'
         >
           <img
             src={`tech-stack/${item.icon}.png`}

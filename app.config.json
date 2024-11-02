@@ -202,59 +202,58 @@
     {
       "title": "Back-End",
       "items": [
-        { "name": "Node.js", "icon": "mdn" },
-        { "name": "Express.js", "icon": "mdn" },
-        { "name": "Flask", "icon": "mdn" },
-        { "name": "Django", "icon": "mdn" }
+        { "name": "Node.js", "icon": "node-js" },
+        { "name": "Express.js", "icon": "express-js" },
+        { "name": "Flask", "icon": "flask" },
+        { "name": "Django", "icon": "django" }
       ]
     },
     {
       "title": "Databases",
       "items": [
-        { "name": "PostgreSQL", "icon": "mdn" },
-        { "name": "MySQL", "icon": "mdn" },
-        { "name": "Firebase (RTDB / Cloud Firestore)", "icon": "mdn" },
+        { "name": "PostgreSQL", "icon": "postgresql" },
+        { "name": "MySQL", "icon": "mysql" },
+        { "name": "Firebase (RTDB / Cloud Firestore)", "icon": "firebase" },
         { "name": "IndexedDB (idb / Dexie.js)", "icon": "mdn" }
       ]
     },
     {
       "title": "Infrastructure",
       "items": [
-        { "name": "UNIX-like OS", "icon": "mdn" },
-        { "name": "GNU Bash", "icon": "mdn" },
-        { "name": "Git", "icon": "mdn" },
-        { "name": "SSH", "icon": "mdn" },
-        { "name": "Docker", "icon": "mdn" }
+        { "name": "UNIX-like OS", "icon": "ubuntu" },
+        { "name": "GNU Bash", "icon": "bash" },
+        { "name": "Git", "icon": "git" },
+        { "name": "Docker", "icon": "docker" }
       ]
     },
     {
       "title": "Test Runners",
       "items": [
-        { "name": "Vitest", "icon": "mdn" },
-        { "name": "Jest", "icon": "mdn" },
-        { "name": "Jasmine", "icon": "mdn" },
-        { "name": "unittest (Python's built-in)", "icon": "mdn" },
-        { "name": "PyTest", "icon": "mdn" }
+        { "name": "Vitest", "icon": "vitest" },
+        { "name": "Jest", "icon": "jest" },
+        { "name": "Jasmine", "icon": "jasmine" },
+        { "name": "unittest (Python's built-in)", "icon": "python" },
+        { "name": "PyTest", "icon": "pytest" }
       ]
     },
     {
       "title": "Bundlers",
       "items": [
-        { "name": "Vite", "icon": "mdn" },
-        { "name": "esbuild", "icon": "mdn" },
-        { "name": "Webpack", "icon": "mdn" }
+        { "name": "Vite", "icon": "vite" },
+        { "name": "esbuild", "icon": "esbuild" },
+        { "name": "Webpack", "icon": "webpack" }
       ]
     },
     {
       "title": "Firebase",
       "items": [
-        { "name": "Authentication", "icon": "mdn" },
-        { "name": "Realtime Database", "icon": "mdn" },
-        { "name": "Cloud Firestore", "icon": "mdn" },
-        { "name": "Storage", "icon": "mdn" },
-        { "name": "Cloud Messaging", "icon": "mdn" },
-        { "name": "Security Rules", "icon": "mdn" },
-        { "name": "Hosting", "icon": "mdn" }
+        { "name": "Authentication", "icon": "firebase" },
+        { "name": "Realtime Database", "icon": "firebase" },
+        { "name": "Cloud Firestore", "icon": "firebase" },
+        { "name": "Storage", "icon": "firebase" },
+        { "name": "Cloud Messaging", "icon": "firebase" },
+        { "name": "Security Rules", "icon": "firebase" },
+        { "name": "Hosting", "icon": "firebase" }
       ]
     },
     {
