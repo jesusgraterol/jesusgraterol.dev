@@ -259,10 +259,10 @@
     {
       "title": "Data Science",
       "items": [
-        { "name": "NumPy", "icon": "mdn" },
-        { "name": "Pandas", "icon": "mdn" },
-        { "name": "Keras", "icon": "mdn" },
-        { "name": "TensorFlow", "icon": "mdn" }
+        { "name": "NumPy", "icon": "numpy" },
+        { "name": "Pandas", "icon": "pandas" },
+        { "name": "Keras", "icon": "keras" },
+        { "name": "TensorFlow", "icon": "tensorflow" }
       ]
     },
     {
