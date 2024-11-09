@@ -30,7 +30,7 @@
       "logo": "projects/published-packages.png",
       "name": "Published Packages",
       "description": "A collection of publicly released npm packages, designed to streamline and enhance your web development process. Discover a diverse collection of libraries, frameworks, and command-line tools (CLIs) tailored to various needs.",
-      "url": "https://www.npmjs.com/~jesusgraterol",
+      "url": "https://github.com/jesusgraterol/published-packages",
       "githubURL": "https://github.com/jesusgraterol/published-packages",
       "tags": ["JavaScript", "TypeScript", "Node.js", "CSS", "GNU Bash"]
     },
