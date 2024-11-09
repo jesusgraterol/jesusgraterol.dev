@@ -268,17 +268,17 @@
     {
       "title": "Misc",
       "items": [
-        { "name": "Zod", "icon": "mdn" },
-        { "name": "Redux", "icon": "mdn" },
-        { "name": "Zustand", "icon": "mdn" },
-        { "name": "React Router", "icon": "mdn" },
-        { "name": "JWT", "icon": "mdn" },
-        { "name": "RxJS", "icon": "mdn" },
-        { "name": "Socket.IO", "icon": "mdn" },
-        { "name": "InversifyJS", "icon": "mdn" },
-        { "name": "Postman", "icon": "mdn" },
-        { "name": "Figma", "icon": "mdn" },
-        { "name": "The Bitcoin Protocol", "icon": "mdn" }
+        { "name": "Zod", "icon": "zod" },
+        { "name": "Redux", "icon": "redux" },
+        { "name": "Zustand", "icon": "zustand" },
+        { "name": "React Router", "icon": "react-router" },
+        { "name": "JWT", "icon": "jwt" },
+        { "name": "RxJS", "icon": "rxjs" },
+        { "name": "Socket.IO", "icon": "socket-io" },
+        { "name": "InversifyJS", "icon": "inversify" },
+        { "name": "Postman", "icon": "postman" },
+        { "name": "Figma", "icon": "figma" },
+        { "name": "The Bitcoin Protocol", "icon": "bitcoin" }
       ]
     }
   ]
