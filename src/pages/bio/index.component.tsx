@@ -31,8 +31,8 @@ const Bio = () => {
       </header>
 
       <p className='my-3'>
-        I am a Full-Stack Web Developer with 10+ years of experience building scalable
-          web applications and REST-based APIs.
+        I am a Web Developer with 10+ years of experience building scalable web applications and
+         REST-based APIs.
       </p>
 
       {
