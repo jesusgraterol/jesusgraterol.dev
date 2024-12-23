@@ -269,9 +269,10 @@
       "title": "Misc",
       "items": [
         { "name": "Zod", "icon": "zod" },
+        { "name": "Next.js", "icon": "next-js" },
+        { "name": "React Router", "icon": "react-router" },
         { "name": "Redux", "icon": "redux" },
         { "name": "Zustand", "icon": "zustand" },
-        { "name": "React Router", "icon": "react-router" },
         { "name": "JWT", "icon": "jwt" },
         { "name": "RxJS", "icon": "rxjs" },
         { "name": "Socket.IO", "icon": "socket-io" },
