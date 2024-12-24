@@ -273,6 +273,7 @@
         { "name": "React Router", "icon": "react-router" },
         { "name": "Redux", "icon": "redux" },
         { "name": "Zustand", "icon": "zustand" },
+        { "name": "Drizzle", "icon": "drizzle" },
         { "name": "JWT", "icon": "jwt" },
         { "name": "RxJS", "icon": "rxjs" },
         { "name": "Socket.IO", "icon": "socket-io" },
