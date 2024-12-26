@@ -7,10 +7,10 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <TooltipProvider delayDuration={200}>
-      <ThemeProvider>
+    <ThemeProvider>
+      <TooltipProvider delayDuration={200}>
         <App />
-      </ThemeProvider>
-    </TooltipProvider>
+      </TooltipProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 );

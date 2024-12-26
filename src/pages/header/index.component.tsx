@@ -32,8 +32,8 @@ const NAV_ITEMS = [
   },
   {
     label: 'Open LinkedIn Page',
-    headingIcon: <LinkedInIcon className='w-6 h-6' />,
-    sidenavIcon: <LinkedInIcon className='w-6 h-6' />,
+    headingIcon: <LinkedInIcon className='w-6 h-6 dark:w-8 dark:h-8 dark:text-slate-900' />,
+    sidenavIcon: <LinkedInIcon className='w-6 h-6 dark:text-slate-900' />,
     action: NavService.openLinkedInPage,
   },
   {
@@ -151,7 +151,7 @@ const Header = () => {
     <Sheet open={isSidenavOpen} onOpenChange={setIsSidenavOpen}>
       <SheetContent
         side='right'
-        className='w-64 overflow-y-auto p-0'
+        className='w-64 overflow-y-auto p-0 dark:text-white'
       >
         <SheetHeader className='pt-3 px-3'>
           <SheetTitle className='text-left'>Menu</SheetTitle>

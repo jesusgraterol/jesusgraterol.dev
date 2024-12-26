@@ -16,7 +16,7 @@ import ScrollToTop from '@/shared/components/scroll-to-top/index.component.tsx';
  */
 const App = () => (
   <div
-    className='w-full flex justify-center items-start bg-white animate-in slide-in-from-bottom-5 duration-500'
+    className='w-full flex justify-center items-start bg-white dark:bg-slate-900 dark:text-white animate-in slide-in-from-bottom-5 duration-500'
   >
     <div
       className='w-full md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12'

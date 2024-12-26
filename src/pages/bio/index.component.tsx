@@ -56,7 +56,7 @@ const Bio = () => {
               </p>
               <Button
                 variant='link'
-                className='text-xs sm:text-sm text-muted inline p-0 ml-2'
+                className='text-xs sm:text-sm text-muted dark:text-slate-400 inline p-0 ml-2'
                 onClick={() => setReadMore(true)}
               >
                 see more
