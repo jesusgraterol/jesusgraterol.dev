@@ -38,7 +38,7 @@
       "logo": "projects/kaggle-notebooks.png",
       "name": "Kaggle Notebooks",
       "description": "A collection of Jupyter Notebooks I've developed and shared publicly on Kaggle. Explore data analysis projects, machine learning models, and other insightful explorations across diverse datasets. Feel free to use, adapt, and contribute to these notebooks as you embark on your own data science journey!",
-      "url": "https://www.kaggle.com/jesusgraterol/code",
+      "url": "https://github.com/jesusgraterol/kaggle-notebooks",
       "githubURL": "https://github.com/jesusgraterol/kaggle-notebooks",
       "tags": ["Python", "TensorFlow", "Keras", "Pandas", "NumPy"]
     }
