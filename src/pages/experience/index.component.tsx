@@ -86,7 +86,7 @@ const Experience = () => {
       </section>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent>
+        <DialogContent className='dark:text-white'>
           <DialogHeader className='text-left'>
             <DialogTitle>{activePosition.current?.positionName}</DialogTitle>
             <DialogDescription>{activePosition.current?.companyName}</DialogDescription>
