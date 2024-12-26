@@ -26,7 +26,7 @@ const ScrollToTop = () => {
    ********************************************************************************************** */
   return (
     <Button
-      className={`fixed bottom-5 right-5 z-10 rounded-full shadow-5 transition-transform duration-500 ${verticalScroll > 200 ? 'translate-y-0' : 'translate-y-20'}`}
+      className={`fixed bottom-5 right-5 z-10 rounded-full shadow-5 transition-transform duration-500 ${verticalScroll > 200 ? 'translate-y-0' : 'translate-y-20'} dark:bg-slate-950 dark:hover:bg-slate-950/60`}
       size='icon'
       onClick={NavService.scrollToTop}
       aria-label='Scroll to Top'
