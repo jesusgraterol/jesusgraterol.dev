@@ -40,7 +40,7 @@ const Certification = ({ certification }: { certification: ICertification }) => 
       height='32'
     />
     <time
-      className='text-sm font-semibold leading-none text-muted'>
+      className='text-sm font-semibold leading-none text-muted dark:text-slate-400'>
         {certification.dateRange}
     </time>
     <h3

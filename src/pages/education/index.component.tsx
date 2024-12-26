@@ -22,7 +22,7 @@ const Education = () => (
 
       <Button
         variant='link'
-        className='text-xs sm:text-sm text-muted p-0'
+        className='text-xs sm:text-sm text-muted dark:text-slate-400 p-0'
         onClick={NavService.openCertificates}
       >
         View certificates
