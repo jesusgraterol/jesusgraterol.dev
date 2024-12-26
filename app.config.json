@@ -266,7 +266,7 @@
       ]
     },
     {
-      "title": "Other",
+      "title": "Misc",
       "items": [
         { "name": "Zod", "icon": "zod" },
         { "name": "Next.js", "icon": "next-js" },
