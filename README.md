@@ -30,9 +30,9 @@ This repository contains the source code for my personal website, designed to sh
 
 ### Requirements
 
-- GIT
-- NodeJS ^v22.3.0
-- NPM ^v10.8.1
+- Git
+- Node.js ^v22.11.0
+- npm ^v10.9.0
 
 ### Installation
 
@@ -91,24 +91,15 @@ distribution to **Firebase Hosting**.
 ## Running the Tests
 
 ```bash
-# Unit Tests
+# unit tests
 npm run test:unit
 
-# Integration Tests
+# integration tests
 npm run test:integration
 
-# E2E Tests
+# e2e tests
 npm run test:e2e
 ```
-
-
-
-
-<br/>
-
-## @TODO
-
-- ...
 
 
 
