@@ -273,6 +273,7 @@
         { "name": "React Router", "icon": "react-router" },
         { "name": "Redux", "icon": "redux" },
         { "name": "Zustand", "icon": "zustand" },
+        { "name": "React Hook Form", "icon": "react-hook-form" },
         { "name": "Drizzle", "icon": "drizzle" },
         { "name": "JWT", "icon": "jwt" },
         { "name": "RxJS", "icon": "rxjs" },
