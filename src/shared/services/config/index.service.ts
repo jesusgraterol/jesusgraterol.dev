@@ -14,6 +14,7 @@ import {
   IProject,
   IPosition,
   ICertification,
+  ITechStackItem,
   ITechStackCategory,
 } from '@/shared/services/config/types.ts';
 
@@ -92,5 +93,6 @@ export {
   type IProject,
   type IPosition,
   type ICertification,
+  type ITechStackItem,
   type ITechStackCategory,
 };

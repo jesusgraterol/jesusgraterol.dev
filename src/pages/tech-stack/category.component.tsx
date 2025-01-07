@@ -1,5 +1,6 @@
 import { Badge } from '@/shared/shadcn/components/ui/badge.tsx';
 import { ITechStackCategory } from '@/shared/services/config/index.service.ts';
+import Logo from '@/pages/tech-stack/logo.component.tsx';
 
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
@@ -24,14 +25,7 @@ const Category = ({ data }: { data: ITechStackCategory }) => (
           variant='secondary'
           className='items-center gap-1 px-2 py-1.5'
         >
-          <img
-            src={`tech-stack/${item.icon}.png`}
-            alt={item.name}
-            width='16'
-            height='16'
-            loading='lazy'
-            className='w-4 h-4'
-          />
+          <Logo item={item} />
           <p>{item.name}</p>
         </Badge>
       ))}

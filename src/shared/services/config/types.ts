@@ -88,6 +88,7 @@ type ICertification = {
 type ITechStackItem = {
   name: string;
   icon: string;
+  hasLightVariant?: boolean;
 };
 type ITechStackCategory = {
   title: string;
@@ -109,5 +110,6 @@ export type {
   IProject,
   IPosition,
   ICertification,
+  ITechStackItem,
   ITechStackCategory,
 };

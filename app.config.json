@@ -192,7 +192,7 @@
         { "name": "Angular", "icon": "angular" },
         { "name": "React", "icon": "react" },
         { "name": "Tailwind CSS", "icon": "tailwind-css" },
-        { "name": "shadcn", "icon": "shadcn" },
+        { "name": "shadcn", "icon": "shadcn", "hasLightVariant": true },
         { "name": "Material", "icon": "material" },
         { "name": "Bootstrap", "icon": "bootstrap" },
         { "name": "Ionic", "icon": "ionic" },
@@ -203,8 +203,8 @@
       "title": "Back-End",
       "items": [
         { "name": "Node.js", "icon": "node-js" },
-        { "name": "Express.js", "icon": "express-js" },
-        { "name": "Flask", "icon": "flask" },
+        { "name": "Express.js", "icon": "express-js", "hasLightVariant": true },
+        { "name": "Flask", "icon": "flask", "hasLightVariant": true },
         { "name": "Django", "icon": "django" }
       ]
     },
@@ -212,7 +212,7 @@
       "title": "Databases",
       "items": [
         { "name": "PostgreSQL", "icon": "postgresql" },
-        { "name": "MySQL", "icon": "mysql" },
+        { "name": "MySQL", "icon": "mysql", "hasLightVariant": true },
         { "name": "Firebase (RTDB / Cloud Firestore)", "icon": "firebase" },
         { "name": "IndexedDB (idb / Dexie.js)", "icon": "mdn" }
       ]
@@ -260,7 +260,7 @@
       "title": "Data Science",
       "items": [
         { "name": "NumPy", "icon": "numpy" },
-        { "name": "Pandas", "icon": "pandas" },
+        { "name": "Pandas", "icon": "pandas", "hasLightVariant": true },
         { "name": "Keras", "icon": "keras" },
         { "name": "TensorFlow", "icon": "tensorflow" }
       ]
@@ -274,7 +274,7 @@
         { "name": "Redux", "icon": "redux" },
         { "name": "Zustand", "icon": "zustand" },
         { "name": "React Hook Form", "icon": "react-hook-form" },
-        { "name": "Drizzle", "icon": "drizzle" },
+        { "name": "Drizzle", "icon": "drizzle", "hasLightVariant": true },
         { "name": "JWT", "icon": "jwt" },
         { "name": "RxJS", "icon": "rxjs" },
         { "name": "Socket.IO", "icon": "socket-io" },
