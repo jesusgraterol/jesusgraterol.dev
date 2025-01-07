@@ -1,6 +1,24 @@
 import { ITechStackItem } from '@/shared/services/config/index.service.ts';
 
 /* ************************************************************************************************
+ *                                            HELPERS                                             *
+ ************************************************************************************************ */
+
+/**
+ * Builds the path for the logo based on its variant.
+ * @param icon
+ * @param light?
+ * @returns string
+ */
+const buildPath = (icon: string, light?: boolean): string => (
+  `tech-stack/${icon}${light ? '-light' : ''}.png`
+);
+
+
+
+
+
+/* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
  ************************************************************************************************ */
 
@@ -33,12 +51,12 @@ const Logo = ({ item }: { item: ITechStackItem }) => (
     ? (
       <>
         <Image
-          path={`tech-stack/${item.icon}-light.png`}
+          path={buildPath(item.icon, true)}
           name={item.name}
           className='hidden dark:inline'
         />
         <Image
-          path={`tech-stack/${item.icon}.png`}
+          path={buildPath(item.icon)}
           name={item.name}
           className='dark:hidden'
         />
@@ -46,7 +64,7 @@ const Logo = ({ item }: { item: ITechStackItem }) => (
     )
     : (
       <Image
-        path={`tech-stack/${item.icon}.png`}
+        path={buildPath(item.icon)}
         name={item.name}
       />
     )
