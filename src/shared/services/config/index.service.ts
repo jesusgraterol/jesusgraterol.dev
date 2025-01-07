@@ -4,6 +4,7 @@ import {
   url,
   avatarPath,
   socialPages,
+  bio,
   projects,
   positions,
   education,
@@ -11,6 +12,7 @@ import {
 } from '../../../../app.config.json';
 import {
   IConfigService,
+  IBio,
   IProject,
   IPosition,
   ICertification,
@@ -54,6 +56,9 @@ const configServiceFactory = (): IConfigService => {
     twitterPage: socialPages.twitter,
     kagglePage: socialPages.kaggle,
 
+    // bio
+    bio,
+
     // projects
     projects,
 
@@ -90,6 +95,7 @@ export {
   ConfigService,
 
   // types
+  type IBio,
   type IProject,
   type IPosition,
   type ICertification,

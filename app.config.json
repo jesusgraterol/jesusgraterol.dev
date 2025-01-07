@@ -9,6 +9,14 @@
     "twitter": "https://x.com/jesusgrat_dev",
     "kaggle": "https://www.kaggle.com/jesusgraterol"
   },
+  "bio": {
+    "title": "Hi! My name is Jesus Graterol",
+    "content": [
+      "I am a Web Developer with 10+ years of experience building scalable web applications and REST-based APIs.",
+      "My proficiency extends to data science, allowing me to train and serve complex machine learning models over the Internet.",
+      "As a problem solver with meticulous attention to detail, I'm adept at identifying and resolving intricate challenges quickly and efficiently."
+    ]
+  },
   "projects": [
     {
       "logo": "projects/balancer.png",

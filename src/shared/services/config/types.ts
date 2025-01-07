@@ -22,6 +22,9 @@ type IConfigService = {
   twitterPage: string;
   kagglePage: string;
 
+  // bio
+  bio: IBio;
+
   // projects
   projects: IProject[];
 
@@ -42,6 +45,15 @@ type IConfigService = {
 /* ************************************************************************************************
  *                                             TYPES                                              *
  ************************************************************************************************ */
+
+/**
+ * Bio
+ * The object containing a brief description of the developer.
+ */
+type IBio = {
+  title: string;
+  content: string[];
+};
 
 /**
  * Project
@@ -107,6 +119,7 @@ export type {
   IConfigService,
 
   // types
+  IBio,
   IProject,
   IPosition,
   ICertification,
