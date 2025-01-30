@@ -281,6 +281,7 @@
         { "name": "React Router", "icon": "react-router" },
         { "name": "Redux", "icon": "redux" },
         { "name": "Zustand", "icon": "zustand" },
+        { "name": "TanStack Query", "icon": "tanstack" },
         { "name": "React Hook Form", "icon": "react-hook-form" },
         { "name": "Drizzle", "icon": "drizzle", "hasLightVariant": true },
         { "name": "JWT", "icon": "jwt" },
