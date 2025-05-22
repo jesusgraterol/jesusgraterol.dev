@@ -24,7 +24,15 @@
       "description": "A cutting-edge, open-source, self-hosted platform that empowers users to automate the Value Averaging Strategy for Bitcoin.",
       "url": "https://balancer.jesusgraterol.dev/",
       "githubURL": "https://github.com/bitcoin-balancer",
-      "tags": ["TypeScript", "PostgreSQL", "Node.js", "Express.js", "React", "TailwindCSS", "GNU Bash"]
+      "tags": [
+        "TypeScript",
+        "PostgreSQL",
+        "Node.js",
+        "Express.js",
+        "React",
+        "TailwindCSS",
+        "GNU Bash"
+      ]
     },
     {
       "logo": "projects/uipalettes.png",
@@ -289,6 +297,7 @@
         { "name": "RxJS", "icon": "rxjs" },
         { "name": "InversifyJS", "icon": "inversify" },
         { "name": "Postman", "icon": "postman" },
+        { "name": "Strapi", "icon": "strapi" },
         { "name": "Figma", "icon": "figma" },
         { "name": "The Bitcoin Protocol", "icon": "bitcoin" }
       ]
