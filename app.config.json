@@ -62,6 +62,18 @@
   "positions": [
     {
       "logo": "experience/balancer.png",
+      "dateRange": "Mar 2025 - Jul 2025",
+      "positionName": "Senior Full-Stack Engineer",
+      "companyName": "SELLIT9",
+      "responsibilities": [
+        "Led the development and integration of the company’s design system, significantly enhancing UI/UX consistency and improving the developer experience.",
+        "Led the development and integration of the company’s content management system, enabling multilingual support and establishing a consistent, scalable content workflow.",
+        "Led the development and integration of key features that expanded the company’s product and service offerings, significantly increasing addressable market size.",
+        "Promoted consistency and best practices across the engineering team by advocating for scalable architectures and maintainable development standards."
+      ]
+    },
+    {
+      "logo": "experience/balancer.png",
       "dateRange": "Jun 2024 - Dec 2024",
       "positionName": "Full-Stack Web Developer",
       "companyName": "Balancer",
