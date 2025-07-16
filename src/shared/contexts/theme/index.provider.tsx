@@ -5,11 +5,7 @@ import { ThemeProviderContext } from '@/shared/contexts/theme/index.context.ts';
 /* ************************************************************************************************
  *                                         IMPLEMENTATION                                         *
  ************************************************************************************************ */
-const ThemeProvider = ({
-  children,
-  defaultTheme = 'system',
-  ...props
-}: IThemeProviderProps) => {
+const ThemeProvider = ({ children, defaultTheme = 'system', ...props }: IThemeProviderProps) => {
   const [theme, setTheme] = useState<ITheme>(defaultTheme);
 
   useEffect(() => {
@@ -18,8 +14,7 @@ const ThemeProvider = ({
     root.classList.remove('light', 'dark');
 
     if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light';
       root.classList.add(systemTheme);
@@ -35,13 +30,7 @@ const ThemeProvider = ({
   );
 };
 
-
-
-
-
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
-export {
-  ThemeProvider,
-};
+export { ThemeProvider };

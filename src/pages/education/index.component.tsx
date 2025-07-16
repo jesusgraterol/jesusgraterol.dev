@@ -13,35 +13,25 @@ import Certification from './certification.component';
  */
 const Education = () => (
   <section>
-    <header
-      className='flex justify-between items-center'
-    >
-      <h2
-        className='text-2xl font-semibold leading-none tracking-tight'
-      >Education</h2>
+    <header className="flex justify-between items-center">
+      <h2 className="text-2xl font-semibold leading-none tracking-tight">Education</h2>
 
       <Button
-        variant='link'
-        className='text-xs sm:text-sm text-muted dark:text-slate-400 p-0'
+        variant="link"
+        className="text-xs sm:text-sm text-muted dark:text-slate-400 p-0"
         onClick={NavService.openCertificates}
       >
         View certificates
       </Button>
     </header>
 
-    <div className='relative ml-4 border-l border-slate-200 mt-5'>
-      {
-        ConfigService.certifications.map((certification, i) => (
-          <Certification key={i} certification={certification} />
-        ))
-      }
+    <div className="relative ml-4 border-l border-slate-200 mt-5">
+      {ConfigService.certifications.map((certification, i) => (
+        <Certification key={i} certification={certification} />
+      ))}
     </div>
   </section>
 );
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *

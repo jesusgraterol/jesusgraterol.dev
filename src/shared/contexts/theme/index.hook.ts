@@ -5,7 +5,6 @@ import { ThemeProviderContext } from '@/shared/contexts/theme/index.context.tsx'
  *                                         IMPLEMENTATION                                         *
  ************************************************************************************************ */
 
-
 const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 
@@ -16,10 +15,7 @@ const useTheme = () => {
   return context;
 };
 
-
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
-export {
-  useTheme,
-};
+export { useTheme };

@@ -1,5 +1,3 @@
-
-
 /* ************************************************************************************************
  *                                            SERVICE                                             *
  ************************************************************************************************ */
@@ -32,15 +30,12 @@ type IConfigService = {
   positions: IPosition[];
 
   // education
-  certificationsURL: string,
+  certificationsURL: string;
   certifications: ICertification[];
 
   // tech stack
   techStackCategories: ITechStackCategory[];
 };
-
-
-
 
 /* ************************************************************************************************
  *                                             TYPES                                              *
@@ -106,10 +101,6 @@ type ITechStackCategory = {
   title: string;
   items: ITechStackItem[];
 };
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *

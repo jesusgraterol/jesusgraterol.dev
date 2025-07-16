@@ -15,67 +15,47 @@ import ScrollToTop from '@/shared/components/scroll-to-top/index.component.tsx';
  * Component in charge of putting together all the pieces that comprise the application.
  */
 const App = () => (
-  <div
-    className='w-full flex justify-center items-start bg-white dark:bg-slate-900 dark:text-white animate-in slide-in-from-bottom-5 duration-500'
-  >
-    <div
-      className='w-full md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12'
-    >
+  <div className="w-full flex justify-center items-start bg-white dark:bg-slate-900 dark:text-white animate-in slide-in-from-bottom-5 duration-500">
+    <div className="w-full md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12">
       {/* ********
-        * HEADER *
-        ******** */}
+       * HEADER *
+       ******** */}
       <Header />
 
-      <main
-        className='px-5'
-      >
+      <main className="px-5">
         {/* *****
-          * BIO *
-          ***** */}
+         * BIO *
+         ***** */}
         <Bio />
 
-
-
         {/* **********
-          * PROJECTS *
-          ********** */}
+         * PROJECTS *
+         ********** */}
         <Projects />
 
-
-
         {/* ************
-          * EXPERIENCE *
-          ************ */}
+         * EXPERIENCE *
+         ************ */}
         <Experience />
 
-
-
         {/* ***********
-          * EDUCATION *
-          *********** */}
+         * EDUCATION *
+         *********** */}
         <Education />
 
-
-
         {/* ************
-          * TECH STACK *
-          ************ */}
+         * TECH STACK *
+         ************ */}
         <TechStack />
 
-
-
         {/* ***************
-          * SCROLL TO TOP *
-          *************** */}
+         * SCROLL TO TOP *
+         *************** */}
         <ScrollToTop />
       </main>
     </div>
   </div>
 );
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *

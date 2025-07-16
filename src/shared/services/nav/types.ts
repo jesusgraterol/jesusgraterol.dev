@@ -1,5 +1,3 @@
-
-
 /* ************************************************************************************************
  *                                            SERVICE                                             *
  ************************************************************************************************ */
@@ -14,27 +12,20 @@ type INavService = {
 
   // actions
   scrollToTop: () => void;
-  openURL:(url: string, newTab?: boolean, noReferrer?: boolean) => void;
-  openGitHubPage:() => void;
-  openLinkedInPage:() => void;
-  openKagglePage:() => void;
-  openTwitterPage:() => void;
-  openGitHubRepos:() => void;
-  openCertificates:() => void;
+  openURL: (url: string, newTab?: boolean, noReferrer?: boolean) => void;
+  openGitHubPage: () => void;
+  openLinkedInPage: () => void;
+  openKagglePage: () => void;
+  openTwitterPage: () => void;
+  openGitHubRepos: () => void;
+  openCertificates: () => void;
 };
-
-
-
 
 /* ************************************************************************************************
  *                                             TYPES                                              *
  ************************************************************************************************ */
 
 // ...
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *

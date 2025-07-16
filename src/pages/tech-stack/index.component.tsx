@@ -11,31 +11,17 @@ import Category from '@/pages/tech-stack/category.component.tsx';
  */
 const TechStack = () => (
   <section>
-    <header
-      className='flex justify-between items-center'
-    >
-      <h2
-        className='text-2xl font-semibold leading-none tracking-tight'
-      >Tech Stack</h2>
-
+    <header className="flex justify-between items-center">
+      <h2 className="text-2xl font-semibold leading-none tracking-tight">Tech Stack</h2>
     </header>
 
-    {
-      ConfigService.techStackCategories.map((category, i) => (
-        <div
-          key={i}
-          className='mt-8 first-of-type:mt-0'
-        >
-          <Category data={category} />
-        </div>
-      ))
-    }
+    {ConfigService.techStackCategories.map((category, i) => (
+      <div key={i} className="mt-8 first-of-type:mt-0">
+        <Category data={category} />
+      </div>
+    ))}
   </section>
 );
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *

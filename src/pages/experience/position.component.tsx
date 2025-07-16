@@ -15,21 +15,19 @@ const Position = ({
   position,
   openDialog,
 }: {
-  position: IPosition,
-  openDialog: (pos: IPosition) => void,
+  position: IPosition;
+  openDialog: (pos: IPosition) => void;
 }) => (
-  <div
-    className='mb-8 last:mb-0 ml-5'
-  >
+  <div className="mb-8 last:mb-0 ml-5">
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          variant='ghost'
-          size='icon'
-          className='float-right'
+          variant="ghost"
+          size="icon"
+          className="float-right"
           onClick={() => openDialog(position)}
         >
-          <Ellipsis className='w-5 h-5' />
+          <Ellipsis className="w-5 h-5" />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
@@ -40,28 +38,17 @@ const Position = ({
     <img
       src={position.logo}
       alt={`${position.companyName}'s logo`}
-      className='absolute w-7 h-7 mt-1.5 -left-3.5'
-      width='32'
-      height='32'
+      className="absolute w-7 h-7 mt-1.5 -left-3.5"
+      width="32"
+      height="32"
     />
-    <time
-      className='text-sm font-semibold leading-none text-muted dark:text-slate-400'>
-        {position.dateRange}
+    <time className="text-sm font-semibold leading-none text-muted dark:text-slate-400">
+      {position.dateRange}
     </time>
-    <h3
-      className='font-semibold'
-    >{position.positionName}</h3>
-    <p
-      className='text-sm truncate'
-    >
-      {position.companyName}
-    </p>
+    <h3 className="font-semibold">{position.positionName}</h3>
+    <p className="text-sm truncate">{position.companyName}</p>
   </div>
 );
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *

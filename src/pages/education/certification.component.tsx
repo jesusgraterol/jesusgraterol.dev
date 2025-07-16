@@ -13,18 +13,16 @@ import { NavService } from '@/shared/services/nav/index.service';
  * Component in charge of displaying details about an individual certification.
  */
 const Certification = ({ certification }: { certification: ICertification }) => (
-  <div
-    className='mb-8 last:mb-0 ml-5'
-  >
+  <div className="mb-8 last:mb-0 ml-5">
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          variant='ghost'
-          size='icon'
-          className='float-right'
+          variant="ghost"
+          size="icon"
+          className="float-right"
           onClick={() => NavService.openURL(certification.certificateURL)}
         >
-          <ExternalLink className='w-5 h-5' />
+          <ExternalLink className="w-5 h-5" />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
@@ -35,28 +33,17 @@ const Certification = ({ certification }: { certification: ICertification }) => 
     <img
       src={certification.logo}
       alt={`${certification.institution}'s logo`}
-      className='absolute w-7 h-7 mt-1.5 -left-3.5'
-      width='32'
-      height='32'
+      className="absolute w-7 h-7 mt-1.5 -left-3.5"
+      width="32"
+      height="32"
     />
-    <time
-      className='text-sm font-semibold leading-none text-muted dark:text-slate-400'>
-        {certification.dateRange}
+    <time className="text-sm font-semibold leading-none text-muted dark:text-slate-400">
+      {certification.dateRange}
     </time>
-    <h3
-      className='font-semibold truncate'
-    >{certification.degree}</h3>
-    <p
-      className='text-sm truncate'
-    >
-      {certification.institution}
-    </p>
+    <h3 className="font-semibold truncate">{certification.degree}</h3>
+    <p className="text-sm truncate">{certification.institution}</p>
   </div>
 );
-
-
-
-
 
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
