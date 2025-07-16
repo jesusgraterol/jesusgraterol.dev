@@ -24,7 +24,10 @@ const ThemeProvider = ({ children, defaultTheme = 'system', ...props }: IThemePr
   }, [theme]);
 
   return (
-    <ThemeProviderContext.Provider {...props} value={{ theme, setTheme }}>
+    <ThemeProviderContext.Provider
+      {...props}
+      value={{ theme, setTheme }}
+    >
       {children}
     </ThemeProviderContext.Provider>
   );
