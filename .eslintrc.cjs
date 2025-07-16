@@ -6,32 +6,30 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'airbnb-base',
-    'airbnb-typescript/base'
+    'airbnb-typescript/base',
+    'prettier',
   ],
   parserOptions: {
-    project: './tsconfig.app.json'
+    project: './tsconfig.app.json',
   },
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   overrides: [
     {
-      files: [ '*.test-*.{ts,tsx}', "*.bench.ts" ],
+      files: ['*.test-*.{ts,tsx}', '*.bench.ts'],
       rules: {
         'object-curly-newline': 'off',
-        'import/no-extraneous-dependencies': [ 'error', { 'devDependencies': true } ]
-      }
-    }
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      },
+    },
   ],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-    'no-multiple-empty-lines': [ 'error', { 'max': 5, 'maxEOF': 0 } ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'no-multiple-empty-lines': ['error', { max: 5, maxEOF: 0 }],
     'no-underscore-dangle': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'import/prefer-default-export': 'off',
-    'import/extensions': 'off'
+    'import/extensions': 'off',
   },
-}
+};
