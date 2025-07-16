@@ -55,18 +55,29 @@ const Experience = () => {
 
         <div className="relative ml-4 border-l border-slate-200 mt-5">
           {ConfigService.positions.slice(0, visibleRecords).map((position, i) => (
-            <Position key={i} position={position} openDialog={openDialog} />
+            <Position
+              key={i}
+              position={position}
+              openDialog={openDialog}
+            />
           ))}
         </div>
 
         {visibleRecords < 100 && (
-          <Button variant="ghost" className="w-full" onClick={() => setVisibleRecords(100)}>
+          <Button
+            variant="ghost"
+            className="w-full"
+            onClick={() => setVisibleRecords(100)}
+          >
             View all
           </Button>
         )}
       </section>
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <Dialog
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+      >
         <DialogContent className="dark:text-white">
           <DialogHeader className="text-left">
             <DialogTitle>{activePosition.current?.positionName}</DialogTitle>
@@ -75,7 +86,10 @@ const Experience = () => {
 
           <ul className="list-disc">
             {activePosition.current?.responsibilities.map((responsibility, i) => (
-              <li key={i} className="mt-3 first:mt-0">
+              <li
+                key={i}
+                className="mt-3 first:mt-0"
+              >
                 {responsibility}
               </li>
             ))}

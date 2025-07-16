@@ -42,11 +42,22 @@ const Image = ({ path, name, className }: { path: string; name: string; classNam
 const Logo = ({ item }: { item: ITechStackItem }) =>
   item.hasLightVariant ? (
     <>
-      <Image path={buildPath(item.icon, true)} name={item.name} className="hidden dark:inline" />
-      <Image path={buildPath(item.icon)} name={item.name} className="dark:hidden" />
+      <Image
+        path={buildPath(item.icon, true)}
+        name={item.name}
+        className="hidden dark:inline"
+      />
+      <Image
+        path={buildPath(item.icon)}
+        name={item.name}
+        className="dark:hidden"
+      />
     </>
   ) : (
-    <Image path={buildPath(item.icon)} name={item.name} />
+    <Image
+      path={buildPath(item.icon)}
+      name={item.name}
+    />
   );
 
 /* ************************************************************************************************

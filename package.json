@@ -2,7 +2,7 @@
   "name": "jesusgraterol",
   "description": "Jesus Graterol is a Full-Stack Web Developer with experience in building scalable web applications and REST-based APIs.",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",

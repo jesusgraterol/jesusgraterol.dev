@@ -7,7 +7,11 @@ import { ICustomIconProps } from '@/shared/components/custom-icons/types.ts';
 
 // GitHub Icon
 const GitHubIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustomIconProps, ref) => (
-  <svg ref={ref} viewBox="0 0 128 128" {...props}>
+  <svg
+    ref={ref}
+    viewBox="0 0 128 128"
+    {...props}
+  >
     <g fill="currentColor">
       <path
         fillRule="evenodd"
@@ -21,7 +25,11 @@ const GitHubIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustomIc
 
 // LinkedIn Icon
 const LinkedInIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustomIconProps, ref) => (
-  <svg ref={ref} viewBox="0 0 128 128" {...props}>
+  <svg
+    ref={ref}
+    viewBox="0 0 128 128"
+    {...props}
+  >
     <path
       fill="currentColor"
       d="M116 3H12a8.91 8.91 0 00-9 8.8v104.42a8.91 8.91 0 009 8.78h104a8.93 8.93 0 009-8.81V11.77A8.93 8.93 0 00116 3z"
@@ -35,7 +43,11 @@ const LinkedInIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustom
 
 // Kaggle Icon
 const KaggleIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustomIconProps, ref) => (
-  <svg ref={ref} viewBox="0 0 128 128" {...props}>
+  <svg
+    ref={ref}
+    viewBox="0 0 128 128"
+    {...props}
+  >
     <path
       fill="currentColor"
       d="M100.402 127.243c-.126.501-.627.752-1.502.752H82.168c-1.007 0-1.876-.438-2.632-1.317L51.91 91.531l-7.706 7.33v27.258c0 1.255-.628 1.881-1.88 1.881h-12.97c-1.254 0-1.88-.626-1.88-1.88V1.876c0-1.25.625-1.877 1.88-1.877h12.97c1.253 0 1.882.628 1.882 1.876v76.501l33.08-33.457c.878-.875 1.755-1.315 2.631-1.315h17.295c.75 0 1.25.315 1.504.937.252.753.19 1.316-.19 1.693L63.561 80.062l36.465 45.3c.499.502.625 1.128.38 1.881"
@@ -45,7 +57,11 @@ const KaggleIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustomIc
 
 // Twitter Icon
 const TwitterIcon = forwardRef<SVGSVGElement, ICustomIconProps>((props: ICustomIconProps, ref) => (
-  <svg ref={ref} viewBox="0 0 128 128" {...props}>
+  <svg
+    ref={ref}
+    viewBox="0 0 128 128"
+    {...props}
+  >
     <path
       fill="currentColor"
       style={{ strokeWidth: 0.104373 }}

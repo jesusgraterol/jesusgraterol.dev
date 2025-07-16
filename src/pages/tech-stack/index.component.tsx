@@ -16,7 +16,10 @@ const TechStack = () => (
     </header>
 
     {ConfigService.techStackCategories.map((category, i) => (
-      <div key={i} className="mt-8 first-of-type:mt-0">
+      <div
+        key={i}
+        className="mt-8 first-of-type:mt-0"
+      >
         <Category data={category} />
       </div>
     ))}

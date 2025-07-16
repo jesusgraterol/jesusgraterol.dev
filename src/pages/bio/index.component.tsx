@@ -17,7 +17,10 @@ const Bio = () => (
     </header>
 
     {ConfigService.bio.content.map((paragraph, i) => (
-      <p key={i} className="my-3">
+      <p
+        key={i}
+        className="my-3"
+      >
         {paragraph}
       </p>
     ))}

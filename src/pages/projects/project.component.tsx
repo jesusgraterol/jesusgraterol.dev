@@ -68,7 +68,11 @@ const Project = ({ project }: { project: IProject }) => (
     </CardHeader>
     <CardContent className="p-3 truncate">
       {project.tags.map((tag, i) => (
-        <Badge key={i} variant="secondary" className="mx-0.5">
+        <Badge
+          key={i}
+          variant="secondary"
+          className="mx-0.5"
+        >
           {tag}
         </Badge>
       ))}

@@ -27,7 +27,10 @@ const Projects = () => (
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
       {ConfigService.projects.map((project, i) => (
-        <Project key={i} project={project} />
+        <Project
+          key={i}
+          project={project}
+        />
       ))}
     </div>
   </section>

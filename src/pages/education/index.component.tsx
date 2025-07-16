@@ -27,7 +27,10 @@ const Education = () => (
 
     <div className="relative ml-4 border-l border-slate-200 mt-5">
       {ConfigService.certifications.map((certification, i) => (
-        <Certification key={i} certification={certification} />
+        <Certification
+          key={i}
+          certification={certification}
+        />
       ))}
     </div>
   </section>

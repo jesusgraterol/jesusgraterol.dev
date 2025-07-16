@@ -125,8 +125,14 @@ const Header = () => {
       {/* *********
        * SIDENAV *
        ********* */}
-      <Sheet open={isSidenavOpen} onOpenChange={setIsSidenavOpen}>
-        <SheetContent side="right" className="w-64 overflow-y-auto p-0 dark:text-white">
+      <Sheet
+        open={isSidenavOpen}
+        onOpenChange={setIsSidenavOpen}
+      >
+        <SheetContent
+          side="right"
+          className="w-64 overflow-y-auto p-0 dark:text-white"
+        >
           <SheetHeader className="pt-3 px-3">
             <SheetTitle className="text-left">Menu</SheetTitle>
             <SheetDescription></SheetDescription>
