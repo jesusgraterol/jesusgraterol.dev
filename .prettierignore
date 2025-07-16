@@ -1,0 +1,35 @@
+# defaults
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# build and dist Output
+dist
+build
+.out
+.next
+
+# logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# environment files
+.env
+.env.local
+.env.*.local
+
+# lockfiles (if using a monorepo or specific package manager setup)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# miscellaneous
+coverage/         # Test coverage reports
+.DS_Store         # macOS system files
+*.min.js          # Minified JavaScript files
+public/           # Static assets (e.g., Next.js, Vite)
+tmp/              # Temporary files
+*.md              # Markdown files

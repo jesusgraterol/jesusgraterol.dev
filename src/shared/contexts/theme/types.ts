@@ -19,13 +19,7 @@ type IThemeProviderState = {
   setTheme: (theme: ITheme) => void;
 };
 
-
-
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
-export type {
-  ITheme,
-  IThemeProviderProps,
-  IThemeProviderState,
-};
+export type { ITheme, IThemeProviderProps, IThemeProviderState };

@@ -8,10 +8,6 @@
 /* Typography Font */
 @import url('/node_modules/webfont-ubuntu/dist/index.css');
 
-
-
-
-
 /* ************************************************************************************************
  *                                      TAILWIND DIRECTIVES                                       *
  ************************************************************************************************ */
@@ -25,17 +21,13 @@
     --radius: 0.5rem;
   }
   html {
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: var(--font-size);
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
 }
-
-
-
-
 
 /* ************************************************************************************************
  *                                            GENERAL                                             *
@@ -54,9 +46,6 @@ main section:nth-child(2) {
   margin: 40px 0;
 }
 
-
-
-
 /* ************************************************************************************************
  *                                    RESPONSIVE MEDIA QUERIES                                    *
  ************************************************************************************************ */
@@ -65,49 +54,28 @@ main section:nth-child(2) {
  * Breakpoint Prefix: sm
  */
 @media (min-width: 640px) {
-
 }
-
- 
- 
-
 
 /*
  * Breakpoint Prefix: md
  */
 @media (min-width: 768px) {
-
 }
-
- 
- 
-
 
 /*
  * Breakpoint Prefix: lg
  */
 @media (min-width: 1024px) {
-
 }
-
- 
- 
-
 
 /*
  * Breakpoint Prefix: xl
  */
 @media (min-width: 1280px) {
-
 }
-
-
-
-
 
 /*
  * Breakpoint Prefix: 2xl
  */
 @media (min-width: 1536px) {
-
 }

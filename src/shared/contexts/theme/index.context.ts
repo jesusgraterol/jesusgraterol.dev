@@ -9,13 +9,7 @@ const ThemeProviderContext = createContext<IThemeProviderState>({
   setTheme: () => null,
 });
 
-
-
-
-
 /* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
-export {
-  ThemeProviderContext,
-};
+export { ThemeProviderContext };
