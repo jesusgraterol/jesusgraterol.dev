@@ -204,7 +204,7 @@
   },
   "techStack": [
     {
-      "title": "Programming Languages",
+      "title": "Programming languages",
       "items": [
         { "name": "HTML", "icon": "html" },
         { "name": "CSS", "icon": "css" },
@@ -215,7 +215,7 @@
       ]
     },
     {
-      "title": "Front-End",
+      "title": "Frontend",
       "items": [
         { "name": "Angular", "icon": "angular" },
         { "name": "React", "icon": "react" },
@@ -228,12 +228,23 @@
       ]
     },
     {
-      "title": "Back-End",
+      "title": "Backend",
       "items": [
         { "name": "Node.js", "icon": "node-js" },
         { "name": "Express.js", "icon": "express-js", "hasLightVariant": true },
+        { "name": "NestJS", "icon": "nestjs" },
         { "name": "Flask", "icon": "flask", "hasLightVariant": true },
         { "name": "Django", "icon": "django" }
+      ]
+    },
+    {
+      "title": "Data science & AI",
+      "items": [
+        { "name": "NumPy", "icon": "numpy" },
+        { "name": "Pandas", "icon": "pandas", "hasLightVariant": true },
+        { "name": "Keras", "icon": "keras" },
+        { "name": "TensorFlow", "icon": "tensorflow" },
+        { "name": "OpenAI API Platform", "icon": "openai", "hasLightVariant": true }
       ]
     },
     {
@@ -241,6 +252,7 @@
       "items": [
         { "name": "PostgreSQL", "icon": "postgresql" },
         { "name": "MySQL", "icon": "mysql", "hasLightVariant": true },
+        { "name": "Redis", "icon": "redis" },
         { "name": "Firebase (RTDB / Cloud Firestore)", "icon": "firebase" },
         { "name": "IndexedDB (idb / Dexie.js)", "icon": "mdn" }
       ]
@@ -251,11 +263,12 @@
         { "name": "UNIX-like OS", "icon": "ubuntu" },
         { "name": "GNU Bash", "icon": "bash" },
         { "name": "Git", "icon": "git" },
-        { "name": "Docker", "icon": "docker" }
+        { "name": "Docker", "icon": "docker" },
+        { "name": "Google Cloud Platform (GCP)", "icon": "gcp" }
       ]
     },
     {
-      "title": "Test Runners",
+      "title": "Test runners",
       "items": [
         { "name": "Vitest", "icon": "vitest" },
         { "name": "Jest", "icon": "jest" },
@@ -285,15 +298,6 @@
       ]
     },
     {
-      "title": "Data Science",
-      "items": [
-        { "name": "NumPy", "icon": "numpy" },
-        { "name": "Pandas", "icon": "pandas", "hasLightVariant": true },
-        { "name": "Keras", "icon": "keras" },
-        { "name": "TensorFlow", "icon": "tensorflow" }
-      ]
-    },
-    {
       "title": "Misc",
       "items": [
         { "name": "Zod", "icon": "zod" },
@@ -303,11 +307,16 @@
         { "name": "Zustand", "icon": "zustand" },
         { "name": "TanStack Query", "icon": "tanstack" },
         { "name": "React Hook Form", "icon": "react-hook-form" },
+        { "name": "Prisma", "icon": "prisma", "hasLightVariant": true },
         { "name": "Drizzle", "icon": "drizzle", "hasLightVariant": true },
         { "name": "JWT", "icon": "jwt" },
         { "name": "Socket.IO", "icon": "socket-io" },
         { "name": "RxJS", "icon": "rxjs" },
         { "name": "InversifyJS", "icon": "inversify" },
+        { "name": "Pydantic", "icon": "pydantic" },
+        { "name": "Stripe", "icon": "stripe" },
+        { "name": "RevenueCat", "icon": "revenuecat" },
+        { "name": "Auth0", "icon": "auth0" },
         { "name": "Postman", "icon": "postman" },
         { "name": "Strapi", "icon": "strapi" },
         { "name": "Figma", "icon": "figma" },
