@@ -12,7 +12,7 @@ import Category from '@/pages/tech-stack/category.component.tsx';
 const TechStack = () => (
   <section>
     <header className="flex justify-between items-center">
-      <h2 className="text-2xl font-semibold leading-none tracking-tight">Tech Stack</h2>
+      <h2 className="text-2xl font-semibold leading-none tracking-tight">Tech stack</h2>
     </header>
 
     {ConfigService.techStackCategories.map((category, i) => (
