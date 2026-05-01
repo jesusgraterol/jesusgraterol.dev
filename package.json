@@ -2,7 +2,7 @@
   "name": "jesusgraterol",
   "description": "Jesus Graterol is a Full-Stack Web Developer with experience in building scalable web applications and REST-based APIs.",
   "private": false,
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -71,11 +71,11 @@
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-react-refresh": "0.4.12",
     "jsdom": "25.0.1",
-    "postcss": "8.4.47",
+    "postcss": "8.5.13",
     "prettier": "3.6.2",
     "tailwindcss": "3.4.13",
     "typescript": "5.6.3",
-    "vite": "6.4.1",
+    "vite": "6.4.2",
     "vitest": "3.2.4"
   }
 }
