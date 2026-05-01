@@ -61,6 +61,21 @@
   ],
   "positions": [
     {
+      "logo": "experience/everme.png",
+      "dateRange": "Aug 2025 - Apr 2026",
+      "positionName": "Senior Full-Stack Engineer",
+      "companyName": "EverMe",
+      "responsibilities": [
+        "Strengthened platform security by identifying and fixing vulnerabilities, improving backend reliability, and reducing operational risk.",
+        "Modernized the backend architecture and AI infrastructure, introducing cleaner engineering patterns, stronger testing practices, and more maintainable development workflows.",
+        "Guided the engineering team on software design, backend best practices, and test-driven development principles.",
+        "Built an internal admin app that enabled the team to manage users, inspect platform state, and perform operational tasks more efficiently.",
+        "Integrated multiple third-party biometric and wearable data providers, allowing the backend to securely access and process users’ health and activity data.",
+        "Designed and built an AI sandbox environment for testing how models interpret biometric data, reason over user context, and use tools to retrieve relevant information.",
+        "Led the development of the company’s premium subscription infrastructure, including payment provider integrations, entitlement management, subscription events, and backend gating for premium features."
+      ]
+    },
+    {
       "logo": "experience/sellit9.png",
       "dateRange": "Mar 2025 - Jul 2025",
       "positionName": "Senior Full-Stack Engineer",
@@ -316,9 +331,10 @@
         { "name": "Pydantic", "icon": "pydantic" },
         { "name": "Stripe", "icon": "stripe" },
         { "name": "RevenueCat", "icon": "revenuecat" },
-        { "name": "Auth0", "icon": "auth0" },
-        { "name": "Postman", "icon": "postman" },
         { "name": "Strapi", "icon": "strapi" },
+        { "name": "Auth0", "icon": "auth0" },
+        { "name": "Retool", "icon": "retool" },
+        { "name": "Postman", "icon": "postman" },
         { "name": "Figma", "icon": "figma" },
         { "name": "The Bitcoin Protocol", "icon": "bitcoin" }
       ]
