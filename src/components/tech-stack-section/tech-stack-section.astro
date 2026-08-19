@@ -1,0 +1,79 @@
+---
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+
+const technologyCount = PORTFOLIO.techStack.reduce(
+  (total, category) => total + category.items.length,
+  0,
+);
+---
+
+<section
+  id="tech-stack"
+  class="section-space section-rule"
+  aria-labelledby="tech-stack-title"
+>
+  <div class="page-shell">
+    <div class="grid gap-6 lg:grid-cols-[0.42fr_1fr] lg:gap-20">
+      <p class="eyebrow">05 / Toolkit</p>
+      <div>
+        <h2
+          id="tech-stack-title"
+          class="section-title"
+        >
+          Broad tools. Deliberate choices.
+        </h2>
+        <p class="lede mt-5">
+          {technologyCount} technologies across the full product lifecycle: from interface design and
+          application code to data, infrastructure, and testing.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        PORTFOLIO.techStack.map((category) => (
+          <article class="rounded-xl border border-border bg-surface p-5 shadow-surface sm:p-6">
+            <h3 class="font-mono text-xs font-bold tracking-[0.08em] text-muted uppercase">
+              {category.title}
+            </h3>
+            <ul class="mt-5 grid grid-cols-2 gap-2">
+              {category.items.map((technology) => (
+                <li class="flex min-w-0 items-center gap-2.5 rounded-lg border border-transparent px-2 py-2 text-sm font-semibold hover:border-border hover:bg-secondary">
+                  <span class="grid size-7 shrink-0 place-items-center">
+                    <img
+                      src={`/tech-stack/${technology.icon}.png`}
+                      alt=""
+                      width="28"
+                      height="28"
+                      class:list={[
+                        'max-h-7 max-w-7 object-contain',
+                        technology.hasLightVariant && 'dark:hidden',
+                      ]}
+                      loading="lazy"
+                    />
+                    {technology.hasLightVariant && (
+                      <img
+                        src={`/tech-stack/${technology.icon}-light.png`}
+                        alt=""
+                        width="28"
+                        height="28"
+                        class="hidden max-h-7 max-w-7 object-contain dark:block"
+                        loading="lazy"
+                      />
+                    )}
+                  </span>
+                  <span
+                    class="truncate"
+                    title={technology.name}
+                  >
+                    {technology.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

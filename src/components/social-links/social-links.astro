@@ -1,0 +1,78 @@
+---
+import { Mail } from '@lucide/astro';
+
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+import BrandIcon from '../brand-icon/brand-icon.astro';
+
+interface Props {
+  includeEmail?: boolean;
+}
+
+const { includeEmail = false } = Astro.props;
+const linkClass =
+  'inline-flex min-h-10 items-center gap-2 rounded-full border border-border-strong px-3.5 text-sm font-semibold no-underline transition-colors hover:bg-secondary';
+---
+
+<div
+  class="flex flex-wrap gap-2"
+  aria-label="Social profiles"
+>
+  <a
+    class={linkClass}
+    href={PORTFOLIO.socialPages.github}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <BrandIcon
+      brand="github"
+      class="size-4"
+    /> GitHub
+  </a>
+  <a
+    class={linkClass}
+    href={PORTFOLIO.socialPages.linkedin}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <BrandIcon
+      brand="linkedin"
+      class="size-4"
+    /> LinkedIn
+  </a>
+  <a
+    class={linkClass}
+    href={PORTFOLIO.socialPages.twitter}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <BrandIcon
+      brand="x"
+      class="size-4"
+    /> X
+  </a>
+  <a
+    class={linkClass}
+    href={PORTFOLIO.socialPages.kaggle}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <BrandIcon
+      brand="kaggle"
+      class="size-4"
+    /> Kaggle
+  </a>
+  {
+    includeEmail && (
+      <a
+        class={linkClass}
+        href={`mailto:${PORTFOLIO.email}`}
+      >
+        <Mail
+          class="size-4"
+          aria-hidden="true"
+        />{' '}
+        Email
+      </a>
+    )
+  }
+</div>

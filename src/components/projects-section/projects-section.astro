@@ -1,0 +1,91 @@
+---
+import { ArrowUpRight, GitBranch } from '@lucide/astro';
+
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+---
+
+<section
+  id="projects"
+  class="section-space section-rule"
+  aria-labelledby="projects-title"
+>
+  <div class="page-shell">
+    <div class="grid gap-6 lg:grid-cols-[0.42fr_1fr] lg:gap-20">
+      <p class="eyebrow">02 / Selected work</p>
+      <div>
+        <h2
+          id="projects-title"
+          class="section-title"
+        >
+          Products with a point of view.
+        </h2>
+        <p class="lede mt-5">
+          Open-source tools and focused products spanning agentic software development, Bitcoin
+          automation, data science, developer tooling, and accessible design.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2">
+      {
+        PORTFOLIO.projects.map((project, index) => (
+          <article class="group flex min-h-[28rem] flex-col rounded-2xl border border-border bg-surface p-6 shadow-surface transition-transform duration-200 hover:-translate-y-1 sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div class="grid size-16 place-items-center overflow-hidden rounded-xl border border-border bg-secondary p-2">
+                <img
+                  src={`/${project.logo}`}
+                  alt=""
+                  width="64"
+                  height="64"
+                  class="size-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <span class="font-mono text-xs font-bold text-muted">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </div>
+            <h3 class="mt-8 text-3xl font-semibold tracking-[-0.04em]">{project.name}</h3>
+            <p class="mt-4 leading-7 text-muted">{project.description}</p>
+            <ul
+              class="mt-6 flex flex-wrap gap-2"
+              aria-label={`${project.name} technologies`}
+            >
+              {project.tags.map((tag) => (
+                <li class="rounded-full bg-secondary px-3 py-1 font-mono text-[0.68rem] font-bold">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <div class="mt-auto flex flex-wrap gap-4 pt-8 text-sm font-bold">
+              <a
+                class="inline-flex items-center gap-1.5 underline-offset-4 hover:underline"
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit project{' '}
+                <ArrowUpRight
+                  class="size-4"
+                  aria-hidden="true"
+                />
+              </a>
+              <a
+                class="inline-flex items-center gap-1.5 text-muted underline-offset-4 hover:text-foreground hover:underline"
+                href={project.githubURL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitBranch
+                  class="size-4"
+                  aria-hidden="true"
+                />{' '}
+                Source
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

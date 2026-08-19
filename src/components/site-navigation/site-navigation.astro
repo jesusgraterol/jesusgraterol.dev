@@ -1,0 +1,154 @@
+---
+import { GitBranch, Menu } from '@lucide/astro';
+
+import { SITE_CONFIG } from '../../site.config.ts';
+import BrandIdentity from '../brand-identity/brand-identity.astro';
+import ThemeControl from '../theme-control/theme-control.astro';
+
+const onHomePage = Astro.url.pathname === '/';
+const resolveHref = (href: string): string => (onHomePage ? href : `/${href}`);
+---
+
+<header class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+  <div class="page-shell flex min-h-16 items-center justify-between gap-4">
+    <a
+      href="/"
+      class="min-w-0 no-underline"
+      aria-label="Jesus Graterol home"
+    >
+      <BrandIdentity />
+    </a>
+
+    <nav
+      class="hidden items-center gap-0.5 lg:flex"
+      aria-label="Primary navigation"
+    >
+      {
+        SITE_CONFIG.navigation.map(({ href, label }) => (
+          <a
+            href={resolveHref(href)}
+            class="rounded-full border border-transparent px-3 py-2 text-sm font-medium text-muted no-underline transition-colors hover:bg-secondary hover:text-foreground aria-[current=location]:bg-secondary aria-[current=location]:text-foreground"
+            data-section-link={href.slice(1)}
+          >
+            {label}
+          </a>
+        ))
+      }
+      <a
+        href={SITE_CONFIG.repositoryUrl}
+        class="inline-flex size-9 items-center justify-center rounded-full text-muted no-underline hover:bg-secondary hover:text-foreground"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Source repository on GitHub"
+      >
+        <GitBranch
+          class="size-4"
+          aria-hidden="true"
+        />
+      </a>
+      <ThemeControl />
+    </nav>
+
+    <div class="flex items-center gap-1 lg:hidden">
+      <ThemeControl />
+      <details class="group relative">
+        <summary
+          class="flex size-10 list-none items-center justify-center rounded-full border border-border-strong marker:content-none"
+          aria-label="Open navigation menu"
+        >
+          <Menu
+            class="size-5"
+            aria-hidden="true"
+          />
+        </summary>
+        <nav
+          class="absolute right-0 mt-2 grid w-[min(19rem,calc(100vw-2rem))] gap-1 rounded-xl border border-border bg-surface p-3 shadow-raised"
+          aria-label="Mobile navigation"
+        >
+          {
+            SITE_CONFIG.navigation.map(({ href, label }) => (
+              <a
+                href={resolveHref(href)}
+                class="rounded-md px-3 py-2.5 text-sm font-semibold text-muted no-underline hover:bg-secondary hover:text-foreground aria-[current=location]:bg-secondary aria-[current=location]:text-foreground"
+                data-section-link={href.slice(1)}
+              >
+                {label}
+              </a>
+            ))
+          }
+          <a
+            href={SITE_CONFIG.repositoryUrl}
+            class="rounded-md px-3 py-2.5 text-sm font-semibold no-underline hover:bg-secondary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Source repository
+          </a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileMenu = document.querySelector<HTMLDetailsElement>('header details');
+  const mobileMenuControl = mobileMenu?.querySelector<HTMLElement>('summary');
+  const siteHeader = document.querySelector<HTMLElement>('body > header');
+  const sectionLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-section-link]')];
+  const sectionIds = [...new Set(sectionLinks.map((link) => link.dataset['sectionLink']))].filter(
+    (sectionId): sectionId is string => Boolean(sectionId),
+  );
+  const sections = sectionIds
+    .map((sectionId) => document.getElementById(sectionId))
+    .filter((section): section is HTMLElement => Boolean(section));
+
+  const updateActiveSection = () => {
+    const activationOffset = (siteHeader?.offsetHeight ?? 0) + 1;
+    let activeSectionId: string | undefined;
+
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top > activationOffset) break;
+      activeSectionId = section.id;
+    }
+    if (
+      sections.length > 0 &&
+      window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1
+    ) {
+      activeSectionId = sections.at(-1)?.id;
+    }
+
+    for (const link of sectionLinks) {
+      if (link.dataset['sectionLink'] === activeSectionId) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    }
+  };
+
+  let activeSectionUpdatePending = false;
+  const scheduleActiveSectionUpdate = () => {
+    if (activeSectionUpdatePending) return;
+    activeSectionUpdatePending = true;
+    window.requestAnimationFrame(() => {
+      activeSectionUpdatePending = false;
+      updateActiveSection();
+    });
+  };
+
+  mobileMenu?.addEventListener('toggle', () => {
+    mobileMenuControl?.setAttribute(
+      'aria-label',
+      mobileMenu.open ? 'Close navigation menu' : 'Open navigation menu',
+    );
+  });
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => mobileMenu.removeAttribute('open'));
+  });
+  if (sections.length > 0) {
+    updateActiveSection();
+    window.addEventListener('scroll', scheduleActiveSectionUpdate, { passive: true });
+    window.addEventListener('resize', scheduleActiveSectionUpdate);
+    window.addEventListener('hashchange', scheduleActiveSectionUpdate);
+  }
+</script>

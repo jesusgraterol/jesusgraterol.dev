@@ -1,0 +1,32 @@
+---
+import { ArrowLeft } from '@lucide/astro';
+
+import BaseLayout from '../layouts/base-layout.astro';
+import { SITE_CONFIG } from '../site.config.ts';
+---
+
+<BaseLayout
+  canonicalPath="/404/"
+  description="The requested page could not be found."
+  title={`Page not found | ${SITE_CONFIG.name}`}
+  noIndex
+>
+  <section class="page-shell grid min-h-[65vh] place-items-center py-24 text-center">
+    <div>
+      <p class="eyebrow">Error / 404</p>
+      <h1 class="display-title mx-auto mt-5">This page took a wrong turn.</h1>
+      <p class="lede mx-auto mt-7">
+        The address may have changed, or the page may no longer exist.
+      </p>
+      <a
+        class="action-primary mt-9"
+        href="/"
+      >
+        <ArrowLeft
+          class="size-4"
+          aria-hidden="true"
+        /> Return home
+      </a>
+    </div>
+  </section>
+</BaseLayout>

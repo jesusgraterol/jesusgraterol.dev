@@ -1,0 +1,29 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<span class="inline-flex items-center gap-2.5">
+  <img
+    src="/favicons/128x128.png"
+    alt=""
+    width="32"
+    height="32"
+    class="size-8 shrink-0 shadow-surface"
+    aria-hidden="true"
+    data-brand-mark="terminal"
+  />
+  {
+    !compact && (
+      <span class="leading-none">
+        <span class="block text-sm font-bold tracking-[-0.02em]">Jesus Graterol</span>
+        <span class="mt-1 block font-mono text-[0.62rem] font-bold tracking-[0.11em] text-muted uppercase">
+          Software Developer
+        </span>
+      </span>
+    )
+  }
+</span>

@@ -1,0 +1,66 @@
+---
+import { ArrowDownRight, Mail } from '@lucide/astro';
+
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+import SocialLinks from '../social-links/social-links.astro';
+---
+
+<section class="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-32 lg:pb-36">
+  <div class="grid-background pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
+  <div class="page-shell grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-20">
+    <div>
+      <p class="eyebrow">Software Developer / 2026</p>
+      <h1 class="display-title mt-5">I build software for ambitious ideas.</h1>
+      <p class="mt-7 max-w-2xl text-xl leading-8 font-medium text-muted sm:text-2xl">
+        {PORTFOLIO.bio.title}. I’m a seasoned software developer pairing durable engineering
+        fundamentals with modern AI, coding agents, and agentic workflows.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a
+          class="action-primary"
+          href="#projects"
+        >
+          See selected work <ArrowDownRight
+            class="size-4"
+            aria-hidden="true"
+          />
+        </a>
+        <a
+          class="action-secondary"
+          href={`mailto:${PORTFOLIO.email}`}
+        >
+          <Mail
+            class="size-4"
+            aria-hidden="true"
+          /> Start a conversation
+        </a>
+      </div>
+      <div class="mt-8">
+        <SocialLinks />
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[19rem] lg:mx-0">
+      <div class="absolute -inset-5 -z-10 rounded-full border border-border"></div>
+      <div class="absolute -inset-10 -z-20 rounded-full border border-dashed border-border"></div>
+      <div class="overflow-hidden rounded-[2rem] border border-border bg-secondary shadow-raised">
+        <img
+          src={`/${PORTFOLIO.avatar.path}`}
+          alt="Portrait of Jesus Graterol"
+          width={PORTFOLIO.avatar.width}
+          height={PORTFOLIO.avatar.height}
+          class="aspect-square w-full object-cover"
+          fetchpriority="high"
+        />
+      </div>
+      <div
+        class="absolute -right-4 -bottom-4 rounded-xl border border-border bg-surface px-4 py-3 shadow-raised"
+      >
+        <span class="flex items-center gap-2 text-xs font-bold">
+          <span class="size-2 rounded-full bg-accent"></span>
+          10+ years building
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
