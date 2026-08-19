@@ -1,0 +1,35 @@
+---
+import AboutSection from '../components/about-section/about-section.astro';
+import CareerSnapshot from '../components/career-snapshot/career-snapshot.astro';
+import ContactSection from '../components/contact-section/contact-section.astro';
+import EducationSection from '../components/education-section/education-section.astro';
+import ExperienceSection from '../components/experience-section/experience-section.astro';
+import HeroSection from '../components/hero-section/hero-section.astro';
+import ProjectsSection from '../components/projects-section/projects-section.astro';
+import TechStackSection from '../components/tech-stack-section/tech-stack-section.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import { SITE_CONFIG } from '../site.config.ts';
+import { buildProfileStructuredData } from '../utilities/seo/index.ts';
+
+const structuredData = buildProfileStructuredData({
+  canonicalUrl: new URL('/', SITE_CONFIG.url).toString(),
+  description: SITE_CONFIG.defaultDescription,
+  title: SITE_CONFIG.title,
+});
+---
+
+<BaseLayout
+  canonicalPath="/"
+  description={SITE_CONFIG.defaultDescription}
+  title={SITE_CONFIG.title}
+  {structuredData}
+>
+  <HeroSection />
+  <CareerSnapshot />
+  <AboutSection />
+  <ProjectsSection />
+  <ExperienceSection />
+  <EducationSection />
+  <TechStackSection />
+  <ContactSection />
+</BaseLayout>

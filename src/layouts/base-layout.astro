@@ -1,0 +1,245 @@
+---
+import SiteFooter from '../components/site-footer/site-footer.astro';
+import SiteNavigation from '../components/site-navigation/site-navigation.astro';
+import { SITE_CONFIG } from '../site.config.ts';
+import '../styles/global.css';
+
+interface Props {
+  canonicalPath: string;
+  description: string;
+  title: string;
+  noIndex?: boolean;
+  structuredData?: Record<string, unknown>;
+}
+
+const { canonicalPath, description, noIndex = false, structuredData, title } = Astro.props;
+const canonicalUrl = new URL(canonicalPath, SITE_CONFIG.url).toString();
+const llmsTextUrl = new URL('/llms.txt', SITE_CONFIG.url).toString();
+const openGraphImageUrl = new URL(SITE_CONFIG.openGraph.image, SITE_CONFIG.url).toString();
+const openGraphType = noIndex ? 'website' : 'profile';
+const serializedStructuredData = structuredData
+  ? JSON.stringify(structuredData).replaceAll('<', '\\u003c')
+  : undefined;
+---
+
+<!doctype html>
+<html lang={SITE_CONFIG.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <meta
+      name="description"
+      content={description}
+    />
+    <meta
+      name="author"
+      content={SITE_CONFIG.author.name}
+    />
+    <meta
+      name="theme-color"
+      content={SITE_CONFIG.themeColors.light}
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content={SITE_CONFIG.themeColors.dark}
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="robots"
+      content={noIndex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}
+    />
+    <link
+      rel="canonical"
+      href={canonicalUrl}
+    />
+    <link
+      rel="describedby"
+      href={llmsTextUrl}
+    />
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      sizes="16x16 32x32 48x48"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/favicons/192x192.png"
+    />
+
+    <meta
+      property="og:site_name"
+      content={SITE_CONFIG.name}
+    />
+    <meta
+      property="og:locale"
+      content={SITE_CONFIG.openGraph.locale}
+    />
+    <meta
+      property="og:type"
+      content={openGraphType}
+    />
+    <meta
+      property="og:title"
+      content={title}
+    />
+    <meta
+      property="og:description"
+      content={description}
+    />
+    <meta
+      property="og:url"
+      content={canonicalUrl}
+    />
+    <meta
+      property="og:image"
+      content={openGraphImageUrl}
+    />
+    <meta
+      property="og:image:secure_url"
+      content={openGraphImageUrl}
+    />
+    <meta
+      property="og:image:type"
+      content={SITE_CONFIG.openGraph.imageType}
+    />
+    <meta
+      property="og:image:width"
+      content={String(SITE_CONFIG.openGraph.width)}
+    />
+    <meta
+      property="og:image:height"
+      content={String(SITE_CONFIG.openGraph.height)}
+    />
+    <meta
+      property="og:image:alt"
+      content={SITE_CONFIG.openGraph.imageAlt}
+    />
+    {
+      !noIndex && (
+        <>
+          <meta
+            property="profile:first_name"
+            content={SITE_CONFIG.author.givenName}
+          />
+          <meta
+            property="profile:last_name"
+            content={SITE_CONFIG.author.familyName}
+          />
+          <meta
+            property="profile:username"
+            content={SITE_CONFIG.author.username}
+          />
+        </>
+      )
+    }
+
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      name="twitter:title"
+      content={title}
+    />
+    <meta
+      name="twitter:description"
+      content={description}
+    />
+    <meta
+      name="twitter:image"
+      content={openGraphImageUrl}
+    />
+    <meta
+      name="twitter:image:alt"
+      content={SITE_CONFIG.openGraph.imageAlt}
+    />
+    <meta
+      name="twitter:creator"
+      content={SITE_CONFIG.author.twitterHandle}
+    />
+
+    <title>{title}</title>
+    {
+      serializedStructuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={serializedStructuredData}
+        />
+      )
+    }
+    <script
+      is:inline
+      define:vars={{
+        darkThemeColor: SITE_CONFIG.themeColors.dark,
+        lightThemeColor: SITE_CONFIG.themeColors.light,
+      }}
+    >
+      (() => {
+        const storageKey = 'jesusgraterol-theme';
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const getPreference = () => {
+          try {
+            const preference = localStorage.getItem(storageKey);
+            return preference === 'dark' || preference === 'light' ? preference : 'system';
+          } catch {
+            return 'system';
+          }
+        };
+        const applyTheme = (preference = getPreference()) => {
+          const resolvedTheme =
+            preference === 'system' ? (media.matches ? 'dark' : 'light') : preference;
+          document.documentElement.classList.toggle('dark', resolvedTheme === 'dark');
+          document.documentElement.classList.toggle('light', resolvedTheme === 'light');
+          document.documentElement.dataset.resolvedTheme = resolvedTheme;
+          document.documentElement.dataset.themePreference = preference;
+          document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+            meta.setAttribute(
+              'content',
+              resolvedTheme === 'dark' ? darkThemeColor : lightThemeColor,
+            );
+          });
+          window.dispatchEvent(new Event('portfolio-theme-applied'));
+        };
+
+        applyTheme();
+        media.addEventListener('change', () => {
+          if (getPreference() === 'system') applyTheme();
+        });
+        window.addEventListener('portfolio-theme-change', (event) =>
+          applyTheme(event.detail.preference),
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <a
+      class="fixed top-2 left-2 z-[100] -translate-y-20 rounded-md bg-primary px-4 py-2 font-bold text-primary-foreground focus:translate-y-0"
+      href="#main-content"
+    >
+      Skip to main content
+    </a>
+    <SiteNavigation />
+    <main
+      id="main-content"
+      tabindex="-1"
+    >
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

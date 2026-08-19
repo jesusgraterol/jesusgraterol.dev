@@ -1,0 +1,30 @@
+---
+import { faGithub, faKaggle, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+
+const BRAND_ICONS = {
+  github: faGithub,
+  kaggle: faKaggle,
+  linkedin: faLinkedin,
+  x: faXTwitter,
+} as const;
+
+interface Props {
+  brand: keyof typeof BRAND_ICONS;
+  class?: string;
+}
+
+const { brand, class: className } = Astro.props;
+const [width, height, , , pathData] = BRAND_ICONS[brand].icon;
+const paths = Array.isArray(pathData) ? pathData : [pathData];
+---
+
+<svg
+  class={className}
+  viewBox={`0 0 ${width} ${height}`}
+  fill="currentColor"
+  aria-hidden="true"
+  focusable="false"
+  data-brand={brand}
+>
+  {paths.map((path) => <path d={path} />)}
+</svg>

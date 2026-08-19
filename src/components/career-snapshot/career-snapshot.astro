@@ -1,0 +1,32 @@
+---
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+
+const technologyCount = PORTFOLIO.techStack.reduce(
+  (total, category) => total + category.items.length,
+  0,
+);
+const metrics = [
+  { label: 'Years building', value: '10+' },
+  { label: 'Selected projects', value: String(PORTFOLIO.projects.length).padStart(2, '0') },
+  { label: 'Professional roles', value: String(PORTFOLIO.positions.length).padStart(2, '0') },
+  { label: 'Tools & technologies', value: String(technologyCount) },
+];
+---
+
+<aside
+  class="bg-slate-950 text-white"
+  aria-label="Career snapshot"
+>
+  <div
+    class="page-shell grid divide-y divide-white/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4"
+  >
+    {
+      metrics.map(({ label, value }) => (
+        <div class="py-8 first:pl-0 last:pr-0 sm:px-7 sm:py-10">
+          <p class="font-mono text-4xl font-semibold tracking-[-0.05em] text-white">{value}</p>
+          <p class="mt-2 text-sm font-medium text-white/65">{label}</p>
+        </div>
+      ))
+    }
+  </div>
+</aside>

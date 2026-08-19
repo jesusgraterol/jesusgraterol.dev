@@ -1,0 +1,23 @@
+---
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+---
+
+<section
+  class="section-space"
+  aria-labelledby="about-title"
+>
+  <div class="page-shell grid gap-10 lg:grid-cols-[0.42fr_1fr] lg:gap-20">
+    <div>
+      <p class="eyebrow">01 / About</p>
+      <h2
+        id="about-title"
+        class="section-title mt-4"
+      >
+        Strong foundations. Forward motion.
+      </h2>
+    </div>
+    <div class="grid gap-6 text-lg leading-8 text-muted sm:text-xl sm:leading-9">
+      {PORTFOLIO.bio.content.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+</section>

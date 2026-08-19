@@ -1,0 +1,47 @@
+---
+import { ArrowUpRight, Mail } from '@lucide/astro';
+
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+import SocialLinks from '../social-links/social-links.astro';
+---
+
+<section
+  id="contact"
+  class="section-space bg-slate-950 text-white"
+  aria-labelledby="contact-title"
+>
+  <div class="page-shell grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+    <div>
+      <p class="font-mono text-xs font-bold tracking-[0.1em] text-white/55 uppercase">
+        06 / Contact
+      </p>
+      <h2
+        id="contact-title"
+        class="mt-5 max-w-3xl text-5xl leading-[0.95] font-semibold tracking-[-0.055em] text-white sm:text-7xl"
+      >
+        Let’s make something amazing.
+      </h2>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-white/65">
+        Have a hard technical problem, an ambitious product, or a team that could use another
+        thoughtful engineer? I’d like to hear about it.
+      </p>
+    </div>
+    <a
+      class="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-6 font-bold text-slate-950 no-underline transition-transform hover:-translate-y-1"
+      href={`mailto:${PORTFOLIO.email}`}
+    >
+      <Mail
+        class="size-5"
+        aria-hidden="true"
+      /> Email me <ArrowUpRight
+        class="size-5"
+        aria-hidden="true"
+      />
+    </a>
+  </div>
+  <div
+    class="page-shell mt-12 border-t border-white/15 pt-8 [&_a]:border-white/30 [&_a]:text-white [&_a:hover]:bg-white/10"
+  >
+    <SocialLinks />
+  </div>
+</section>

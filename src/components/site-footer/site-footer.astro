@@ -1,0 +1,39 @@
+---
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+import { SITE_CONFIG } from '../../site.config.ts';
+import BrandIdentity from '../brand-identity/brand-identity.astro';
+---
+
+<footer class="border-t border-border py-12 sm:py-16">
+  <div class="page-shell grid gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto]">
+    <div class="max-w-md">
+      <BrandIdentity />
+      <p class="mt-4 text-sm leading-6 text-muted">
+        Seasoned software development grounded in strong fundamentals and strengthened by modern AI.
+      </p>
+    </div>
+    <nav
+      class="grid content-start gap-2 text-sm"
+      aria-label="Footer navigation"
+    >
+      <p class="mb-2 font-mono text-xs font-bold text-muted uppercase">Explore</p>
+      {SITE_CONFIG.navigation.map(({ href, label }) => <a href={href}>{label}</a>)}
+    </nav>
+    <div class="grid content-start gap-2 text-sm text-muted lg:text-right">
+      <p class="mb-2 font-mono text-xs font-bold uppercase">Elsewhere</p>
+      <a
+        href={PORTFOLIO.socialPages.github}
+        target="_blank"
+        rel="noreferrer"
+        >GitHub</a
+      >
+      <a
+        href={PORTFOLIO.socialPages.linkedin}
+        target="_blank"
+        rel="noreferrer"
+        >LinkedIn</a
+      >
+      <span>{SITE_CONFIG.license} License · © {new Date().getFullYear()}</span>
+    </div>
+  </div>
+</footer>

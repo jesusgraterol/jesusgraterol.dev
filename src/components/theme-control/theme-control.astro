@@ -1,0 +1,51 @@
+---
+import { Moon, Sun } from '@lucide/astro';
+---
+
+<button
+  type="button"
+  class="inline-flex size-9 items-center justify-center rounded-full text-muted transition-colors hover:bg-secondary hover:text-foreground"
+  data-theme-control
+  aria-label="Toggle color theme"
+  title="Toggle color theme"
+>
+  <Moon
+    class="size-4 [[data-resolved-theme=dark]_&]:hidden"
+    aria-hidden="true"
+  />
+  <Sun
+    class="hidden size-4 [[data-resolved-theme=dark]_&]:block"
+    aria-hidden="true"
+  />
+</button>
+
+<script>
+  import { THEME_STORAGE_KEY } from '../../utilities/theme-preference/index.ts';
+
+  const getResolvedTheme = (): 'light' | 'dark' =>
+    document.documentElement.dataset['resolvedTheme'] === 'dark' ? 'dark' : 'light';
+
+  const updateControls = (): void => {
+    const label = getResolvedTheme() === 'dark' ? 'Use light theme' : 'Use dark theme';
+    document.querySelectorAll<HTMLButtonElement>('[data-theme-control]').forEach((control) => {
+      control.setAttribute('aria-label', label);
+      control.title = label;
+    });
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('[data-theme-control]').forEach((control) => {
+    control.addEventListener('click', () => {
+      const nextTheme = getResolvedTheme() === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+      } catch {
+        // The current page can still apply the preference without persistence.
+      }
+      window.dispatchEvent(
+        new CustomEvent('portfolio-theme-change', { detail: { preference: nextTheme } }),
+      );
+    });
+  });
+  window.addEventListener('portfolio-theme-applied', updateControls);
+  updateControls();
+</script>

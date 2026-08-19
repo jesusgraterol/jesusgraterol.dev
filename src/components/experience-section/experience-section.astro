@@ -1,0 +1,80 @@
+---
+import { ChevronDown } from '@lucide/astro';
+
+import { PORTFOLIO } from '../../data/portfolio/index.ts';
+---
+
+<section
+  id="experience"
+  class="section-space section-rule"
+  aria-labelledby="experience-title"
+>
+  <div class="page-shell">
+    <div class="grid gap-6 lg:grid-cols-[0.42fr_1fr] lg:gap-20">
+      <p class="eyebrow">03 / Experience</p>
+      <div>
+        <h2
+          id="experience-title"
+          class="section-title"
+        >
+          A decade shipping software.
+        </h2>
+        <p class="lede mt-5">
+          Product engineering, technical leadership, architecture, and delivery across startups and
+          established teams.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 border-t border-border">
+      {
+        PORTFOLIO.positions.map((position, index) => (
+          <details
+            class="group border-b border-border"
+            open={index === 0}
+          >
+            <summary class="relative grid list-none gap-5 py-6 marker:content-none sm:grid-cols-[3.5rem_1fr_auto] sm:items-center sm:py-7">
+              <div class="grid size-14 place-items-center overflow-hidden rounded-lg border border-border bg-surface p-2 shadow-surface">
+                <img
+                  src={`/${position.logo}`}
+                  alt=""
+                  width="56"
+                  height="56"
+                  class="size-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <span>
+                <span class="block text-xl font-semibold tracking-[-0.025em]">
+                  {position.positionName}
+                </span>
+                <span class="mt-1 block text-sm font-medium text-muted">
+                  {position.companyName} · {position.dateRange}
+                </span>
+              </span>
+              <span class="absolute right-0 mt-4 grid size-9 place-items-center rounded-full border border-border-strong sm:relative sm:mt-0">
+                <ChevronDown
+                  class="size-4 transition-transform group-open:rotate-180"
+                  aria-hidden="true"
+                />
+              </span>
+            </summary>
+            <div class="pb-8 sm:pr-16 sm:pl-[5rem]">
+              <ul class="grid gap-3 text-[0.97rem] leading-7 text-muted">
+                {position.responsibilities.map((responsibility) => (
+                  <li class="grid grid-cols-[0.75rem_1fr] gap-3">
+                    <span
+                      class="mt-[0.68rem] size-1.5 rounded-full bg-accent"
+                      aria-hidden="true"
+                    />
+                    <span>{responsibility}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
