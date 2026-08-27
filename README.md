@@ -51,7 +51,7 @@ npm run assets:generate
 
 The build generates [`/llms.txt`](https://jesusgraterol.dev/llms.txt) directly from the validated portfolio data. It provides a concise index of the portfolio sections, selected projects, professional profiles, and source repository for language models and other automated readers.
 
-Every HTML page links to this resource through `rel="describedby"`. The production build also verifies canonical URLs, robots directives, sitemap membership, Open Graph and Twitter cards, and the connected `WebSite`, `ProfilePage`, `Person`, and `ImageObject` structured-data graph.
+Every HTML page links to this resource through `rel="describedby"`, and the footer exposes a visible `llms.txt` link. The production build also verifies canonical URLs, robots directives, sitemap membership, Open Graph and Twitter cards, and the connected `WebSite`, `ProfilePage`, `Person`, and `ImageObject` structured-data graph.
 
 ## Publishing
 

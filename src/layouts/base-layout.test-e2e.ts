@@ -144,6 +144,9 @@ test.describe('portfolio', () => {
       'https://jesusgraterol.dev/llms.txt',
     );
     await expect(
+      page.getByRole('contentinfo').getByRole('link', { name: 'llms.txt', exact: true }),
+    ).toHaveAttribute('href', '/llms.txt');
+    await expect(
       page.locator('link[rel="alternate"][href="https://jesusgraterol.dev/llms.txt"]'),
     ).toHaveCount(0);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
