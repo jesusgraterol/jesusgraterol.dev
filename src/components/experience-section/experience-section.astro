@@ -34,7 +34,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
             open={index === 0}
           >
             <summary class="relative grid list-none gap-5 py-6 marker:content-none sm:grid-cols-[3.5rem_1fr_auto] sm:items-center sm:py-7">
-              <div class="grid size-14 place-items-center overflow-hidden rounded-lg border border-border bg-surface p-2 shadow-surface">
+              <span class="grid size-14 place-items-center overflow-hidden rounded-lg border border-border bg-surface p-2 shadow-surface">
                 <img
                   src={`/${position.logo}`}
                   alt=""
@@ -43,7 +43,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
                   class="size-full object-contain"
                   loading="lazy"
                 />
-              </div>
+              </span>
               <span>
                 <span class="block text-xl font-semibold tracking-[-0.025em]">
                   {position.positionName}

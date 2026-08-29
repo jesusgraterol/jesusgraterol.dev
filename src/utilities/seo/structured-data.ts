@@ -25,6 +25,7 @@ export const buildProfileStructuredData = ({
       {
         '@id': websiteId,
         '@type': 'WebSite',
+        alternateName: new URL(websiteUrl).hostname,
         description,
         inLanguage: SITE_CONFIG.language,
         name: SITE_CONFIG.name,
@@ -45,6 +46,7 @@ export const buildProfileStructuredData = ({
       {
         '@id': personId,
         '@type': 'Person',
+        alternateName: SITE_CONFIG.author.twitterHandle,
         description,
         email: `mailto:${PORTFOLIO.email}`,
         image: { '@id': imageId },

@@ -146,11 +146,13 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
   if (
     !isRecord(website) ||
     website['url'] !== canonicalUrl ||
+    website['alternateName'] !== new URL(canonicalUrl).hostname ||
     !isRecord(profilePage) ||
     profilePage['url'] !== canonicalUrl ||
     !isRecord(person) ||
     person['url'] !== canonicalUrl ||
     person['name'] !== PORTFOLIO.name ||
+    person['alternateName'] !== SITE_CONFIG.author.twitterHandle ||
     !isRecord(image) ||
     image['url'] !== new URL(`/${PORTFOLIO.avatar.path}`, SITE_CONFIG.url).toString()
   ) {
@@ -179,6 +181,24 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
   for (const content of visibleContent) {
     if (!indexHtml.includes(escapeHtml(content)) && !indexHtml.includes(content)) {
       throw new Error(`Portfolio content is missing from the homepage: ${content}`);
+    }
+  }
+
+  for (const project of PORTFOLIO.projects) {
+    if (
+      !indexHtml.includes(`>Visit ${escapeHtml(project.name)} `) ||
+      !indexHtml.includes(`${escapeHtml(project.name)} source</a>`)
+    ) {
+      throw new Error(`Homepage project links are not self-describing: ${project.name}`);
+    }
+  }
+
+  for (const certification of PORTFOLIO.education.certifications) {
+    if (
+      certification.certificateURL &&
+      !indexHtml.includes(`>View ${escapeHtml(certification.degree)} credential `)
+    ) {
+      throw new Error(`Homepage credential link is not self-describing: ${certification.degree}`);
     }
   }
 

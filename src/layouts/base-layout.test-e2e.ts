@@ -8,6 +8,12 @@ test.describe('portfolio', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       'I build software for ambitious ideas.',
     );
+    await expect(
+      page.getByRole('link', {
+        name: 'Jesus Graterol Software Developer',
+        exact: true,
+      }),
+    ).toHaveAttribute('href', '/');
     const terminalBrandMark = page.locator('[data-brand-mark="terminal"]').first();
     await expect(terminalBrandMark).toHaveAttribute('src', '/favicons/128x128.png');
     await expect(terminalBrandMark).toHaveJSProperty('complete', true);
@@ -22,24 +28,24 @@ test.describe('portfolio', () => {
     const agenticCodingProject = page
       .locator('#projects article')
       .filter({ hasText: 'Agentic Coding' });
-    await expect(agenticCodingProject.getByRole('link', { name: 'Visit project' })).toHaveAttribute(
-      'href',
-      'https://agenticcoding.jesusgraterol.dev/',
-    );
-    await expect(agenticCodingProject.getByRole('link', { name: 'Source' })).toHaveAttribute(
-      'href',
-      'https://github.com/jesusgraterol/agenticcoding',
-    );
+    await expect(
+      agenticCodingProject.getByRole('link', { name: 'Visit Agentic Coding' }),
+    ).toHaveAttribute('href', 'https://agenticcoding.jesusgraterol.dev/');
+    await expect(
+      agenticCodingProject.getByRole('link', { name: 'Agentic Coding source' }),
+    ).toHaveAttribute('href', 'https://github.com/jesusgraterol/agenticcoding');
     await expect(page.locator('#experience details')).toHaveCount(9);
     await expect(page.locator('#education article')).toHaveCount(5);
     await expect(
-      page.locator('#education').getByRole('link', { name: 'View credential' }),
+      page.locator('#education').getByRole('link', { name: /^View .+ credential$/u }),
     ).toHaveCount(4);
     const unisaEducation = page
       .locator('#education article')
       .filter({ hasText: 'University of South Australia' });
     await expect(unisaEducation).toContainText('Unfinished');
-    await expect(unisaEducation.getByRole('link', { name: 'View credential' })).toHaveCount(0);
+    await expect(unisaEducation.getByRole('link', { name: /^View .+ credential$/u })).toHaveCount(
+      0,
+    );
     await expect(page.locator('#tech-stack article')).toHaveCount(10);
     await expect(
       page.getByText(
@@ -157,6 +163,10 @@ test.describe('portfolio', () => {
       'content',
       '@jesusgrat_dev',
     );
+
+    const structuredData = await page.locator('script[type="application/ld+json"]').textContent();
+    expect(structuredData).toContain('"alternateName":"jesusgraterol.dev"');
+    expect(structuredData).toContain('"alternateName":"@jesusgrat_dev"');
 
     const llmsResponse = await page.request.get('/llms.txt');
     expect(llmsResponse.ok()).toBe(true);

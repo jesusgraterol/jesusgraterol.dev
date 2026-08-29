@@ -15,7 +15,11 @@ describe('buildProfileStructuredData', () => {
     expect(data['@context']).toBe('https://schema.org');
     expect(data['@graph']).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ '@type': 'WebSite', url: canonicalUrl }),
+        expect.objectContaining({
+          '@type': 'WebSite',
+          alternateName: new URL(canonicalUrl).hostname,
+          url: canonicalUrl,
+        }),
         expect.objectContaining({
           '@type': 'ProfilePage',
           mainEntity: { '@id': `${canonicalUrl}#person` },
@@ -23,6 +27,7 @@ describe('buildProfileStructuredData', () => {
         }),
         expect.objectContaining({
           '@type': 'Person',
+          alternateName: '@jesusgrat_dev',
           name: PORTFOLIO.name,
           sameAs: Object.values(PORTFOLIO.socialPages),
           url: canonicalUrl,

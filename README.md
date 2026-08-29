@@ -51,21 +51,22 @@ npm run assets:generate
 
 The build generates [`/llms.txt`](https://jesusgraterol.dev/llms.txt) directly from the validated portfolio data. It provides a concise index of the portfolio sections, selected projects, professional profiles, and source repository for language models and other automated readers.
 
-Every HTML page links to this resource through `rel="describedby"`, and the footer exposes a visible `llms.txt` link. The production build also verifies canonical URLs, robots directives, sitemap membership, Open Graph and Twitter cards, and the connected `WebSite`, `ProfilePage`, `Person`, and `ImageObject` structured-data graph.
+Every HTML page links to this resource through `rel="describedby"`, and the footer exposes a visible `llms.txt` link. The production build also verifies canonical URLs, robots directives, sitemap membership, descriptive project and credential link text, Open Graph and Twitter cards, and the connected `WebSite`, `ProfilePage`, `Person`, and `ImageObject` structured-data graph, including the alternate site and profile identifiers.
 
 ## Publishing
 
 GitHub Actions verifies every pull request. Pushes to `main` and manual workflow runs pass through the same verification suite, upload the static `dist` artifact, and deploy it to GitHub Pages.
 
-The custom domain is declared in [`public/CNAME`](./public/CNAME). The repository must use **GitHub Actions** as its Pages source, and the domain DNS must point to GitHub Pages before traffic is switched away from the previous host.
+The custom domain is declared in [`public/CNAME`](./public/CNAME). The repository must use **GitHub Actions** as its Pages source, and the domain DNS must point to GitHub Pages before traffic is switched away from the previous host. The domain is currently proxied through Cloudflare, so its visitor-facing redirects and response transformations are controlled at the Cloudflare edge.
 
 ### One-time migration from Firebase
 
 1. In the repository settings, open **Pages** and select **GitHub Actions** as the source.
 2. Merge to `main` and confirm the Pages deployment succeeds before changing DNS.
 3. Set `jesusgraterol.dev` as the Pages custom domain and follow [GitHub's DNS instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
-4. After DNS resolves to Pages, verify the apex domain, asset loading, and the custom 404, then enable **Enforce HTTPS**.
-5. Keep the existing Firebase deployment available during the cutover. Remove its GitHub secret and hosting project only after the Pages deployment has been stable.
+4. After DNS resolves to Pages, verify the apex domain, asset loading, and the custom 404, then enable **Enforce HTTPS** in GitHub Pages.
+5. If the Cloudflare proxy remains enabled, turn on **Always Use HTTPS** under **SSL/TLS > Edge Certificates** and verify that `http://jesusgraterol.dev/` returns one permanent redirect to `https://jesusgraterol.dev/`.
+6. Keep the existing Firebase deployment available during the cutover. Remove its GitHub secret and hosting project only after the Pages deployment has been stable.
 
 ## License
 
