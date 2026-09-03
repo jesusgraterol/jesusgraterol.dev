@@ -27,7 +27,7 @@ describe('buildProfileStructuredData', () => {
         }),
         expect.objectContaining({
           '@type': 'Person',
-          alternateName: '@jesusgrat_dev',
+          alternateName: '@jesus__graterol',
           name: PORTFOLIO.name,
           sameAs: Object.values(PORTFOLIO.socialPages),
           url: canonicalUrl,

@@ -161,12 +161,12 @@ test.describe('portfolio', () => {
     );
     await expect(page.locator('meta[name="twitter:creator"]')).toHaveAttribute(
       'content',
-      '@jesusgrat_dev',
+      '@jesus__graterol',
     );
 
     const structuredData = await page.locator('script[type="application/ld+json"]').textContent();
     expect(structuredData).toContain('"alternateName":"jesusgraterol.dev"');
-    expect(structuredData).toContain('"alternateName":"@jesusgrat_dev"');
+    expect(structuredData).toContain('"alternateName":"@jesus__graterol"');
 
     const llmsResponse = await page.request.get('/llms.txt');
     expect(llmsResponse.ok()).toBe(true);
