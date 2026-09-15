@@ -16,22 +16,29 @@ describe('buildLlmsText', () => {
     expect(text).toContain('## Optional');
     expect(text).toContain(`- [Portfolio homepage](${SITE_CONFIG.url}/)`);
     expect(text).toContain(`${PORTFOLIO.positions.length} roles`);
-    expect(text).toContain('75 technologies grouped by discipline');
+    expect(text).toContain('76 technologies grouped by discipline');
     expect(text).toContain('grades and available credentials');
     expect(text).toContain('[Agentic Coding](https://agenticcoding.jesusgraterol.dev/)');
     expect(text).not.toContain('verified professional profiles');
     expect(text.endsWith('\n')).toBe(true);
   });
 
-  test('publishes every project and professional profile in source order', () => {
+  test('publishes every project and available source repository in source order', () => {
     const text = buildLlmsText();
     const projectOffsets = PORTFOLIO.projects.map((project) => {
       expect(text).toContain(`[${project.name}](${project.url})`);
-      expect(text).toContain(`[Source repository](${project.githubURL})`);
+      if (project.githubURL) {
+        expect(text).toContain(`[Source repository](${project.githubURL})`);
+      }
       return text.indexOf(`[${project.name}]`);
     });
 
     expect(projectOffsets).toStrictEqual(projectOffsets.toSorted((left, right) => left - right));
+    const fiveMinutesLine = text
+      .split('\n')
+      .find((line) => line.startsWith('- [5minutes](https://5minutes.jesusgraterol.dev/)'));
+    expect(fiveMinutesLine).toBeDefined();
+    expect(fiveMinutesLine).not.toContain('[Source repository]');
     for (const profileUrl of Object.values(PORTFOLIO.socialPages)) {
       expect(text).toContain(profileUrl);
     }

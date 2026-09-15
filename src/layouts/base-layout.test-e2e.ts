@@ -24,7 +24,14 @@ test.describe('portfolio', () => {
     for (const brand of ['github', 'linkedin', 'x', 'kaggle']) {
       await expect(heroSocialLinks.locator(`svg[data-brand="${brand}"] path`)).toHaveCount(1);
     }
-    await expect(page.locator('#projects article')).toHaveCount(5);
+    await expect(page.locator('#projects article')).toHaveCount(6);
+    const fiveMinutesProject = page.locator('#projects article').first();
+    await expect(fiveMinutesProject.getByRole('heading')).toHaveText('5minutes');
+    await expect(fiveMinutesProject.getByRole('link', { name: 'Visit 5minutes' })).toHaveAttribute(
+      'href',
+      'https://5minutes.jesusgraterol.dev/',
+    );
+    await expect(fiveMinutesProject.getByRole('link', { name: /source$/u })).toHaveCount(0);
     const agenticCodingProject = page
       .locator('#projects article')
       .filter({ hasText: 'Agentic Coding' });

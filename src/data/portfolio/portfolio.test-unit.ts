@@ -10,7 +10,7 @@ describe('portfolio content', () => {
   });
 
   test('preserves the complete migrated content inventory', () => {
-    expect(PORTFOLIO.projects).toHaveLength(5);
+    expect(PORTFOLIO.projects).toHaveLength(6);
     expect(PORTFOLIO.positions).toHaveLength(9);
     expect(
       PORTFOLIO.positions.reduce(
@@ -25,7 +25,15 @@ describe('portfolio content', () => {
         (technologyCount, category) => technologyCount + category.items.length,
         0,
       ),
-    ).toBe(75);
+    ).toBe(76);
+  });
+
+  test('places the latest private project first without publishing its repository', () => {
+    expect(PORTFOLIO.projects[0]).toMatchObject({
+      name: '5minutes',
+      url: 'https://5minutes.jesusgraterol.dev/',
+    });
+    expect(PORTFOLIO.projects[0]).not.toHaveProperty('githubURL');
   });
 
   test('places the refreshed technologies in their requested disciplines', () => {
@@ -35,9 +43,10 @@ describe('portfolio content', () => {
 
     expect(technologyNamesByCategory.get('Data science & AI')).toContain('Codex');
     expect(technologyNamesByCategory.get('Infrastructure')).toContain('GitHub Actions');
-    expect(technologyNamesByCategory.get('Misc')).toEqual(
-      expect.arrayContaining(['NATS', 'pg-boss']),
-    );
+    const miscTechnologyNames = technologyNamesByCategory.get('Misc');
+    expect(miscTechnologyNames).toEqual(expect.arrayContaining(['NATS', 'PayPal', 'pg-boss']));
+    const stripeIndex = miscTechnologyNames?.indexOf('Stripe') ?? -1;
+    expect(miscTechnologyNames?.[stripeIndex - 1]).toBe('PayPal');
   });
 
   test('publishes Coursera grades without inventing a UNISA credential', () => {

@@ -17,10 +17,12 @@ export const buildLlmsText = (): string => {
     (total, category) => total + category.items.length,
     0,
   );
-  const projectLinks = PORTFOLIO.projects.map(
-    (project) =>
-      `- [${escapeMarkdownLabel(project.name)}](${project.url}): ${normalizeDescription(project.description)} Technologies: ${project.tags.join(', ')}. [Source repository](${project.githubURL}).`,
-  );
+  const projectLinks = PORTFOLIO.projects.map((project) => {
+    const sourceRepositoryLink = project.githubURL
+      ? ` [Source repository](${project.githubURL}).`
+      : '';
+    return `- [${escapeMarkdownLabel(project.name)}](${project.url}): ${normalizeDescription(project.description)} Technologies: ${project.tags.join(', ')}.${sourceRepositoryLink}`;
+  });
 
   return [
     `# ${SITE_CONFIG.name}`,
@@ -32,7 +34,7 @@ export const buildLlmsText = (): string => {
     '## Core portfolio',
     '',
     `- [Portfolio homepage](${websiteUrl}): Biography and complete portfolio for ${PORTFOLIO.name}.`,
-    `- [Selected projects](${sectionUrl('projects')}): ${PORTFOLIO.projects.length} open-source and product projects with descriptions, technology tags, live links, and source repositories.`,
+    `- [Selected projects](${sectionUrl('projects')}): ${PORTFOLIO.projects.length} product and open-source projects with descriptions, technology tags, live links, and public source repositories when available.`,
     `- [Professional experience](${sectionUrl('experience')}): ${PORTFOLIO.positions.length} roles with the complete responsibility history.`,
     `- [Education](${sectionUrl('education')}): ${PORTFOLIO.education.certifications.length} degree and certification records with grades and available credentials.`,
     `- [Technology stack](${sectionUrl('tech-stack')}): ${technologyCount} technologies grouped by discipline.`,

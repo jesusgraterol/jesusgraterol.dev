@@ -187,7 +187,8 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
   for (const project of PORTFOLIO.projects) {
     if (
       !indexHtml.includes(`>Visit ${escapeHtml(project.name)} `) ||
-      !indexHtml.includes(`${escapeHtml(project.name)} source</a>`)
+      (project.githubURL && !indexHtml.includes(`${escapeHtml(project.name)} source</a>`)) ||
+      (!project.githubURL && indexHtml.includes(`${escapeHtml(project.name)} source</a>`))
     ) {
       throw new Error(`Homepage project links are not self-describing: ${project.name}`);
     }
@@ -237,6 +238,9 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
   for (const project of PORTFOLIO.projects) {
     if (!llmsText.includes(`[${project.name}](${project.url})`)) {
       throw new Error(`llms.txt is missing project: ${project.name}`);
+    }
+    if (project.githubURL && !llmsText.includes(`[Source repository](${project.githubURL})`)) {
+      throw new Error(`llms.txt is missing project source: ${project.name}`);
     }
   }
 
