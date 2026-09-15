@@ -25,6 +25,13 @@
   },
   "projects": [
     {
+      "logo": "projects/5minutes.png",
+      "name": "5minutes",
+      "description": "A deterministic Reversal, simulation, guarded-execution, and position-management platform for Polymarket's five-minute Bitcoin Up/Down markets.",
+      "url": "https://5minutes.jesusgraterol.dev/",
+      "tags": ["TypeScript", "React", "Tailwind CSS", "NestJS", "PostgreSQL", "Docker"]
+    },
+    {
       "logo": "projects/agentic-coding.svg",
       "name": "Agentic Coding",
       "description": "A disciplined approach to planning, building, verifying, and reviewing software with coding agents while developers retain final engineering judgment.",
@@ -346,6 +353,7 @@
         { "name": "RxJS", "icon": "rxjs" },
         { "name": "InversifyJS", "icon": "inversify" },
         { "name": "Pydantic", "icon": "pydantic" },
+        { "name": "PayPal", "icon": "paypal" },
         { "name": "Stripe", "icon": "stripe" },
         { "name": "RevenueCat", "icon": "revenuecat" },
         { "name": "Strapi", "icon": "strapi" },

@@ -70,18 +70,20 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
                   aria-hidden="true"
                 />
               </a>
-              <a
-                class="inline-flex items-center gap-1.5 text-muted underline-offset-4 hover:text-foreground hover:underline"
-                href={project.githubURL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GitBranch
-                  class="size-4"
-                  aria-hidden="true"
-                />{' '}
-                {project.name} source
-              </a>
+              {project.githubURL && (
+                <a
+                  class="inline-flex items-center gap-1.5 text-muted underline-offset-4 hover:text-foreground hover:underline"
+                  href={project.githubURL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GitBranch
+                    class="size-4"
+                    aria-hidden="true"
+                  />{' '}
+                  {project.name} source
+                </a>
+              )}
             </div>
           </article>
         ))

@@ -27,7 +27,7 @@ export const PortfolioSchema = z.strictObject({
         name: z.string().min(1),
         description: z.string().min(1),
         url: z.url(),
-        githubURL: z.url(),
+        githubURL: z.url().optional(),
         tags: z.array(z.string().min(1)).min(1),
       }),
     )
