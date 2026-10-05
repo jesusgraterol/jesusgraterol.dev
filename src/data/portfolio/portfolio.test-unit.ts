@@ -10,14 +10,14 @@ describe('portfolio content', () => {
   });
 
   test('preserves the complete migrated content inventory', () => {
-    expect(PORTFOLIO.projects).toHaveLength(6);
-    expect(PORTFOLIO.positions).toHaveLength(9);
+    expect(PORTFOLIO.projects).toHaveLength(7);
+    expect(PORTFOLIO.positions).toHaveLength(10);
     expect(
       PORTFOLIO.positions.reduce(
         (responsibilityCount, position) => responsibilityCount + position.responsibilities.length,
         0,
       ),
-    ).toBe(39);
+    ).toBe(43);
     expect(PORTFOLIO.education.certifications).toHaveLength(5);
     expect(PORTFOLIO.techStack).toHaveLength(10);
     expect(
@@ -28,12 +28,14 @@ describe('portfolio content', () => {
     ).toBe(76);
   });
 
-  test('places the latest private project first without publishing its repository', () => {
-    expect(PORTFOLIO.projects[0]).toMatchObject({
+  test('keeps the private project repository unpublished', () => {
+    const fiveMinutesProject = PORTFOLIO.projects.find(({ name }) => name === '5minutes');
+
+    expect(fiveMinutesProject).toMatchObject({
       name: '5minutes',
       url: 'https://5minutes.jesusgraterol.dev/',
     });
-    expect(PORTFOLIO.projects[0]).not.toHaveProperty('githubURL');
+    expect(fiveMinutesProject).not.toHaveProperty('githubURL');
   });
 
   test('places the refreshed technologies in their requested disciplines', () => {

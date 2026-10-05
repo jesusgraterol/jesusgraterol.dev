@@ -39,6 +39,6 @@ export const SITE_CONFIG = {
     dark: '#1e2939',
     light: '#fefdfb',
   },
-  title: 'Jesus Graterol | Software Developer',
+  title: 'Jesus Graterol | Software developer',
   url: 'https://jesusgraterol.dev',
 } as const;

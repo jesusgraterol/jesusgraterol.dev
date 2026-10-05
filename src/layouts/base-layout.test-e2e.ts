@@ -24,8 +24,26 @@ test.describe('portfolio', () => {
     for (const brand of ['github', 'linkedin', 'x', 'kaggle']) {
       await expect(heroSocialLinks.locator(`svg[data-brand="${brand}"] path`)).toHaveCount(1);
     }
-    await expect(page.locator('#projects article')).toHaveCount(6);
-    const fiveMinutesProject = page.locator('#projects article').first();
+    await expect(page.locator('#projects article')).toHaveCount(7);
+    const moldeaProject = page.locator('#projects article').first();
+    await expect(moldeaProject.getByRole('heading')).toHaveText('moldea');
+    await expect(moldeaProject.getByRole('link', { name: 'Visit moldea' })).toHaveAttribute(
+      'href',
+      'https://moldea.ai/',
+    );
+    await expect(moldeaProject.getByRole('list', { name: 'moldea technologies' })).toContainText(
+      'Codex',
+    );
+    await expect(moldeaProject.getByRole('list', { name: 'moldea technologies' })).toContainText(
+      'OpenAI API',
+    );
+    const moldeaLogo = moldeaProject.locator('img');
+    await expect(moldeaLogo).toHaveAttribute('src', '/projects/moldea.png');
+    await moldeaLogo.scrollIntoViewIfNeeded();
+    await expect
+      .poll(async () => moldeaLogo.evaluate((image) => (image as HTMLImageElement).naturalWidth))
+      .toBeGreaterThan(0);
+    const fiveMinutesProject = page.locator('#projects article').filter({ hasText: '5minutes' });
     await expect(fiveMinutesProject.getByRole('heading')).toHaveText('5minutes');
     await expect(fiveMinutesProject.getByRole('link', { name: 'Visit 5minutes' })).toHaveAttribute(
       'href',
@@ -41,7 +59,11 @@ test.describe('portfolio', () => {
     await expect(
       agenticCodingProject.getByRole('link', { name: 'Agentic Coding source' }),
     ).toHaveAttribute('href', 'https://github.com/jesusgraterol/agenticcoding');
-    await expect(page.locator('#experience details')).toHaveCount(9);
+    await expect(page.locator('#experience details')).toHaveCount(10);
+    const currentEmployment = page.locator('#experience details').first();
+    await expect(currentEmployment.locator('summary')).toContainText('Software developer');
+    await expect(currentEmployment.locator('summary')).toContainText('moldea · Apr 2026 - Present');
+    await expect(currentEmployment).toHaveAttribute('open', '');
     await expect(page.locator('#education article')).toHaveCount(5);
     await expect(
       page.locator('#education').getByRole('link', { name: /^View .+ credential$/u }),
@@ -148,6 +170,7 @@ test.describe('portfolio', () => {
   test('publishes canonical SEO metadata and the LLM-readable index', async ({ page }) => {
     await page.goto('/');
 
+    await expect(page).toHaveTitle('Jesus Graterol | Software developer');
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
       'https://jesusgraterol.dev/',
