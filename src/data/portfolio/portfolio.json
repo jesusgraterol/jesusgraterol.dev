@@ -25,6 +25,22 @@
   },
   "projects": [
     {
+      "logo": "projects/moldea.png",
+      "name": "moldea",
+      "description": "A Git-native platform that keeps project knowledge, decisions, and agent instructions available to coding agents, with open-source tooling, hosted collaboration, and pull-request assurance.",
+      "url": "https://moldea.ai/",
+      "tags": [
+        "Codex",
+        "OpenAI API",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "NestJS",
+        "PostgreSQL",
+        "Redis"
+      ]
+    },
+    {
       "logo": "projects/5minutes.png",
       "name": "5minutes",
       "description": "A deterministic Reversal, simulation, guarded-execution, and position-management platform for Polymarket's five-minute Bitcoin Up/Down markets.",
@@ -81,6 +97,18 @@
     }
   ],
   "positions": [
+    {
+      "logo": "projects/moldea.png",
+      "dateRange": "Apr 2026 - Present",
+      "positionName": "Software developer",
+      "companyName": "moldea",
+      "responsibilities": [
+        "Building a Git-native platform that keeps project context, decisions, and agent instructions available to coding agents.",
+        "Developing the customer and admin applications, backend APIs, repository synchronization, and pull-request assurance workflows.",
+        "Integrating the OpenAI API for behavioral analysis and resolution prompts, and using Codex to plan, implement, verify, and review changes.",
+        "Maintaining the platform's billing, security, durable workers, and deployment infrastructure."
+      ]
+    },
     {
       "logo": "experience/everme.png",
       "dateRange": "Aug 2025 - Apr 2026",
