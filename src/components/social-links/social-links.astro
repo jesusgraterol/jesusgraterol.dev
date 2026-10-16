@@ -3,6 +3,7 @@ import { Mail } from '@lucide/astro';
 
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
 import BrandIcon from '../brand-icon/brand-icon.astro';
+import NewTabNotice from '../new-tab-notice/new-tab-notice.astro';
 
 interface Props {
   includeEmail?: boolean;
@@ -27,7 +28,7 @@ const linkClass =
     <BrandIcon
       brand="github"
       class="size-4"
-    /> GitHub
+    /> GitHub <NewTabNotice />
   </a>
   <a
     class={linkClass}
@@ -38,7 +39,7 @@ const linkClass =
     <BrandIcon
       brand="linkedin"
       class="size-4"
-    /> LinkedIn
+    /> LinkedIn <NewTabNotice />
   </a>
   <a
     class={linkClass}
@@ -49,7 +50,7 @@ const linkClass =
     <BrandIcon
       brand="x"
       class="size-4"
-    /> X
+    /> X <NewTabNotice />
   </a>
   <a
     class={linkClass}
@@ -60,7 +61,7 @@ const linkClass =
     <BrandIcon
       brand="kaggle"
       class="size-4"
-    /> Kaggle
+    /> Kaggle <NewTabNotice />
   </a>
   {
     includeEmail && (

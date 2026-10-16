@@ -9,7 +9,7 @@ describe('portfolio content', () => {
     expect(PortfolioSchema.parse(PORTFOLIO)).toStrictEqual(PORTFOLIO);
   });
 
-  test('preserves the complete migrated content inventory', () => {
+  test('preserves the current portfolio content inventory', () => {
     expect(PORTFOLIO.projects).toHaveLength(7);
     expect(PORTFOLIO.positions).toHaveLength(10);
     expect(
@@ -25,7 +25,24 @@ describe('portfolio content', () => {
         (technologyCount, category) => technologyCount + category.items.length,
         0,
       ),
-    ).toBe(76);
+    ).toBe(78);
+  });
+
+  test('publishes the selected projects in the requested order', () => {
+    expect(PORTFOLIO.projects.map(({ name }) => name)).toStrictEqual([
+      'moldea',
+      '5minutes',
+      'jg-skills',
+      'Agentic Coding',
+      'Balancer',
+      'Published Packages',
+      'Kaggle Notebooks',
+    ]);
+    expect(PORTFOLIO.projects.find(({ name }) => name === 'jg-skills')).toMatchObject({
+      logo: 'favicon.svg',
+      url: 'https://jg-skills.jesusgraterol.dev/',
+      githubURL: 'https://github.com/jesusgraterol/jg-skills',
+    });
   });
 
   test('keeps the private project repository unpublished', () => {
@@ -43,7 +60,9 @@ describe('portfolio content', () => {
       PORTFOLIO.techStack.map(({ title, items }) => [title, items.map(({ name }) => name)]),
     );
 
-    expect(technologyNamesByCategory.get('Data science & AI')).toContain('Codex');
+    expect(technologyNamesByCategory.get('Data science & AI')).toEqual(
+      expect.arrayContaining(['Codex', 'Claude API Platform', 'Claude Code']),
+    );
     expect(technologyNamesByCategory.get('Infrastructure')).toContain('GitHub Actions');
     const miscTechnologyNames = technologyNamesByCategory.get('Misc');
     expect(miscTechnologyNames).toEqual(expect.arrayContaining(['NATS', 'PayPal', 'pg-boss']));
