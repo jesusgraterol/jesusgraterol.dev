@@ -275,6 +275,34 @@ test.describe('portfolio', () => {
     ).toHaveCount(0);
   });
 
+  test('links footer navigation to homepage sections from every page', async ({ page }) => {
+    const footerNavigation = page.getByRole('navigation', { name: 'Footer navigation' });
+
+    await page.goto('/');
+    await expect(
+      footerNavigation.getByRole('link', { name: 'Projects', exact: true }),
+    ).toHaveAttribute('href', '#projects');
+
+    await page.goto('/404.html');
+    for (const { id, label } of [
+      { id: 'projects', label: 'Projects' },
+      { id: 'experience', label: 'Experience' },
+      { id: 'education', label: 'Education' },
+      { id: 'tech-stack', label: 'Stack' },
+      { id: 'contact', label: 'Contact' },
+    ]) {
+      await expect(
+        footerNavigation.getByRole('link', { name: label, exact: true }),
+      ).toHaveAttribute('href', `/#${id}`);
+    }
+
+    await footerNavigation.getByRole('link', { name: 'Projects', exact: true }).click();
+    await expect(page).toHaveURL(/\/#projects$/u);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+      'I build software for ambitious ideas.',
+    );
+  });
+
   test('publishes canonical SEO metadata and the LLM-readable index', async ({ page }) => {
     await page.goto('/');
 

@@ -2,11 +2,9 @@
 import { GitBranch, Menu } from '@lucide/astro';
 
 import { SITE_CONFIG } from '../../site.config.ts';
+import { resolveSectionHref } from '../../utilities/section-href/index.ts';
 import BrandIdentity from '../brand-identity/brand-identity.astro';
 import ThemeControl from '../theme-control/theme-control.astro';
-
-const onHomePage = Astro.url.pathname === '/';
-const resolveHref = (href: string): string => (onHomePage ? href : `/${href}`);
 ---
 
 <header class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
@@ -25,7 +23,7 @@ const resolveHref = (href: string): string => (onHomePage ? href : `/${href}`);
       {
         SITE_CONFIG.navigation.map(({ href, label }) => (
           <a
-            href={resolveHref(href)}
+            href={resolveSectionHref(href, Astro.url.pathname)}
             class="rounded-full border border-transparent px-3 py-2 text-sm font-medium text-muted no-underline transition-colors hover:bg-secondary hover:text-foreground aria-[current=location]:bg-secondary aria-[current=location]:text-foreground"
             data-section-link={href.slice(1)}
           >
@@ -67,7 +65,7 @@ const resolveHref = (href: string): string => (onHomePage ? href : `/${href}`);
           {
             SITE_CONFIG.navigation.map(({ href, label }) => (
               <a
-                href={resolveHref(href)}
+                href={resolveSectionHref(href, Astro.url.pathname)}
                 class="rounded-md px-3 py-2.5 text-sm font-semibold text-muted no-underline hover:bg-secondary hover:text-foreground aria-[current=location]:bg-secondary aria-[current=location]:text-foreground"
                 data-section-link={href.slice(1)}
               >
