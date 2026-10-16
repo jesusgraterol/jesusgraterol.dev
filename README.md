@@ -59,16 +59,7 @@ GitHub Actions verifies every pull request. Pushes to `main` and manual workflow
 
 Dependabot checks npm packages and GitHub Actions weekly, waits seven days before proposing a new release, and opens grouped update pull requests against `development`. npm major versions arrive as separate pull requests.
 
-The custom domain is declared in [`public/CNAME`](./public/CNAME). The repository must use **GitHub Actions** as its Pages source, and the domain DNS must point to GitHub Pages before traffic is switched away from the previous host. The domain is currently proxied through Cloudflare, so its visitor-facing redirects and response transformations are controlled at the Cloudflare edge.
-
-### One-time migration from Firebase
-
-1. In the repository settings, open **Pages** and select **GitHub Actions** as the source.
-2. Merge to `main` and confirm the Pages deployment succeeds before changing DNS.
-3. Set `jesusgraterol.dev` as the Pages custom domain and follow [GitHub's DNS instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
-4. After DNS resolves to Pages, verify the apex domain, asset loading, and the custom 404, then enable **Enforce HTTPS** in GitHub Pages.
-5. If the Cloudflare proxy remains enabled, turn on **Always Use HTTPS** under **SSL/TLS > Edge Certificates** and verify that `http://jesusgraterol.dev/` returns one permanent redirect to `https://jesusgraterol.dev/`.
-6. Keep the existing Firebase deployment available during the cutover. Remove its GitHub secret and hosting project only after the Pages deployment has been stable.
+The custom domain is declared in [`public/CNAME`](./public/CNAME), and the repository uses **GitHub Actions** as its Pages source. The domain is proxied through Cloudflare, so its visitor-facing redirects, including `http://` to `https://`, and response transformations are controlled at the Cloudflare edge. While the proxy is enabled, GitHub Pages has no certificate for the domain, so its **Enforce HTTPS** setting stays off.
 
 ## License
 
