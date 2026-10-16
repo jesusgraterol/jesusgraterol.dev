@@ -268,6 +268,8 @@ test.describe('portfolio', () => {
       'This page took a wrong turn.',
     );
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+    await expect(page.locator('meta[property="og:url"]')).toHaveCount(0);
     await expect(
       page.locator('link[rel="alternate"][href="https://jesusgraterol.dev/llms.txt"]'),
     ).toHaveCount(0);
