@@ -16,9 +16,12 @@ describe('buildLlmsText', () => {
     expect(text).toContain('## Optional');
     expect(text).toContain(`- [Portfolio homepage](${SITE_CONFIG.url}/)`);
     expect(text).toContain(`${PORTFOLIO.positions.length} roles`);
-    expect(text).toContain('76 technologies grouped by discipline');
+    expect(text).toContain('78 technologies grouped by discipline');
     expect(text).toContain('grades and available credentials');
     expect(text).toContain('[Agentic Coding](https://agenticcoding.jesusgraterol.dev/)');
+    expect(text).toContain('[jg-skills](https://jg-skills.jesusgraterol.dev/)');
+    expect(text).toContain('[Source repository](https://github.com/jesusgraterol/jg-skills)');
+    expect(text).not.toContain('uipalettes');
     expect(text).not.toContain('verified professional profiles');
     expect(text.endsWith('\n')).toBe(true);
   });

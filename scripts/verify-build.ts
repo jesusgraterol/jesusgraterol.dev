@@ -47,6 +47,16 @@ const hasLinkReference = (html: string, relationship: string, href: string): boo
   return false;
 };
 
+/** Extracts link destinations and text, including notices read by assistive technology. */
+const getHtmlLinks = (html: string): Array<{ href: string; text: string }> =>
+  [...html.matchAll(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gu)].map((match) => ({
+    href: match[1] ?? '',
+    text: (match[2] ?? '')
+      .replaceAll(/<[^>]*>/gu, '')
+      .replaceAll(/\s+/gu, ' ')
+      .trim(),
+  }));
+
 /** Parses the page-level JSON-LD graph from generated HTML. */
 const parseStructuredData = (html: string): Record<string, unknown> => {
   const serializedStructuredData = html.match(
@@ -184,11 +194,20 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
     }
   }
 
+  const homepageLinks = getHtmlLinks(indexHtml);
   for (const project of PORTFOLIO.projects) {
+    const sourceUrl = project.githubURL;
+    const sourceLinks = homepageLinks.filter(
+      ({ text }) => text === `${escapeHtml(project.name)} source (opens in a new tab)`,
+    );
     if (
-      !indexHtml.includes(`>Visit ${escapeHtml(project.name)} `) ||
-      (project.githubURL && !indexHtml.includes(`${escapeHtml(project.name)} source</a>`)) ||
-      (!project.githubURL && indexHtml.includes(`${escapeHtml(project.name)} source</a>`))
+      !homepageLinks.some(
+        ({ href, text }) =>
+          href === escapeHtml(project.url) &&
+          text === `Visit ${escapeHtml(project.name)} (opens in a new tab)`,
+      ) ||
+      (sourceUrl && !sourceLinks.some(({ href }) => href === escapeHtml(sourceUrl))) ||
+      (!sourceUrl && sourceLinks.length > 0)
     ) {
       throw new Error(`Homepage project links are not self-describing: ${project.name}`);
     }

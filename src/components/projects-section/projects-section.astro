@@ -1,7 +1,8 @@
 ---
-import { ArrowUpRight, GitBranch } from '@lucide/astro';
+import { GitBranch } from '@lucide/astro';
 
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
+import NewTabNotice from '../new-tab-notice/new-tab-notice.astro';
 ---
 
 <section
@@ -64,11 +65,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
                 target="_blank"
                 rel="noreferrer"
               >
-                Visit {project.name}{' '}
-                <ArrowUpRight
-                  class="size-4"
-                  aria-hidden="true"
-                />
+                Visit {project.name} <NewTabNotice />
               </a>
               {project.githubURL && (
                 <a
@@ -81,7 +78,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
                     class="size-4"
                     aria-hidden="true"
                   />{' '}
-                  {project.name} source
+                  {project.name} source <NewTabNotice />
                 </a>
               )}
             </div>

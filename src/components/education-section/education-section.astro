@@ -1,7 +1,6 @@
 ---
-import { ArrowUpRight } from '@lucide/astro';
-
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
+import NewTabNotice from '../new-tab-notice/new-tab-notice.astro';
 ---
 
 <section
@@ -29,10 +28,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
           target="_blank"
           rel="noreferrer"
         >
-          View all certifications <ArrowUpRight
-            class="size-4"
-            aria-hidden="true"
-          />
+          View all certifications <NewTabNotice />
         </a>
       </div>
     </div>
@@ -67,11 +63,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
                 target="_blank"
                 rel="noreferrer"
               >
-                View {certification.degree} credential{' '}
-                <ArrowUpRight
-                  class="size-4"
-                  aria-hidden="true"
-                />
+                View {certification.degree} credential <NewTabNotice />
               </a>
             )}
           </article>

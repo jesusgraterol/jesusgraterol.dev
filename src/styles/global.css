@@ -180,8 +180,7 @@
     transition:
       background-color 160ms ease,
       color 160ms ease,
-      border-color 160ms ease,
-      transform 160ms ease;
+      border-color 160ms ease;
   }
 
   .action-primary {
@@ -190,8 +189,11 @@
     color: var(--primary-foreground);
   }
 
-  .action-primary:hover {
-    transform: translateY(-1px);
+  @media (hover: hover) {
+    .action-primary:hover {
+      border-color: color-mix(in oklab, var(--primary) 90%, var(--primary-foreground));
+      background: color-mix(in oklab, var(--primary) 90%, var(--primary-foreground));
+    }
   }
 
   .action-secondary:hover {
