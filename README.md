@@ -57,8 +57,6 @@ Every HTML page links to this resource through `rel="describedby"`, and the foot
 
 GitHub Actions verifies every pull request. Pushes to `main` and manual workflow runs pass through the same verification suite, upload the static `dist` artifact, and deploy it to GitHub Pages.
 
-Dependabot checks npm packages and GitHub Actions weekly, waits seven days before proposing a new release, and opens grouped update pull requests against `development`. npm major versions arrive as separate pull requests.
-
 The custom domain is declared in [`public/CNAME`](./public/CNAME), and the repository uses **GitHub Actions** as its Pages source. The domain is proxied through Cloudflare, so its visitor-facing redirects, including `http://` to `https://`, and response transformations are controlled at the Cloudflare edge. While the proxy is enabled, GitHub Pages has no certificate for the domain, so its **Enforce HTTPS** setting stays off.
 
 ## License
