@@ -4,16 +4,15 @@ import SiteNavigation from '../components/site-navigation/site-navigation.astro'
 import { SITE_CONFIG } from '../site.config.ts';
 import '../styles/global.css';
 
-interface Props {
-  canonicalPath: string;
+// noindex pages omit the canonical, which would conflict with their robots directive
+type Props = {
   description: string;
   title: string;
-  noIndex?: boolean;
   structuredData?: Record<string, unknown>;
-}
+} & ({ canonicalPath: string; noIndex?: false } | { canonicalPath?: never; noIndex: true });
 
 const { canonicalPath, description, noIndex = false, structuredData, title } = Astro.props;
-const canonicalUrl = new URL(canonicalPath, SITE_CONFIG.url).toString();
+const canonicalUrl = canonicalPath ? new URL(canonicalPath, SITE_CONFIG.url).toString() : undefined;
 const llmsTextUrl = new URL('/llms.txt', SITE_CONFIG.url).toString();
 const openGraphImageUrl = new URL(SITE_CONFIG.openGraph.image, SITE_CONFIG.url).toString();
 const openGraphType = noIndex ? 'website' : 'profile';
@@ -56,10 +55,14 @@ const serializedStructuredData = structuredData
       name="robots"
       content={noIndex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}
     />
-    <link
-      rel="canonical"
-      href={canonicalUrl}
-    />
+    {
+      canonicalUrl && (
+        <link
+          rel="canonical"
+          href={canonicalUrl}
+        />
+      )
+    }
     <link
       rel="describedby"
       href={llmsTextUrl}
@@ -100,10 +103,14 @@ const serializedStructuredData = structuredData
       property="og:description"
       content={description}
     />
-    <meta
-      property="og:url"
-      content={canonicalUrl}
-    />
+    {
+      canonicalUrl && (
+        <meta
+          property="og:url"
+          content={canonicalUrl}
+        />
+      )
+    }
     <meta
       property="og:image"
       content={openGraphImageUrl}
