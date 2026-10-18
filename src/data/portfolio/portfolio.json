@@ -48,7 +48,7 @@
       "tags": ["TypeScript", "React", "Tailwind CSS", "NestJS", "PostgreSQL", "Docker"]
     },
     {
-      "logo": "favicon.svg",
+      "logo": "jg-mark.svg",
       "name": "jg-skills",
       "description": "Reusable skills for planning, building, reviewing, and shipping software with Claude Code and Codex.",
       "url": "https://jg-skills.jesusgraterol.dev/",
