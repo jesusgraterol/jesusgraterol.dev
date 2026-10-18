@@ -124,7 +124,6 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
     'property="og:type" content="profile"',
     `property="og:url" content="${canonicalUrl}"`,
     `property="og:image" content="${openGraphImageUrl}"`,
-    `property="og:image:secure_url" content="${openGraphImageUrl}"`,
     `property="profile:first_name" content="${SITE_CONFIG.author.givenName}"`,
     `property="profile:last_name" content="${SITE_CONFIG.author.familyName}"`,
     `property="profile:username" content="${SITE_CONFIG.author.username}"`,
@@ -216,7 +215,7 @@ export const verifyBuild = async (buildDirectory = DEFAULT_BUILD_DIRECTORY): Pro
   for (const certification of PORTFOLIO.education.certifications) {
     if (
       certification.certificateURL &&
-      !indexHtml.includes(`>View ${escapeHtml(certification.degree)} credential `)
+      !indexHtml.includes(`>View ${escapeHtml(certification.degree)} credential<`)
     ) {
       throw new Error(`Homepage credential link is not self-describing: ${certification.degree}`);
     }

@@ -9,6 +9,7 @@ const publicDirectory = resolve(scriptDirectory, '../public');
 const faviconDirectory = resolve(publicDirectory, 'favicons');
 const sourcePath = resolve(publicDirectory, 'favicon.svg');
 const markPath = resolve(publicDirectory, 'jg-mark.svg');
+const agenticCodingMarkPath = resolve(publicDirectory, 'projects/agentic-coding.svg');
 const faviconPath = resolve(publicDirectory, 'favicon.ico');
 const faviconSizes = [
   16, 32, 48, 64, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 384, 512,
@@ -49,15 +50,21 @@ const readPackageSvg = async (name: string): Promise<string> =>
 
 /**
  * Writes jg-personal-astro-ui's jg/ mark to `jg-mark.svg`, for the open-graph image and the
- * jg-skills project, and its slash alone to `favicon.svg`, then generates the PNG and ICO favicon
- * set from the slash, because the three letters can't be read at 16 pixels.
+ * jg-skills and jg-packages projects, its slash alone to `favicon.svg`, and the Agentic Coding mark
+ * to `projects/agentic-coding.svg`, then generates the PNG and ICO favicon set from the slash,
+ * because the three letters can't be read at 16 pixels.
  */
 const generateFavicons = async (): Promise<void> => {
-  const [svg, markSvg] = await Promise.all([
+  const [svg, markSvg, agenticCodingMarkSvg] = await Promise.all([
     readPackageSvg('jg-favicon.svg'),
     readPackageSvg('jg-mark.svg'),
+    readPackageSvg('agentic-coding-mark.svg'),
   ]);
-  await Promise.all([writeFile(sourcePath, svg), writeFile(markPath, markSvg)]);
+  await Promise.all([
+    writeFile(sourcePath, svg),
+    writeFile(markPath, markSvg),
+    writeFile(agenticCodingMarkPath, agenticCodingMarkSvg),
+  ]);
   await mkdir(faviconDirectory, { recursive: true });
 
   const browser = await chromium.launch({ headless: true });

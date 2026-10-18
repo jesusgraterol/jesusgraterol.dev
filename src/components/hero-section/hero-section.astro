@@ -1,13 +1,15 @@
 ---
 import { ArrowDown, Mail } from '@lucide/astro';
+import Button from 'jg-personal-astro-ui/button';
+import HeroBackdrop from 'jg-personal-astro-ui/hero-backdrop';
 
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
 import SocialLinks from '../social-links/social-links.astro';
 ---
 
 <section class="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-32 lg:pb-36">
-  <div class="grid-background pointer-events-none absolute inset-0 -z-10 opacity-70"></div>
-  <div class="page-shell grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-20">
+  <HeroBackdrop />
+  <div class="jg-container grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-20">
     <div>
       <p class="eyebrow">Software Developer</p>
       <h1 class="display-title mt-5">I build software for ambitious ideas.</h1>
@@ -16,24 +18,21 @@ import SocialLinks from '../social-links/social-links.astro';
         fundamentals with modern AI, coding agents, and agentic workflows.
       </p>
       <div class="mt-9 flex flex-wrap gap-3">
-        <a
-          class="action-primary"
-          href="#projects"
-        >
+        <Button href="#projects">
           See selected work <ArrowDown
             class="size-4"
             aria-hidden="true"
           />
-        </a>
-        <a
-          class="action-secondary"
+        </Button>
+        <Button
           href={`mailto:${PORTFOLIO.email}`}
+          variant="outline"
         >
           <Mail
             class="size-4"
             aria-hidden="true"
           /> Start a conversation
-        </a>
+        </Button>
       </div>
       <div class="mt-8">
         <SocialLinks />

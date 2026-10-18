@@ -21,6 +21,8 @@ describe('buildLlmsText', () => {
     expect(text).toContain('[Agentic Coding](https://agenticcoding.jesusgraterol.dev/)');
     expect(text).toContain('[jg-skills](https://jg-skills.jesusgraterol.dev/)');
     expect(text).toContain('[Source repository](https://github.com/jesusgraterol/jg-skills)');
+    expect(text).toContain('[jg-packages](https://jg-packages.jesusgraterol.dev/)');
+    expect(text).not.toContain('Published Packages');
     expect(text).not.toContain('uipalettes');
     expect(text).not.toContain('verified professional profiles');
     expect(text.endsWith('\n')).toBe(true);

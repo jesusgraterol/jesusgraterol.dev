@@ -1,23 +1,19 @@
 ---
+import Section from 'jg-personal-astro-ui/section';
+
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
 ---
 
-<section
-  class="section-space"
-  aria-labelledby="about-title"
+<Section
+  id="about"
+  eyebrow="01 / About"
+  layout="split"
+  title="Strong foundations. Forward motion."
 >
-  <div class="page-shell grid gap-10 lg:grid-cols-[0.42fr_1fr] lg:gap-20">
-    <div>
-      <p class="eyebrow">01 / About</p>
-      <h2
-        id="about-title"
-        class="section-title mt-4"
-      >
-        Strong foundations. Forward motion.
-      </h2>
-    </div>
-    <div class="grid gap-6 text-lg leading-8 text-muted sm:text-xl sm:leading-9">
+  {/* under the title, in the split header's second column */}
+  <div class="mt-10 grid lg:grid-cols-[0.42fr_1fr] lg:gap-x-10">
+    <div class="grid gap-6 text-lg leading-8 text-muted sm:text-xl sm:leading-9 lg:col-start-2">
       {PORTFOLIO.bio.content.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </div>
-</section>
+</Section>

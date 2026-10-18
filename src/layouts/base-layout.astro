@@ -1,7 +1,18 @@
 ---
-import SiteFooter from '../components/site-footer/site-footer.astro';
-import SiteNavigation from '../components/site-navigation/site-navigation.astro';
+import { GitBranch } from '@lucide/astro';
+import BrandLogo from 'jg-personal-astro-ui/brand-logo';
+import Button from 'jg-personal-astro-ui/button';
+import DocumentHead from 'jg-personal-astro-ui/document-head';
+import JgMark from 'jg-personal-astro-ui/jg-mark';
+import SiteFooter from 'jg-personal-astro-ui/site-footer';
+import SiteHeader from 'jg-personal-astro-ui/site-header';
+import SkipLink from 'jg-personal-astro-ui/skip-link';
+import ThemeControl from 'jg-personal-astro-ui/theme-control';
+import ThemeInitScript from 'jg-personal-astro-ui/theme-init-script';
+
+import { PORTFOLIO } from '../data/portfolio/index.ts';
 import { SITE_CONFIG } from '../site.config.ts';
+import { resolveSectionHref } from '../utilities/section-href/index.ts';
 import '../styles/global.css';
 
 // noindex pages omit the canonical, which would conflict with their robots directive
@@ -12,241 +23,143 @@ type Props = {
 } & ({ canonicalPath: string; noIndex?: false } | { canonicalPath?: never; noIndex: true });
 
 const { canonicalPath, description, noIndex = false, structuredData, title } = Astro.props;
-const canonicalUrl = canonicalPath ? new URL(canonicalPath, SITE_CONFIG.url).toString() : undefined;
-const llmsTextUrl = new URL('/llms.txt', SITE_CONFIG.url).toString();
-const openGraphImageUrl = new URL(SITE_CONFIG.openGraph.image, SITE_CONFIG.url).toString();
-const openGraphType = noIndex ? 'website' : 'profile';
-const serializedStructuredData = structuredData
-  ? JSON.stringify(structuredData).replaceAll('<', '\\u003c')
-  : undefined;
+const toSiteUrl = (path: string): string => new URL(path, SITE_CONFIG.url).toString();
+const canonicalUrl = canonicalPath ? toSiteUrl(canonicalPath) : undefined;
+const { author, openGraph } = SITE_CONFIG;
+// the home page's sections, linked as fragments there and through the home page elsewhere
+const sectionItems = SITE_CONFIG.navigation.map(({ href, label }) => ({
+  href: resolveSectionHref(href, Astro.url.pathname),
+  label,
+}));
+const footerColumns = [
+  {
+    title: 'Explore',
+    links: [...sectionItems, { href: '/llms.txt', label: 'llms.txt' }],
+  },
+  {
+    title: 'Elsewhere',
+    links: [
+      { href: PORTFOLIO.socialPages.github, label: 'GitHub', external: true },
+      { href: PORTFOLIO.socialPages.linkedin, label: 'LinkedIn', external: true },
+    ],
+  },
+];
 ---
 
 <!doctype html>
 <html lang={SITE_CONFIG.language}>
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
-    <meta
-      name="generator"
-      content={Astro.generator}
-    />
-    <meta
-      name="description"
-      content={description}
-    />
-    <meta
-      name="author"
-      content={SITE_CONFIG.author.name}
-    />
-    <meta
-      name="theme-color"
-      content={SITE_CONFIG.themeColors.light}
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content={SITE_CONFIG.themeColors.dark}
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta
-      name="robots"
-      content={noIndex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}
-    />
-    {
-      canonicalUrl && (
-        <link
-          rel="canonical"
-          href={canonicalUrl}
-        />
-      )
-    }
-    <link
-      rel="describedby"
-      href={llmsTextUrl}
-    />
-    <link
-      rel="icon"
-      href="/favicon.ico"
-      sizes="16x16 32x32 48x48"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicons/32x32.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="/favicons/192x192.png"
-    />
-
-    <meta
-      property="og:site_name"
-      content={SITE_CONFIG.name}
-    />
-    <meta
-      property="og:locale"
-      content={SITE_CONFIG.openGraph.locale}
-    />
-    <meta
-      property="og:type"
-      content={openGraphType}
-    />
-    <meta
-      property="og:title"
-      content={title}
-    />
-    <meta
-      property="og:description"
-      content={description}
-    />
-    {
-      canonicalUrl && (
-        <meta
-          property="og:url"
-          content={canonicalUrl}
-        />
-      )
-    }
-    <meta
-      property="og:image"
-      content={openGraphImageUrl}
-    />
-    <meta
-      property="og:image:secure_url"
-      content={openGraphImageUrl}
-    />
-    <meta
-      property="og:image:type"
-      content={SITE_CONFIG.openGraph.imageType}
-    />
-    <meta
-      property="og:image:width"
-      content={String(SITE_CONFIG.openGraph.width)}
-    />
-    <meta
-      property="og:image:height"
-      content={String(SITE_CONFIG.openGraph.height)}
-    />
-    <meta
-      property="og:image:alt"
-      content={SITE_CONFIG.openGraph.imageAlt}
-    />
-    {
-      !noIndex && (
-        <>
-          <meta
-            property="profile:first_name"
-            content={SITE_CONFIG.author.givenName}
-          />
-          <meta
-            property="profile:last_name"
-            content={SITE_CONFIG.author.familyName}
-          />
-          <meta
-            property="profile:username"
-            content={SITE_CONFIG.author.username}
-          />
-        </>
-      )
-    }
-
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
-    <meta
-      name="twitter:title"
-      content={title}
-    />
-    <meta
-      name="twitter:description"
-      content={description}
-    />
-    <meta
-      name="twitter:image"
-      content={openGraphImageUrl}
-    />
-    <meta
-      name="twitter:image:alt"
-      content={SITE_CONFIG.openGraph.imageAlt}
-    />
-    <meta
-      name="twitter:creator"
-      content={SITE_CONFIG.author.twitterHandle}
-    />
-
-    <title>{title}</title>
-    {
-      serializedStructuredData && (
-        <script
-          is:inline
-          type="application/ld+json"
-          set:html={serializedStructuredData}
-        />
-      )
-    }
-    <script
-      is:inline
-      define:vars={{
-        darkThemeColor: SITE_CONFIG.themeColors.dark,
-        lightThemeColor: SITE_CONFIG.themeColors.light,
+    <DocumentHead
+      author={author.name}
+      canonicalUrl={canonicalUrl}
+      description={description}
+      icons={[
+        { href: '/favicon.ico', rel: 'icon', sizes: '16x16 32x32 48x48' },
+        { href: '/favicons/32x32.png', rel: 'icon', sizes: '32x32', type: 'image/png' },
+        { href: '/favicons/192x192.png', rel: 'apple-touch-icon' },
+      ]}
+      llmsTextUrl={toSiteUrl('/llms.txt')}
+      locale={openGraph.locale}
+      noIndex={noIndex}
+      openGraphImage={{
+        alt: openGraph.imageAlt,
+        height: openGraph.height,
+        type: openGraph.imageType,
+        url: toSiteUrl(openGraph.image),
+        width: openGraph.width,
       }}
-    >
-      (() => {
-        const storageKey = 'jesusgraterol-theme';
-        const media = window.matchMedia('(prefers-color-scheme: dark)');
-        const getPreference = () => {
-          try {
-            const preference = localStorage.getItem(storageKey);
-            return preference === 'dark' || preference === 'light' ? preference : 'system';
-          } catch {
-            return 'system';
-          }
-        };
-        const applyTheme = (preference = getPreference()) => {
-          const resolvedTheme =
-            preference === 'system' ? (media.matches ? 'dark' : 'light') : preference;
-          document.documentElement.classList.toggle('dark', resolvedTheme === 'dark');
-          document.documentElement.classList.toggle('light', resolvedTheme === 'light');
-          document.documentElement.dataset.resolvedTheme = resolvedTheme;
-          document.documentElement.dataset.themePreference = preference;
-          document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
-            meta.setAttribute(
-              'content',
-              resolvedTheme === 'dark' ? darkThemeColor : lightThemeColor,
-            );
-          });
-          window.dispatchEvent(new Event('portfolio-theme-applied'));
-        };
-
-        applyTheme();
-        media.addEventListener('change', () => {
-          if (getPreference() === 'system') applyTheme();
-        });
-        window.addEventListener('portfolio-theme-change', (event) =>
-          applyTheme(event.detail.preference),
-        );
-      })();
-    </script>
+      openGraphType={noIndex ? 'website' : 'profile'}
+      profile={{
+        firstName: author.givenName,
+        lastName: author.familyName,
+        username: author.username,
+      }}
+      siteName={SITE_CONFIG.name}
+      structuredData={structuredData}
+      themeColors={SITE_CONFIG.themeColors}
+      title={title}
+      twitterCreator={author.twitterHandle}
+    />
+    <ThemeInitScript
+      storageKey={SITE_CONFIG.storageKeys.theme}
+      themeColors={SITE_CONFIG.themeColors}
+    />
   </head>
   <body>
-    <a
-      class="fixed top-2 left-2 z-[100] -translate-y-20 rounded-md bg-primary px-4 py-2 font-bold text-primary-foreground focus:translate-y-0"
-      href="#main-content"
+    <SkipLink />
+    <SiteHeader
+      currentPath={Astro.url.pathname}
+      homeLabel={`${SITE_CONFIG.name} home`}
+      items={sectionItems}
+      trackSections
     >
-      Skip to main content
-    </a>
-    <SiteNavigation />
+      <BrandLogo
+        slot="brand"
+        name={SITE_CONFIG.name}
+        tagline={author.jobTitle}
+      >
+        <JgMark
+          slot="mark"
+          class="size-8 shrink-0"
+        />
+      </BrandLogo>
+      <Fragment slot="actions">
+        <Button
+          href={SITE_CONFIG.repositoryUrl}
+          external
+          externalIcon={false}
+          size="icon"
+          variant="ghost"
+          title="Source repository"
+        >
+          <GitBranch
+            class="size-4"
+            aria-hidden="true"
+          />
+          <span class="sr-only">Source repository</span>
+        </Button>
+        <ThemeControl storageKey={SITE_CONFIG.storageKeys.theme} />
+      </Fragment>
+      <Fragment slot="mobile-actions">
+        <Button
+          href={SITE_CONFIG.repositoryUrl}
+          external
+          externalIcon={false}
+          size="sm"
+          variant="outline"
+        >
+          <GitBranch
+            class="size-4"
+            aria-hidden="true"
+          />
+          Source
+        </Button>
+        <ThemeControl
+          class="ml-auto"
+          storageKey={SITE_CONFIG.storageKeys.theme}
+        />
+      </Fragment>
+    </SiteHeader>
     <main
       id="main-content"
       tabindex="-1"
     >
       <slot />
     </main>
-    <SiteFooter />
+    <SiteFooter columns={footerColumns}>
+      <BrandLogo
+        slot="brand"
+        name={SITE_CONFIG.name}
+        tagline={author.jobTitle}
+      >
+        <JgMark
+          slot="mark"
+          class="size-8 shrink-0"
+        />
+      </BrandLogo>
+      <Fragment slot="about">
+        Seasoned software development grounded in strong fundamentals and strengthened by modern AI.
+      </Fragment>
+    </SiteFooter>
   </body>
 </html>

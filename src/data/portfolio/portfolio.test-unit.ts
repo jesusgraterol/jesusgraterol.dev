@@ -33,15 +33,24 @@ describe('portfolio content', () => {
       'moldea',
       '5minutes',
       'jg-skills',
+      'jg-packages',
       'Agentic Coding',
       'Balancer',
-      'Published Packages',
       'Kaggle Notebooks',
     ]);
     expect(PORTFOLIO.projects.find(({ name }) => name === 'jg-skills')).toMatchObject({
       logo: 'jg-mark.svg',
       url: 'https://jg-skills.jesusgraterol.dev/',
       githubURL: 'https://github.com/jesusgraterol/jg-skills',
+    });
+    expect(PORTFOLIO.projects.find(({ name }) => name === 'jg-packages')).toStrictEqual({
+      logo: 'jg-mark.svg',
+      name: 'jg-packages',
+      description:
+        'Small, tested TypeScript packages for coding agents to build on: errors, HTTP requests, storage, files, and processes, with docs inside each one.',
+      url: 'https://jg-packages.jesusgraterol.dev/',
+      githubURL: 'https://github.com/jesusgraterol/jg-packages',
+      tags: ['TypeScript', 'Node.js', 'React', 'Astro', 'Tailwind CSS', 'npm'],
     });
   });
 
