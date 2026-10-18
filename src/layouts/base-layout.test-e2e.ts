@@ -55,9 +55,10 @@ test.describe('portfolio', () => {
         exact: true,
       }),
     ).toHaveAttribute('href', '/');
-    const terminalBrandMark = page.locator('[data-brand-mark="terminal"]').first();
-    await expect(terminalBrandMark).toHaveAttribute('src', '/favicons/128x128.png');
-    await expect(terminalBrandMark).toHaveJSProperty('complete', true);
+    // the jg/ mark from jg-personal-astro-ui, drawn inline
+    const terminalBrandMark = page.locator('[data-brand-mark="terminal"] svg').first();
+    await expect(terminalBrandMark).toBeVisible();
+    await expect(terminalBrandMark.locator('path')).toHaveCount(2);
     const heroSocialLinks = page
       .locator('main > section')
       .first()
@@ -113,7 +114,7 @@ test.describe('portfolio', () => {
       'https://github.com/jesusgraterol/jg-skills',
     );
     const jgSkillsLogo = jgSkillsProject.locator('img');
-    await expect(jgSkillsLogo).toHaveAttribute('src', '/favicon.svg');
+    await expect(jgSkillsLogo).toHaveAttribute('src', '/jg-mark.svg');
     await jgSkillsLogo.scrollIntoViewIfNeeded();
     await expect
       .poll(async () => jgSkillsLogo.evaluate((image) => (image as HTMLImageElement).naturalWidth))

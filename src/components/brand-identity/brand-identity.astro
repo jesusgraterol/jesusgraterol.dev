@@ -1,4 +1,6 @@
 ---
+import JgMark from 'jg-personal-astro-ui/jg-mark';
+
 interface Props {
   compact?: boolean;
 }
@@ -7,15 +9,12 @@ const { compact = false } = Astro.props;
 ---
 
 <span class="inline-flex items-center gap-2.5">
-  <img
-    src="/favicons/128x128.png"
-    alt=""
-    width="32"
-    height="32"
-    class="size-8 shrink-0 shadow-surface"
-    aria-hidden="true"
+  <span
+    class="inline-flex shrink-0"
     data-brand-mark="terminal"
-  />
+  >
+    <JgMark class="size-8 shadow-surface" />
+  </span>
   {
     !compact && (
       <span class="leading-none">

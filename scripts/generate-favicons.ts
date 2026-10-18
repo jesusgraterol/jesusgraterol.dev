@@ -8,6 +8,7 @@ const scriptDirectory = fileURLToPath(new URL('.', import.meta.url));
 const publicDirectory = resolve(scriptDirectory, '../public');
 const faviconDirectory = resolve(publicDirectory, 'favicons');
 const sourcePath = resolve(publicDirectory, 'favicon.svg');
+const markPath = resolve(publicDirectory, 'jg-mark.svg');
 const faviconPath = resolve(publicDirectory, 'favicon.ico');
 const faviconSizes = [
   16, 32, 48, 64, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 384, 512,
@@ -42,9 +43,21 @@ const buildIco = (images: IcoImage[]): Buffer => {
   return Buffer.concat([directory, ...images.map(({ data }) => data)]);
 };
 
-/** Generates the PNG and ICO favicon set from the canonical SVG mark. */
+/** Reads one of jg-personal-astro-ui's SVG files, such as `jg-mark.svg`. */
+const readPackageSvg = async (name: string): Promise<string> =>
+  readFile(fileURLToPath(import.meta.resolve(`jg-personal-astro-ui/${name}`)), 'utf8');
+
+/**
+ * Writes jg-personal-astro-ui's jg/ mark to `jg-mark.svg`, for the open-graph image and the
+ * jg-skills project, and its slash alone to `favicon.svg`, then generates the PNG and ICO favicon
+ * set from the slash, because the three letters can't be read at 16 pixels.
+ */
 const generateFavicons = async (): Promise<void> => {
-  const svg = await readFile(sourcePath, 'utf8');
+  const [svg, markSvg] = await Promise.all([
+    readPackageSvg('jg-favicon.svg'),
+    readPackageSvg('jg-mark.svg'),
+  ]);
+  await Promise.all([writeFile(sourcePath, svg), writeFile(markPath, markSvg)]);
   await mkdir(faviconDirectory, { recursive: true });
 
   const browser = await chromium.launch({ headless: true });

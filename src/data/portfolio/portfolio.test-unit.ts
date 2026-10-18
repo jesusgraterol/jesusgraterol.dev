@@ -39,7 +39,7 @@ describe('portfolio content', () => {
       'Kaggle Notebooks',
     ]);
     expect(PORTFOLIO.projects.find(({ name }) => name === 'jg-skills')).toMatchObject({
-      logo: 'favicon.svg',
+      logo: 'jg-mark.svg',
       url: 'https://jg-skills.jesusgraterol.dev/',
       githubURL: 'https://github.com/jesusgraterol/jg-skills',
     });
