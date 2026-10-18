@@ -49,16 +49,15 @@ test.describe('portfolio', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       'I build software for ambitious ideas.',
     );
-    await expect(
-      page.getByRole('link', {
-        name: 'Jesus Graterol Software Developer',
-        exact: true,
-      }),
-    ).toHaveAttribute('href', '/');
-    // the jg/ mark from jg-personal-astro-ui, drawn inline
-    const terminalBrandMark = page.locator('[data-brand-mark="terminal"] svg').first();
-    await expect(terminalBrandMark).toBeVisible();
-    await expect(terminalBrandMark.locator('path')).toHaveCount(2);
+    const brandLink = page
+      .getByRole('banner')
+      .getByRole('link', { name: 'Jesus Graterol home', exact: true });
+    await expect(brandLink).toHaveAttribute('href', '/');
+    await expect(brandLink).toContainText('Software Developer');
+    // the jg/ mark from jg-personal-astro-ui, drawn inline in the brand
+    const brandMark = brandLink.locator('svg').first();
+    await expect(brandMark).toBeVisible();
+    await expect(brandMark.locator('path')).toHaveCount(2);
     const heroSocialLinks = page
       .locator('main > section')
       .first()
@@ -71,11 +70,14 @@ test.describe('portfolio', () => {
       'moldea',
       '5minutes',
       'jg-skills',
+      'jg-packages',
       'Agentic Coding',
       'Balancer',
-      'Published Packages',
       'Kaggle Notebooks',
     ]);
+    await expect(
+      page.getByRole('heading', { name: 'Published Packages', exact: true }),
+    ).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'uipalettes', exact: true })).toHaveCount(0);
     const moldeaProject = page.locator('#projects article').first();
     await expect(moldeaProject.getByRole('heading')).toHaveText('moldea');
@@ -119,6 +121,14 @@ test.describe('portfolio', () => {
     await expect
       .poll(async () => jgSkillsLogo.evaluate((image) => (image as HTMLImageElement).naturalWidth))
       .toBeGreaterThan(0);
+    const jgPackagesProject = page.locator('#projects article').filter({ hasText: 'jg-packages' });
+    await expect(
+      jgPackagesProject.getByRole('link', { name: 'Visit jg-packages' }),
+    ).toHaveAttribute('href', 'https://jg-packages.jesusgraterol.dev/');
+    await expect(
+      jgPackagesProject.getByRole('link', { name: 'jg-packages source' }),
+    ).toHaveAttribute('href', 'https://github.com/jesusgraterol/jg-packages');
+    await expect(jgPackagesProject.locator('img')).toHaveAttribute('src', '/jg-mark.svg');
     const agenticCodingProject = page
       .locator('#projects article')
       .filter({ hasText: 'Agentic Coding' });
@@ -201,13 +211,14 @@ test.describe('portfolio', () => {
     await expect(newTabLinks).toHaveCount(27);
     for (const link of await newTabLinks.all()) {
       await expect(link).toHaveAccessibleName(/\(opens in a new tab\)$/u);
-      await expect(link.locator('[data-new-tab-indicator]')).toBeVisible();
+      await expect(link.locator('[data-new-tab-marker]')).toBeVisible();
     }
 
-    const repositoryNavigation = page.locator('header a[target="_blank"]');
+    // the site header's links; section headers are header elements too
+    const repositoryNavigation = page.locator('body > header a[target="_blank"]');
     await expect(repositoryNavigation).toHaveCount(2);
     for (const link of await repositoryNavigation.all()) {
-      await expect(link.locator('[data-new-tab-indicator]')).toHaveCount(0);
+      await expect(link.locator('[data-new-tab-marker]')).toHaveCount(0);
     }
     await expect(
       page.getByRole('link', { name: 'See selected work', exact: true }),
@@ -247,10 +258,30 @@ test.describe('portfolio', () => {
     }
   });
 
+  for (const width of [768, 1023]) {
+    test(`fits the header without horizontal overflow at ${width} px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto('/');
+
+      await expect(
+        page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', {
+          name: 'Contact',
+        }),
+      ).toBeVisible();
+      const dimensions = await page.evaluate(() => ({
+        clientWidth: document.documentElement.clientWidth,
+        headerWidth: document.querySelector('header')?.scrollWidth ?? 0,
+        scrollWidth: document.documentElement.scrollWidth,
+      }));
+      expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth);
+      expect(dimensions.headerWidth).toBeLessThanOrEqual(dimensions.clientWidth);
+    });
+  }
+
   test('has no horizontal overflow at the minimum supported width', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto('/');
-    const mobileMenu = page.locator('header details');
+    const mobileMenu = page.locator('body > header details');
     await mobileMenu.locator('summary').click();
     await expect(mobileMenu).toHaveAttribute('open', '');
     await mobileMenu.getByRole('link', { name: 'Projects' }).click();
@@ -277,7 +308,7 @@ test.describe('portfolio', () => {
   });
 
   test('links footer navigation to homepage sections from every page', async ({ page }) => {
-    const footerNavigation = page.getByRole('navigation', { name: 'Footer navigation' });
+    const footerNavigation = page.getByRole('navigation', { name: 'Explore' });
 
     await page.goto('/');
     await expect(
@@ -319,6 +350,10 @@ test.describe('portfolio', () => {
     await expect(
       page.getByRole('contentinfo').getByRole('link', { name: 'llms.txt', exact: true }),
     ).toHaveAttribute('href', '/llms.txt');
+    const elsewhere = page.getByRole('navigation', { name: 'Elsewhere' });
+    for (const name of ['GitHub', 'LinkedIn']) {
+      await expect(elsewhere.getByRole('link', { name })).toHaveAttribute('target', '_blank');
+    }
     await expect(
       page.locator('link[rel="alternate"][href="https://jesusgraterol.dev/llms.txt"]'),
     ).toHaveCount(0);
@@ -386,10 +421,14 @@ for (const colorScheme of ['light', 'dark'] as const) {
         await expect(link).toHaveCSS('outline-offset', '3px');
       }
 
-      await expect(page.getByRole('link', { name: 'Email me', exact: true })).toHaveCSS(
-        'outline-color',
-        'rgb(255, 255, 255)',
-      );
+      // the inverse button's ring, in the light pill's own color, so it shows on the dark band
+      const emailLink = page.getByRole('link', { name: 'Email me', exact: true });
+      await finishLinkTransitions(emailLink);
+      const { backgroundColor, outlineColor } = await emailLink.evaluate((element) => ({
+        backgroundColor: getComputedStyle(element).backgroundColor,
+        outlineColor: getComputedStyle(element).outlineColor,
+      }));
+      expect(outlineColor).toBe(backgroundColor);
     });
   });
 }

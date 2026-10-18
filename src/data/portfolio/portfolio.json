@@ -56,6 +56,14 @@
       "tags": ["Agent Skills", "Claude Code", "Codex", "Astro", "TypeScript", "Tailwind CSS"]
     },
     {
+      "logo": "jg-mark.svg",
+      "name": "jg-packages",
+      "description": "Small, tested TypeScript packages for coding agents to build on: errors, HTTP requests, storage, files, and processes, with docs inside each one.",
+      "url": "https://jg-packages.jesusgraterol.dev/",
+      "githubURL": "https://github.com/jesusgraterol/jg-packages",
+      "tags": ["TypeScript", "Node.js", "React", "Astro", "Tailwind CSS", "npm"]
+    },
+    {
       "logo": "projects/agentic-coding.svg",
       "name": "Agentic Coding",
       "description": "A disciplined approach to planning, building, verifying, and reviewing software with coding agents while developers retain final engineering judgment.",
@@ -78,14 +86,6 @@
         "TailwindCSS",
         "GNU Bash"
       ]
-    },
-    {
-      "logo": "projects/published-packages.png",
-      "name": "Published Packages",
-      "description": "A collection of publicly released npm packages, designed to streamline and enhance your web development process. Discover a diverse collection of libraries, frameworks, and command-line tools (CLIs) tailored to various needs.",
-      "url": "https://github.com/jesusgraterol/published-packages",
-      "githubURL": "https://github.com/jesusgraterol/published-packages",
-      "tags": ["JavaScript", "TypeScript", "Node.js", "CSS", "GNU Bash"]
     },
     {
       "logo": "projects/kaggle-notebooks.png",

@@ -4,7 +4,7 @@
 
 The source for [jesusgraterol.dev](https://jesusgraterol.dev/), the static portfolio of seasoned Software Developer Jesus Graterol. It presents selected projects, professional experience, education, and the complete technology stack in a fast, accessible single-page site.
 
-The site is built with Astro, TypeScript, Tailwind CSS, and a small amount of framework-free client JavaScript. Portfolio content is validated at build time from [`src/data/portfolio/portfolio.json`](./src/data/portfolio/portfolio.json).
+The site is built with Astro, TypeScript, Tailwind CSS, and a small amount of framework-free client JavaScript. Its UI comes from [`jg-personal-astro-ui`](https://www.npmjs.com/package/jg-personal-astro-ui), the package Jesus Graterol's sites share: the theme and its tokens, the page head, header, footer, theme switch, section layout, buttons, cards, badges, and links, and the `jg/` mark. The site keeps only its own content: the portfolio sections, the social links with their brand icons, and its structured data. Portfolio content is validated at build time from [`src/data/portfolio/portfolio.json`](./src/data/portfolio/portfolio.json).
 
 ## Requirements
 
@@ -41,7 +41,7 @@ npm run test:integration:artifact
 npm run test:e2e:artifact
 ```
 
-Regenerate the Open Graph image after changing its template:
+`npm run assets:generate` writes the favicons, the `jg/` mark, and the Agentic Coding project's mark from `jg-personal-astro-ui`'s SVG files, then renders the Open Graph image from its template. Run it after updating the package or changing the template:
 
 ```bash
 npm run assets:generate

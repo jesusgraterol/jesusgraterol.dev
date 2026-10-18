@@ -35,6 +35,10 @@ export const SITE_CONFIG = {
     width: 1200,
   },
   repositoryUrl: 'https://github.com/jesusgraterol/jesusgraterol.dev',
+  // the key the visitor's theme preference is stored under, unchanged so saved themes carry over
+  storageKeys: {
+    theme: 'jesusgraterol-theme',
+  },
   themeColors: {
     dark: '#1e2939',
     light: '#fefdfb',
