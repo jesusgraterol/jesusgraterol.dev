@@ -10,7 +10,7 @@ describe('portfolio content', () => {
   });
 
   test('preserves the current portfolio content inventory', () => {
-    expect(PORTFOLIO.projects).toHaveLength(7);
+    expect(PORTFOLIO.projects).toHaveLength(8);
     expect(PORTFOLIO.positions).toHaveLength(10);
     expect(
       PORTFOLIO.positions.reduce(
@@ -34,6 +34,7 @@ describe('portfolio content', () => {
       '5minutes',
       'jg-skills',
       'jg-packages',
+      'jg-plans',
       'Agentic Coding',
       'Balancer',
       'Kaggle Notebooks',

@@ -64,6 +64,14 @@
       "tags": ["TypeScript", "Node.js", "React", "Astro", "Tailwind CSS", "npm"]
     },
     {
+      "logo": "jg-mark.svg",
+      "name": "jg-plans",
+      "description": "A compact planning protocol for people and coding agents, with Markdown plans, optional milestones, and a TypeScript library and CLI for reading and updating them.",
+      "url": "https://jg-plans.jesusgraterol.dev/",
+      "githubURL": "https://github.com/jesusgraterol/jg-plans",
+      "tags": ["Coding Agents", "Markdown", "TypeScript", "Node.js", "Astro", "Tailwind CSS"]
+    },
+    {
       "logo": "projects/agentic-coding.svg",
       "name": "Agentic Coding",
       "description": "A disciplined approach to planning, building, verifying, and reviewing software with coding agents while developers retain final engineering judgment.",
