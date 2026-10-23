@@ -1,4 +1,4 @@
-import { buildLlmsText as buildLlmsTextFile } from 'jg-personal-astro-ui/llms-text';
+import { buildLlmsText as buildLlmsTextFile } from 'jg-site';
 
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
 import { SITE_CONFIG } from '../../site.config.ts';
