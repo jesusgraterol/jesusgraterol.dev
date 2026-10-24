@@ -42,7 +42,7 @@ for (const colorScheme of ['light', 'dark'] as const) {
       const snapshot = page.getByRole('complementary', { name: 'Career snapshot' });
       await expect(snapshot).toHaveCSS('color-scheme', 'dark');
       await expect(snapshot).toContainText('10+');
-      await expect(snapshot).toContainText('08');
+      await expect(snapshot).toContainText('09');
       await expect(snapshot).toContainText('Professional roles');
       const contrast = await new AxeBuilder({ page })
         .include('#contact')

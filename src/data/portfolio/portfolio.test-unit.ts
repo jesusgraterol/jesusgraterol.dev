@@ -10,7 +10,7 @@ describe('portfolio content', () => {
   });
 
   test('preserves the current portfolio content inventory', () => {
-    expect(PORTFOLIO.projects).toHaveLength(8);
+    expect(PORTFOLIO.projects).toHaveLength(9);
     expect(PORTFOLIO.positions).toHaveLength(10);
     expect(
       PORTFOLIO.positions.reduce(
@@ -32,9 +32,10 @@ describe('portfolio content', () => {
     expect(PORTFOLIO.projects.map(({ name }) => name)).toStrictEqual([
       'moldea',
       '5minutes',
+      'jg-agent-hq',
       'jg-skills',
-      'jg-packages',
       'jg-plans',
+      'jg-packages',
       'Agentic Coding',
       'Balancer',
       'Kaggle Notebooks',
@@ -43,6 +44,11 @@ describe('portfolio content', () => {
       logo: 'jg-mark.svg',
       url: 'https://jg-skills.jesusgraterol.dev/',
       githubURL: 'https://github.com/jesusgraterol/jg-skills',
+    });
+    expect(PORTFOLIO.projects.find(({ name }) => name === 'jg-agent-hq')).toMatchObject({
+      logo: 'jg-mark.svg',
+      url: 'https://jg-agent-hq.jesusgraterol.dev/',
+      githubURL: 'https://github.com/jesusgraterol/jg-agent-hq',
     });
     expect(PORTFOLIO.projects.find(({ name }) => name === 'jg-packages')).toStrictEqual({
       logo: 'jg-mark.svg',
