@@ -65,11 +65,13 @@ test.describe('portfolio', () => {
     for (const brand of ['github', 'linkedin', 'x', 'kaggle']) {
       await expect(heroSocialLinks.locator(`svg[data-brand="${brand}"] path`)).toHaveCount(1);
     }
-    await expect(page.locator('#projects article')).toHaveCount(7);
+    await expect(page.locator('#projects article')).toHaveCount(9);
     await expect(page.locator('#projects').getByRole('heading', { level: 3 })).toHaveText([
       'moldea',
       '5minutes',
+      'jg-agent-hq',
       'jg-skills',
+      'jg-plans',
       'jg-packages',
       'Agentic Coding',
       'Balancer',
@@ -129,6 +131,40 @@ test.describe('portfolio', () => {
       jgPackagesProject.getByRole('link', { name: 'jg-packages source' }),
     ).toHaveAttribute('href', 'https://github.com/jesusgraterol/jg-packages');
     await expect(jgPackagesProject.locator('img')).toHaveAttribute('src', '/jg-mark.svg');
+    const jgPlansProject = page.getByRole('article').filter({
+      has: page.getByRole('heading', { name: 'jg-plans', exact: true }),
+    });
+    await expect(jgPlansProject.getByRole('link', { name: 'Visit jg-plans' })).toHaveAttribute(
+      'href',
+      'https://jg-plans.jesusgraterol.dev/',
+    );
+    await expect(jgPlansProject.getByRole('link', { name: 'jg-plans source' })).toHaveAttribute(
+      'href',
+      'https://github.com/jesusgraterol/jg-plans',
+    );
+    await expect(jgPlansProject.getByAltText('', { exact: true })).toHaveAttribute(
+      'src',
+      '/jg-mark.svg',
+    );
+    const jgAgentHqProject = page.getByRole('article').filter({
+      has: page.getByRole('heading', { name: 'jg-agent-hq', exact: true }),
+    });
+    await expect(
+      jgAgentHqProject.getByRole('link', {
+        name: 'Visit jg-agent-hq (opens in a new tab)',
+        exact: true,
+      }),
+    ).toHaveAttribute('href', 'https://jg-agent-hq.jesusgraterol.dev/');
+    await expect(
+      jgAgentHqProject.getByRole('link', {
+        name: 'jg-agent-hq source (opens in a new tab)',
+        exact: true,
+      }),
+    ).toHaveAttribute('href', 'https://github.com/jesusgraterol/jg-agent-hq');
+    await expect(jgAgentHqProject.getByAltText('', { exact: true })).toHaveAttribute(
+      'src',
+      '/jg-mark.svg',
+    );
     const agenticCodingProject = page
       .locator('#projects article')
       .filter({ hasText: 'Agentic Coding' });
@@ -208,7 +244,7 @@ test.describe('portfolio', () => {
     await page.goto('/');
 
     const newTabLinks = page.locator('main a[target="_blank"], footer a[target="_blank"]');
-    await expect(newTabLinks).toHaveCount(27);
+    await expect(newTabLinks).toHaveCount(31);
     for (const link of await newTabLinks.all()) {
       await expect(link).toHaveAccessibleName(/\(opens in a new tab\)$/u);
       await expect(link.locator('[data-new-tab-marker]')).toBeVisible();

@@ -11,7 +11,7 @@ import SocialLinks from '../social-links/social-links.astro';
 <Section
   id="contact"
   border={false}
-  class="bg-inverse text-inverse-foreground [&_.eyebrow]:text-inverse-foreground/60 [&_.lede]:text-inverse-foreground/70"
+  tone="inverse"
   eyebrow="06 / Contact"
   layout="split"
   lede="Have a hard technical problem, an ambitious product, or a team that could use another thoughtful engineer? I’d like to hear about it."
@@ -35,9 +35,7 @@ import SocialLinks from '../social-links/social-links.astro';
       />
     </Button>
   </div>
-  <div
-    class="mt-12 border-t border-inverse-foreground/15 pt-8 [&_a]:border-inverse-foreground/30 [&_a]:text-inverse-foreground [&_a:focus-visible]:outline-inverse-foreground [&_a:hover]:bg-inverse-foreground/10"
-  >
+  <div class="mt-12 border-t border-border pt-8">
     <SocialLinks />
   </div>
 </Section>

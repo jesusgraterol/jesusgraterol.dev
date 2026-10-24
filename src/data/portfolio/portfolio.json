@@ -49,11 +49,27 @@
     },
     {
       "logo": "jg-mark.svg",
+      "name": "jg-agent-hq",
+      "description": "A TypeScript library and local controller for Claude Code and Codex sessions, with live input, conversation history, account usage, and agent collaboration through one API.",
+      "url": "https://jg-agent-hq.jesusgraterol.dev/",
+      "githubURL": "https://github.com/jesusgraterol/jg-agent-hq",
+      "tags": ["Coding Agents", "Claude Code", "Codex", "TypeScript", "Node.js", "SQLite"]
+    },
+    {
+      "logo": "jg-mark.svg",
       "name": "jg-skills",
       "description": "Reusable skills for planning, building, reviewing, and shipping software with Claude Code and Codex.",
       "url": "https://jg-skills.jesusgraterol.dev/",
       "githubURL": "https://github.com/jesusgraterol/jg-skills",
       "tags": ["Agent Skills", "Claude Code", "Codex", "Astro", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "logo": "jg-mark.svg",
+      "name": "jg-plans",
+      "description": "A compact planning protocol for people and coding agents, with Markdown plans, optional milestones, and a TypeScript library and CLI for reading and updating them.",
+      "url": "https://jg-plans.jesusgraterol.dev/",
+      "githubURL": "https://github.com/jesusgraterol/jg-plans",
+      "tags": ["Coding Agents", "Markdown", "TypeScript", "Node.js", "Astro", "Tailwind CSS"]
     },
     {
       "logo": "jg-mark.svg",

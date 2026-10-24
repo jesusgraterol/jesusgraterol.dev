@@ -1,5 +1,5 @@
 ---
-import { ChevronDown } from '@lucide/astro';
+import Accordion from 'jg-personal-astro-ui/accordion';
 import Section from 'jg-personal-astro-ui/section';
 
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
@@ -12,40 +12,36 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
   lede="Product engineering, technical leadership, architecture, and delivery across startups and established teams."
   title="Over a decade shipping software."
 >
-  <div class="mt-14 border-t border-border">
+  <div class="mt-14 grid gap-4">
     {
       PORTFOLIO.positions.map((position, index) => (
-        <details
-          class="group border-b border-border"
-          open={index === 0}
+        <Accordion
+          id={`experience-${index + 1}`}
+          title={position.positionName}
+          isOpen={index === 0}
         >
-          <summary class="relative grid list-none gap-5 py-6 marker:content-none sm:grid-cols-[3.5rem_1fr_auto] sm:items-center sm:py-7 [&::-webkit-details-marker]:hidden">
-            <span class="grid size-14 place-items-center overflow-hidden rounded-lg border border-border bg-surface p-2 shadow-surface">
-              <img
-                src={`/${position.logo}`}
-                alt=""
-                width="56"
-                height="56"
-                class="size-full object-contain"
-                loading="lazy"
-              />
+          <span
+            slot="icon"
+            class="grid size-14 place-items-center overflow-hidden rounded-lg border border-border bg-surface p-2 shadow-surface"
+          >
+            <img
+              src={`/${position.logo}`}
+              alt=""
+              width="56"
+              height="56"
+              class="size-full object-contain"
+              loading="lazy"
+            />
+          </span>
+          <span slot="summary">
+            <span class="block text-xl font-semibold tracking-[-0.025em]">
+              {position.positionName}
             </span>
-            <span>
-              <span class="block text-xl font-semibold tracking-[-0.025em]">
-                {position.positionName}
-              </span>
-              <span class="mt-1 block text-sm font-medium text-muted">
-                {position.companyName} · {position.dateRange}
-              </span>
+            <span class="mt-1 block text-sm font-medium text-muted">
+              {position.companyName} · {position.dateRange}
             </span>
-            <span class="absolute right-0 mt-4 grid size-9 place-items-center rounded-full border border-border-strong sm:relative sm:mt-0">
-              <ChevronDown
-                class="size-4 transition-transform group-open:rotate-180"
-                aria-hidden="true"
-              />
-            </span>
-          </summary>
-          <div class="pb-8 sm:pr-16 sm:pl-[5rem]">
+          </span>
+          <div class="py-2 sm:pr-12 sm:pl-[4.25rem]">
             <ul class="grid gap-3 text-[0.97rem] leading-7 text-muted">
               {position.responsibilities.map((responsibility) => (
                 <li class="grid grid-cols-[0.75rem_1fr] gap-3">
@@ -58,7 +54,7 @@ import { PORTFOLIO } from '../../data/portfolio/index.ts';
               ))}
             </ul>
           </div>
-        </details>
+        </Accordion>
       ))
     }
   </div>
