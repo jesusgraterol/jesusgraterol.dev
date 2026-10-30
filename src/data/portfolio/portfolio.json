@@ -50,7 +50,7 @@
     {
       "logo": "jg-mark.svg",
       "name": "jg-agent-hq",
-      "description": "A TypeScript library and local controller for Claude Code and Codex sessions, with live input, conversation history, account usage, and agent collaboration through one API.",
+      "description": "A TypeScript library and local controller for Claude Code and Codex sessions, with live input, conversation history, account usage, and recoverable local storage through one API.",
       "url": "https://jg-agent-hq.jesusgraterol.dev/",
       "githubURL": "https://github.com/jesusgraterol/jg-agent-hq",
       "tags": ["Coding Agents", "Claude Code", "Codex", "TypeScript", "Node.js", "SQLite"]

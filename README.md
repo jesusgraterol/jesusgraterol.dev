@@ -15,7 +15,6 @@ The site is built with Astro, TypeScript, Tailwind CSS, and a small amount of fr
 
 ```bash
 npm ci --ignore-scripts
-npx playwright install --with-deps chromium
 npm run dev
 ```
 
@@ -27,7 +26,16 @@ Astro prints the local URL when the development server starts.
 npm run check
 ```
 
-The complete check runs unit tests, Astro type checks, ESLint, Prettier, a production build, artifact contract tests, and Chromium end-to-end accessibility and interaction tests.
+The essential check runs privacy and deployment-gate tests, Astro type checks, ESLint, Prettier, and a production build with its artifact validator. It needs no browser installation. `npm test` runs the essential tests and builds once.
+
+Run the complete suite only when explicitly requested:
+
+```bash
+npx playwright install --with-deps chromium
+npm run check:full
+```
+
+`npm run test:full` runs all unit, artifact integration, and Chromium end-to-end tests with one build. Granular commands remain complete, including full-only tests. See [Testing](./docs/testing.md) for classification and focused verification.
 
 Individual commands are also available:
 
@@ -55,9 +63,16 @@ Every HTML page links to this resource through `rel="describedby"`, and the foot
 
 ## Publishing
 
-GitHub Actions verifies every pull request. Pushes to `main` and manual workflow runs pass through the same verification suite, upload the static `dist` artifact, and deploy it to GitHub Pages.
+GitHub Actions runs essential verification on every pull request. Pushes to `main` and manual workflow runs pass through the same verification suite, upload the static `dist` artifact, and deploy it to GitHub Pages.
 
 The custom domain is declared in [`public/CNAME`](./public/CNAME), and the repository uses **GitHub Actions** as its Pages source. The domain is proxied through Cloudflare, so its visitor-facing redirects, including `http://` to `https://`, and response transformations are controlled at the Cloudflare edge. While the proxy is enabled, GitHub Pages has no certificate for the domain, so its **Enforce HTTPS** setting stays off.
+
+## Project blueprint
+
+- `src/data/portfolio/` owns validated portfolio content; `src/components/` and `src/layouts/` render the site using `jg-personal-astro-ui`.
+- `src/utilities/` builds the machine-readable index and structured data. `scripts/verify-build.ts` validates deployable output.
+- [Testing](./docs/testing.md) defines suite membership, commands, and focused verification.
+- `docs/` holds concise documentation of essential, durable project concepts and processes. API and HTTP endpoint documentation belongs outside `docs/`.
 
 ## License
 

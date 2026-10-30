@@ -12,46 +12,48 @@ const repositoryRoot = resolve(import.meta.dirname, '..');
 const EXCLUDED_DIRECTORIES = new Set(['_archive', '_archives', '_backup', '_backups']);
 
 describe('static build artifact', () => {
-  test('contains the required content, metadata, assets, and routes', async () => {
-    await expect(verifyBuild()).resolves.toBeUndefined();
-  });
+  describe('content and metadata', { tags: ['full'] }, () => {
+    test('contains the required content, metadata, assets, and routes', async () => {
+      await expect(verifyBuild()).resolves.toBeUndefined();
+    });
 
-  test.each([
-    ['missing new-tab notices', ' (opens in a new tab)', '', 'moldea'],
-    [
-      'incorrect source destination',
-      'href="https://github.com/jesusgraterol/jg-skills"',
-      'href="https://example.com/"',
-      'jg-skills',
-    ],
-  ])(
-    'verifyBuild(%s) -> rejects the project link',
-    async (_scenario, original, replacement, projectName) => {
-      const artifactDirectory = await mkdtemp(resolve(tmpdir(), 'portfolio-build-'));
-      try {
-        await cp(resolve(repositoryRoot, 'dist'), artifactDirectory, {
-          recursive: true,
-          filter: (sourcePath) => !EXCLUDED_DIRECTORIES.has(basename(sourcePath)),
-        });
-        const homepagePath = resolve(artifactDirectory, 'index.html');
-        const homepage = await readFile(homepagePath, 'utf8');
-        const invalidHomepage = homepage.replaceAll(original, replacement);
-        expect(invalidHomepage).not.toBe(homepage);
-        await writeFile(homepagePath, invalidHomepage, 'utf8');
+    test.each([
+      ['missing new-tab notices', ' (opens in a new tab)', '', 'moldea'],
+      [
+        'incorrect source destination',
+        'href="https://github.com/jesusgraterol/jg-skills"',
+        'href="https://example.com/"',
+        'jg-skills',
+      ],
+    ])(
+      'verifyBuild(%s) -> rejects the project link',
+      async (_scenario, original, replacement, projectName) => {
+        const artifactDirectory = await mkdtemp(resolve(tmpdir(), 'portfolio-build-'));
+        try {
+          await cp(resolve(repositoryRoot, 'dist'), artifactDirectory, {
+            recursive: true,
+            filter: (sourcePath) => !EXCLUDED_DIRECTORIES.has(basename(sourcePath)),
+          });
+          const homepagePath = resolve(artifactDirectory, 'index.html');
+          const homepage = await readFile(homepagePath, 'utf8');
+          const invalidHomepage = homepage.replaceAll(original, replacement);
+          expect(invalidHomepage).not.toBe(homepage);
+          await writeFile(homepagePath, invalidHomepage, 'utf8');
 
-        await expect(verifyBuild(artifactDirectory)).rejects.toThrow(
-          `Homepage project links are not self-describing: ${projectName}`,
-        );
-      } finally {
-        await rm(artifactDirectory, { recursive: true, force: true });
-      }
-    },
-  );
+          await expect(verifyBuild(artifactDirectory)).rejects.toThrow(
+            `Homepage project links are not self-describing: ${projectName}`,
+          );
+        } finally {
+          await rm(artifactDirectory, { recursive: true, force: true });
+        }
+      },
+    );
 
-  test('keeps the generated llms.txt artifact synchronized with portfolio content', async () => {
-    const artifactText = await readFile(resolve(repositoryRoot, 'dist/llms.txt'), 'utf8');
+    test('keeps the generated llms.txt artifact synchronized with portfolio content', async () => {
+      const artifactText = await readFile(resolve(repositoryRoot, 'dist/llms.txt'), 'utf8');
 
-    expect(artifactText).toBe(buildLlmsText());
+      expect(artifactText).toBe(buildLlmsText());
+    });
   });
 
   test('keeps the GitHub Pages workflow gated by verification', async () => {

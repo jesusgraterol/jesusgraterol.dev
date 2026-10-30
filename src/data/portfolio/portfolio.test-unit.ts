@@ -5,11 +5,11 @@ import { PORTFOLIO } from './portfolio.ts';
 import { PortfolioSchema } from './types.ts';
 
 describe('portfolio content', () => {
-  test('satisfies the canonical content contract', () => {
+  test('satisfies the canonical content contract', { tags: ['full'] }, () => {
     expect(PortfolioSchema.parse(PORTFOLIO)).toStrictEqual(PORTFOLIO);
   });
 
-  test('preserves the current portfolio content inventory', () => {
+  test('preserves the current portfolio content inventory', { tags: ['full'] }, () => {
     expect(PORTFOLIO.projects).toHaveLength(9);
     expect(PORTFOLIO.positions).toHaveLength(10);
     expect(
@@ -28,7 +28,7 @@ describe('portfolio content', () => {
     ).toBe(78);
   });
 
-  test('publishes the selected projects in the requested order', () => {
+  test('publishes the selected projects in the requested order', { tags: ['full'] }, () => {
     expect(PORTFOLIO.projects.map(({ name }) => name)).toStrictEqual([
       'moldea',
       '5minutes',
@@ -71,22 +71,26 @@ describe('portfolio content', () => {
     expect(fiveMinutesProject).not.toHaveProperty('githubURL');
   });
 
-  test('places the refreshed technologies in their requested disciplines', () => {
-    const technologyNamesByCategory = new Map(
-      PORTFOLIO.techStack.map(({ title, items }) => [title, items.map(({ name }) => name)]),
-    );
+  test(
+    'places the refreshed technologies in their requested disciplines',
+    { tags: ['full'] },
+    () => {
+      const technologyNamesByCategory = new Map(
+        PORTFOLIO.techStack.map(({ title, items }) => [title, items.map(({ name }) => name)]),
+      );
 
-    expect(technologyNamesByCategory.get('Data science & AI')).toEqual(
-      expect.arrayContaining(['Codex', 'Claude API Platform', 'Claude Code']),
-    );
-    expect(technologyNamesByCategory.get('Infrastructure')).toContain('GitHub Actions');
-    const miscTechnologyNames = technologyNamesByCategory.get('Misc');
-    expect(miscTechnologyNames).toEqual(expect.arrayContaining(['NATS', 'PayPal', 'pg-boss']));
-    const stripeIndex = miscTechnologyNames?.indexOf('Stripe') ?? -1;
-    expect(miscTechnologyNames?.[stripeIndex - 1]).toBe('PayPal');
-  });
+      expect(technologyNamesByCategory.get('Data science & AI')).toEqual(
+        expect.arrayContaining(['Codex', 'Claude API Platform', 'Claude Code']),
+      );
+      expect(technologyNamesByCategory.get('Infrastructure')).toContain('GitHub Actions');
+      const miscTechnologyNames = technologyNamesByCategory.get('Misc');
+      expect(miscTechnologyNames).toEqual(expect.arrayContaining(['NATS', 'PayPal', 'pg-boss']));
+      const stripeIndex = miscTechnologyNames?.indexOf('Stripe') ?? -1;
+      expect(miscTechnologyNames?.[stripeIndex - 1]).toBe('PayPal');
+    },
+  );
 
-  test('publishes Coursera grades without inventing a UNISA credential', () => {
+  test('publishes Coursera grades without inventing a UNISA credential', { tags: ['full'] }, () => {
     const courseraPrograms = PORTFOLIO.education.certifications.filter((certification) =>
       certification.certificateURL?.startsWith('https://www.coursera.org/'),
     );
@@ -100,7 +104,7 @@ describe('portfolio content', () => {
     expect(unisa).not.toHaveProperty('certificateURL');
   });
 
-  test('keeps project, position, and technology names unambiguous', () => {
+  test('keeps project, position, and technology names unambiguous', { tags: ['full'] }, () => {
     const projectNames = PORTFOLIO.projects.map(({ name }) => name);
     const positionKeys = PORTFOLIO.positions.map(
       ({ companyName, dateRange, positionName }) => `${companyName}:${positionName}:${dateRange}`,
