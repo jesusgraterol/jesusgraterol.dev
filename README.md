@@ -49,11 +49,13 @@ npm run test:integration:artifact
 npm run test:e2e:artifact
 ```
 
-`npm run assets:generate` writes the favicons, the `jg/` mark, and the Agentic Coding project's mark from `jg-personal-astro-ui`'s SVG files, then renders the Open Graph image from its template. Run it after updating the package or changing the template:
+`npm run assets:generate` writes the favicons, the `jg/` mark, the Telegram avatar at `public/avatar.png`, and the Agentic Coding project's mark from `jg-personal-astro-ui`'s SVG files, then renders the Open Graph image from its template. Run it after updating the package or changing the template:
 
 ```bash
 npm run assets:generate
 ```
+
+`node scripts/generate-avatar.ts --check` verifies that the committed avatar matches its source without writing files. This check can also be added to CI.
 
 ## Machine-readable portfolio and SEO
 

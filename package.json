@@ -20,7 +20,7 @@
   },
   "packageManager": "npm@11.12.1",
   "scripts": {
-    "assets:generate": "node scripts/generate-favicons.ts && node scripts/generate-open-graph.ts",
+    "assets:generate": "node scripts/generate-favicons.ts && node scripts/generate-avatar.ts && node scripts/generate-open-graph.ts",
     "build": "astro build && node scripts/verify-build.ts",
     "check": "npm run test:unit -- --tagsFilter=!full --exclude src/utilities/seo/structured-data.test-unit.ts && npm run typecheck && npm run lint && npm run format:check && npm run build && npm run test:integration:artifact -- --tagsFilter=!full",
     "check:full": "npm run test:unit && npm run typecheck && npm run lint && npm run format:check && npm run build && npm run test:integration:artifact && npm run test:e2e:artifact",
