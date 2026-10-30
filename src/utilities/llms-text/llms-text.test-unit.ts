@@ -6,46 +6,57 @@ import { SITE_CONFIG } from '../../site.config.ts';
 import { buildLlmsText } from './llms-text.ts';
 
 describe('buildLlmsText', () => {
-  test('builds the required index structure from the canonical portfolio', () => {
-    const text = buildLlmsText();
+  test(
+    'builds the required index structure from the canonical portfolio',
+    { tags: ['full'] },
+    () => {
+      const text = buildLlmsText();
 
-    expect(text).toMatch(/^# Jesus Graterol\n\n> .+\n/u);
-    expect(text).toContain('## Core portfolio');
-    expect(text).toContain('## Selected projects');
-    expect(text).toContain('## Professional profiles');
-    expect(text).toContain('## Optional');
-    expect(text).toContain(`- [Portfolio homepage](${SITE_CONFIG.url}/)`);
-    expect(text).toContain(`${PORTFOLIO.positions.length} roles`);
-    expect(text).toContain('78 technologies grouped by discipline');
-    expect(text).toContain('grades and available credentials');
-    expect(text).toContain('[Agentic Coding](https://agenticcoding.jesusgraterol.dev/)');
-    expect(text).toContain('[jg-skills](https://jg-skills.jesusgraterol.dev/)');
-    expect(text).toContain('[Source repository](https://github.com/jesusgraterol/jg-skills)');
-    expect(text).toContain('[jg-packages](https://jg-packages.jesusgraterol.dev/)');
-    expect(text).not.toContain('Published Packages');
-    expect(text).not.toContain('uipalettes');
-    expect(text).not.toContain('verified professional profiles');
-    expect(text.endsWith('\n')).toBe(true);
-  });
+      expect(text).toMatch(/^# Jesus Graterol\n\n> .+\n/u);
+      expect(text).toContain('## Core portfolio');
+      expect(text).toContain('## Selected projects');
+      expect(text).toContain('## Professional profiles');
+      expect(text).toContain('## Optional');
+      expect(text).toContain(`- [Portfolio homepage](${SITE_CONFIG.url}/)`);
+      expect(text).toContain(`${PORTFOLIO.positions.length} roles`);
+      expect(text).toContain('78 technologies grouped by discipline');
+      expect(text).toContain('grades and available credentials');
+      expect(text).toContain('[Agentic Coding](https://agenticcoding.jesusgraterol.dev/)');
+      expect(text).toContain('[jg-skills](https://jg-skills.jesusgraterol.dev/)');
+      expect(text).toContain('[Source repository](https://github.com/jesusgraterol/jg-skills)');
+      expect(text).toContain('[jg-packages](https://jg-packages.jesusgraterol.dev/)');
+      expect(text).not.toContain('Published Packages');
+      expect(text).not.toContain('uipalettes');
+      expect(text).not.toContain('verified professional profiles');
+      expect(text.endsWith('\n')).toBe(true);
+    },
+  );
 
-  test('publishes every project and available source repository in source order', () => {
-    const text = buildLlmsText();
-    const projectOffsets = PORTFOLIO.projects.map((project) => {
-      expect(text).toContain(`[${project.name}](${project.url})`);
-      if (project.githubURL) {
-        expect(text).toContain(`[Source repository](${project.githubURL})`);
+  test(
+    'publishes every project and available source repository in source order',
+    { tags: ['full'] },
+    () => {
+      const text = buildLlmsText();
+      const projectOffsets = PORTFOLIO.projects.map((project) => {
+        expect(text).toContain(`[${project.name}](${project.url})`);
+        if (project.githubURL) {
+          expect(text).toContain(`[Source repository](${project.githubURL})`);
+        }
+        return text.indexOf(`[${project.name}]`);
+      });
+
+      expect(projectOffsets).toStrictEqual(projectOffsets.toSorted((left, right) => left - right));
+      for (const profileUrl of Object.values(PORTFOLIO.socialPages)) {
+        expect(text).toContain(profileUrl);
       }
-      return text.indexOf(`[${project.name}]`);
-    });
-
-    expect(projectOffsets).toStrictEqual(projectOffsets.toSorted((left, right) => left - right));
+    },
+  );
+  test('keeps the private project source out of the published index', () => {
+    const text = buildLlmsText();
     const fiveMinutesLine = text
       .split('\n')
       .find((line) => line.startsWith('- [5minutes](https://5minutes.jesusgraterol.dev/)'));
     expect(fiveMinutesLine).toBeDefined();
     expect(fiveMinutesLine).not.toContain('[Source repository]');
-    for (const profileUrl of Object.values(PORTFOLIO.socialPages)) {
-      expect(text).toContain(profileUrl);
-    }
   });
 });

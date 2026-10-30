@@ -5,3 +5,4 @@ playwright-report
 test-results
 public/og.png
 readme-assets/*.png
+/jg-plans/

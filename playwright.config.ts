@@ -3,6 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './src',
   testMatch: '**/*.test-e2e.ts',
+  testIgnore: ['**/node_modules/**', '**/{_archive,_archives,_backup,_backups}/**'],
   fullyParallel: true,
   forbidOnly: Boolean(process.env['CI']),
   retries: process.env['CI'] ? 2 : 0,

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { PORTFOLIO } from '../../data/portfolio/index.ts';
 import { buildProfileStructuredData } from './structured-data.ts';
 
-describe('buildProfileStructuredData', () => {
+describe('buildProfileStructuredData', { tags: ['full'] }, () => {
   it('connects the canonical website, profile page, person, and image', () => {
     const canonicalUrl = new URL('/', PORTFOLIO.url).toString();
     const data = buildProfileStructuredData({
